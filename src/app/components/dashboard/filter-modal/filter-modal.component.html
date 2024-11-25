@@ -1,0 +1,619 @@
+<div class="d-flex flex-column">
+  <div class="custom-modal-header">
+    <div class="mt-5 mb-1">
+      <img src="../../../../assets/icons/filterBlue.svg" alt="Filter Icon" class="header-icon" />
+      <span class="header-title">Filter</span>
+    </div>
+    <div class="mt-0" style="margin-bottom: auto;">
+      <span class="close-modal" (click)="close()">&times;</span>
+    </div>
+  </div>
+  <div class="mt-5 mb-4 ps-3">
+    <div *ngFor="let chip of chips; let i = index" style="display: inline-block">
+      <div *ngIf="chip.times" class="chip" [ngStyle]="{ 'background-color': chip.backgroundColor }"
+        (click)="scrollToSection(i)">
+        {{ chip.text }} ({{ chip.times }})
+        <span class="closebtn" (click)="removeChip(i)">&times;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <!-- Date Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingDate">
+        <div class="accordion-header-content collapsed" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseDate" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseDate" #dateAccordionHeader (click)="toggleAccordion('Date')">
+          <img src="../../../../assets/icons/arrowRight.svg" alt="Date" class="px-2 rotate-icon" [ngClass]="{'collapsed': !isExpanded('Date'), 'expanded': isExpanded('Date')}" />
+          <img src="../../../../assets/icons/date.svg" alt="Date" class="px-2 main-icon" />
+          <span>Date</span>
+        </div>
+      </h2>
+      <div id="panelsStayOpen-collapseDate" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingDate">
+        <div class="accordion-body">
+          <div class="mb-2">
+            <label for="year" class="form-label">Year</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="yearDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedYear) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="yearDropdown">
+                <li *ngFor="let option of yearOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'year' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedYear,'selectedYear')">
+                    <label class="form-check-label" [for]="'year' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="quarter" class="form-label">Quarter</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="quarterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedQuarter) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="quarterDropdown">
+                <li *ngFor="let option of quarterOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'quarter' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedQuarter,'test')">
+                    <label class="form-check-label" [for]="'quarter' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="month" class="form-label">Month</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="monthDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(month) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="monthDropdown">
+                <li *ngFor="let option of monthOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'month' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, month,'month')">
+                    <label class="form-check-label" [for]="'month' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="week" class="form-label">Week</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="weekDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(week) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="weekDropdown">
+                <li *ngFor="let option of weekOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'week' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, week,'week')">
+                    <label class="form-check-label" [for]="'week' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="dateFrom" class="form-label">Date from</label>
+            <div class="custom-input-wrapper">
+              <input type="date" id="dateFrom" class="form-control custom-date" [(ngModel)]="dateFrom"
+                (ngModelChange)="onFieldChange()" />
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="dateTo" class="form-label">Date to</label>
+            <div class="custom-input-wrapper">
+              <input type="date" id="dateTo" class="form-control custom-date" [(ngModel)]="dateTo"
+                (ngModelChange)="onFieldChange()" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container Section -->
+    <div class="accordion-item" id="section1">
+      <h2 class="accordion-header" id="panelsStayOpen-headingContainer">
+        <div class="accordion-header-content collapsed" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseContainer" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseContainer" #containerAccordionHeader (click)="toggleAccordion('Container')">
+          <img src="../../../../assets/icons/arrowRight.svg" alt="Container" class="px-2 rotate-icon" [ngClass]="{'collapsed': !isExpanded('Container'), 'expanded': isExpanded('Container')}" />
+          <img src="../../../../assets/icons/container.svg" alt="Container" class="px-2 main-icon" />
+          <span>Container Type</span>
+        </div>
+      </h2>
+      <div id="panelsStayOpen-collapseContainer" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingContainer">
+        <div class="accordion-body">
+          <div class="mb-2">
+            <label for="container" class="form-label">Container</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="containerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedContainer) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="containerDropdown">
+                <li *ngFor="let option of containerOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'container' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedContainer,'selectedContainer')">
+                    <label class="form-check-label" [for]="'container' + option.id" style="background-color: blueviolet; width: 100%;">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Section -->
+    <div class="accordion-item" id="section2">
+      <h2 class="accordion-header" id="panelsStayOpen-headingCategory">
+        <div class="accordion-header-content collapsed" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseCategory" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseCategory" #categoryAccordionHeader (click)="toggleAccordion('Category')">
+          <img src="../../../../assets/icons/arrowRight.svg" alt="Category" class="px-2 rotate-icon" [ngClass]="{'collapsed': !isExpanded('Category'), 'expanded': isExpanded('Category')}" />
+          <img src="../../../../assets/icons/category.svg" alt="Category" class="px-2 main-icon" style="width: 32px; height: 32px;" />
+          <span>Category</span>
+        </div>
+      </h2>
+      <div id="panelsStayOpen-collapseCategory" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingCategory">
+        <div class="accordion-body">
+
+          <div class="mb-2">
+            <label for="category" class="form-label">Category</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(categoryId) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                <li *ngFor="let option of categoryOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'category' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, categoryId,'categoryId')">
+                    <label class="form-check-label" [for]="'category' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="manufacturer" class="form-label">Manufacturer</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="manufacturerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedManufacturer) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="manufacturerDropdown">
+                <li *ngFor="let option of manufacturerOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'manufacturer' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedManufacturer,'selectedManufacturer')">
+                    <label class="form-check-label" [for]="'manufacturer' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="brand" class="form-label">Brand</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="brandDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedBrand) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="brandDropdown">
+                <li *ngFor="let option of brandOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'brand' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedBrand,'selectedBrand')">
+                    <label class="form-check-label" [for]="'brand' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="subBrand" class="form-label">Sub-brand</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="subBrandDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedSubBrand) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="subBrandDropdown">
+                <li *ngFor="let option of subBrandOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'subBrand' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedSubBrand,'selectedSubBrand')">
+                    <label class="form-check-label" [for]="'subBrand' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="sku" class="form-label">SKU</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="skuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedSKU) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="skuDropdown">
+                <li *ngFor="let option of skuOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'sku' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedSKU,'selectedSKU')">
+                    <label class="form-check-label" [for]="'sku' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Section -->
+    <div class="accordion-item" id="section3">
+      <h2 class="accordion-header" id="panelsStayOpen-headingLocation">
+        <div class="accordion-header-content collapsed" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseLocation" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseLocation" #locationAccordionHeader (click)="toggleAccordion('Location')">
+          <img src="../../../../assets/icons/arrowRight.svg" alt="Location" class="px-2 rotate-icon" [ngClass]="{'collapsed': !isExpanded('Location'), 'expanded': isExpanded('Location')}" />
+          <img src="../../../../assets/icons/location.svg" alt="Location" class="px-2 main-icon" />
+          <span>Location</span>
+        </div>
+      </h2>
+      <div id="panelsStayOpen-collapseLocation" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingLocation">
+        <div class="accordion-body">
+          <div class="mb-2">
+            <label for="region" class="form-label">Region</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="regionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedRegion) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="regionDropdown">
+                <li *ngFor="let option of regionOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'region' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedRegion,'selectedRegion')">
+                    <label class="form-check-label" [for]="'region' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="branch" class="form-label">Branch</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="branchDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedBranch) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="branchDropdown">
+                <li *ngFor="let option of branchOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'branch' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedBranch,'selectedBranch')">
+                    <label class="form-check-label" [for]="'branch' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="site" class="form-label">Site</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="siteDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(siteId) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="siteDropdown">
+                <!-- Search input inside dropdown -->
+              <li class="px-3 my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  style="outline: none !important;border:1px solid #D3D3D3 !important; box-shadow: none !important;"
+                  placeholder="Search..."
+                  [(ngModel)]="searchText"
+                  (ngModelChange)="filterOptions('sitesOptions','filteredsitesOptions')"
+                />
+              </li>
+                <li *ngFor="let option of filteredsitesOptions">
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" [id]="'site' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, siteId,'siteId')">
+                    <label class="form-check-label" [for]="'site' + option.id">
+                      {{ option.label }}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="area" class="form-label">Area</label>
+            <div class="dropdown">
+              <button class="btn" type="button" id="areaDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ getSelectedOptionsLabel(selectedArea) }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="areaDropdown">
+                <li *ngFor="let option of areaOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'area' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedArea,'selectedArea')">
+                  <label class="form-check-label" [for]="'area' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Channel Section -->
+  <div class="accordion-item" id="section4">
+    <h2 class="accordion-header" id="panelsStayOpen-headingChannel">
+      <div class="accordion-header-content collapsed" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseChannel" aria-expanded="false"
+        aria-controls="panelsStayOpen-collapseChannel" #channelAccordionHeader (click)="toggleAccordion('Channel')">
+        <img src="../../../../assets/icons/arrowRight.svg" alt="Channel" class="px-2 rotate-icon" [ngClass]="{'collapsed': !isExpanded('Channel'), 'expanded': isExpanded('Channel')}" />
+        <img src="../../../../assets/icons/align-vertically.svg" alt="Channel" class="px-2 main-icon" style="width: 34px; height: 34px;" />
+        <span>Channel</span>
+      </div>
+    </h2>
+    <div id="panelsStayOpen-collapseChannel" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingChannel">
+      <div class="accordion-body">
+        <div class="mb-2">
+          <label for="subChannel" class="form-label">Subchannel</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="subChannelDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(subChannelId) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="subChannelDropdown">
+               <!-- Search input inside dropdown -->
+               <li class="px-3 my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  style="outline: none !important;border:1px solid #D3D3D3 !important; box-shadow: none !important;"
+                  placeholder="Search..."
+                  [(ngModel)]="searchText"
+                  (ngModelChange)="filterOptions('subchannelOptions','filteredsubchannelOptions')"
+                />
+              <li *ngFor="let option of filteredsubchannelOptions let i=index">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'subChannel' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, subChannelId,'subChannelId')">
+                  <label class="form-check-label" [for]="'subChannel' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Store Section -->
+  <div class="accordion-item" id="section5">
+    <h2 class="accordion-header" id="panelsStayOpen-headingStore">
+      <div class="accordion-header-content collapsed" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseStore" aria-expanded="false"
+        aria-controls="panelsStayOpen-collapseStore" #storeAccordionHeader (click)="toggleAccordion('Store')">
+        <img src="../../../../assets/icons/arrowRight.svg" alt="Store" class="px-2 rotate-icon" [ngClass]="{'collapsed': !isExpanded('Store'), 'expanded': isExpanded('Store')}" />
+        <img src="../../../../assets/icons/store.svg" alt="Store" class="px-2 main-icon" />
+        <span>Store</span>
+      </div>
+    </h2>
+    <div id="panelsStayOpen-collapseStore" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingStore">
+      <div class="accordion-body">
+        <div class="mb-2">
+          <label for="storeNo" class="form-label">Store No.</label>
+          <input type="text" id="storeNo" class="form-control custom-text" [(ngModel)]="selectedStoreNo"
+            (ngModelChange)="onFieldChange()" placeholder="Store No." />
+        </div>
+        <div class="mb-2">
+          <label for="storeName" class="form-label">Store Name</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="storeNameDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(selectedStoreName) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="storeNameDropdown">
+              <li *ngFor="let option of storeNameOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'storeName' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedStoreName,'selectedStoreName')">
+                  <label class="form-check-label" [for]="'storeName' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="distribution" class="form-label">Distribution</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="distributionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(selectedDistribution) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="distributionDropdown">
+              <li *ngFor="let option of distributionOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'distribution' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedDistribution,'selectedDistribution')">
+                  <label class="form-check-label" [for]="'distribution' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="reSegmentation" class="form-label">RE Segmentation</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="reSegmentationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(reSegmentationId) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="reSegmentationDropdown">
+              <!-- Search input inside dropdown -->
+              <li class="px-3 my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  style="outline: none !important;border:1px solid #D3D3D3 !important; box-shadow: none !important;"
+                  placeholder="Search..."
+                  [(ngModel)]="searchText"
+                  (ngModelChange)="filterOptions('resegmentationOptions','filteredresegmentationOptions')"
+                />
+              </li>
+              <li *ngFor="let option of filteredresegmentationOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'reSegmentation' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, reSegmentationId,'reSegmentationId')">
+                  <label class="form-check-label" [for]="'reSegmentation' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Section -->
+  <div class="accordion-item" id="section6">
+    <h2 class="accordion-header" id="panelsStayOpen-headingUser">
+      <div class="accordion-header-content collapsed" data-bs-toggle="collapse"
+        data-bs-target="#panelsStayOpen-collapseUser" aria-expanded="false"
+        aria-controls="panelsStayOpen-collapseUser" #userAccordionHeader (click)="toggleAccordion('User')">
+        <img src="../../../../assets/icons/arrowRight.svg" alt="User" class="px-2 rotate-icon" [ngClass]="{'collapsed': !isExpanded('User'), 'expanded': isExpanded('User')}" />
+        <img src="../../../../assets/icons/user.svg" alt="User" class="px-2 main-icon" />
+        <span>User</span>
+      </div>
+    </h2>
+    <div id="panelsStayOpen-collapseUser" class="accordion-collapse collapse"
+      aria-labelledby="panelsStayOpen-headingUser">
+      <div class="accordion-body">
+        <div class="mb-2">
+          <label for="channelHead" class="form-label">Channel Head</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="channelHeadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(selectedChannelHead) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="channelHeadDropdown">
+              <li *ngFor="let option of channelHeadOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'channelHead' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedChannelHead,'selectedChannelHead')">
+                  <label class="form-check-label" [for]="'channelHead' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="areaSalesManager" class="form-label">Area Sales Manager</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="areaSalesManagerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(selectedAreaSalesManager) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="areaSalesManagerDropdown">
+              <li *ngFor="let option of areaSalesManagerOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'areaSalesManager' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedAreaSalesManager,'selectedAreaSalesManager')">
+                  <label class="form-check-label" [for]="'areaSalesManager' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="unitManager" class="form-label">Unit Manager</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="unitManagerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(unitManagerId) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="unitManagerDropdown">
+              <li *ngFor="let option of unitManagerOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'unitManager' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, unitManagerId,'unitManagerId')">
+                  <label class="form-check-label" [for]="'unitManager' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="supervisor" class="form-label">Supervisor</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="supervisorDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(selectedSupervisor) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="supervisorDropdown">
+              <li *ngFor="let option of supervisorOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'supervisor' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedSupervisor,'selectedSupervisor')">
+                  <label class="form-check-label" [for]="'supervisor' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-bottom: 100px;">
+          <label for="salesRepresentative" class="form-label">Sales Representative</label>
+          <div class="dropdown">
+            <button class="btn" type="button" id="salesRepresentativeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ getSelectedOptionsLabel(selectedSalesRepresentative) }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="salesRepresentativeDropdown">
+              <li *ngFor="let option of salesRepresentativeOptions">
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" [id]="'salesRepresentative' + option.id" [value]="option.id" [(ngModel)]="option.selected" (ngModelChange)="onOptionChange(option, selectedSalesRepresentative,'selectedSalesRepresentative')">
+                  <label class="form-check-label" [for]="'salesRepresentative' + option.id">
+                    {{ option.label }}
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="button-container d-flex justify-content-end flex-end pe-3 pb-3" style="position: fixed; bottom: 0; z-index: 10; width: 100%; background-color: #fff;">
+  <button class="btn-clear mb-2" (click)="clearAll()">Clear</button>
+  <button class="btn-apply mb-2" (click)="applyChanges()">Apply</button>
+</div>
+</div>
