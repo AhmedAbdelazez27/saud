@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 // primeng modules
 import { DropdownModule } from 'primeng/dropdown';
@@ -10,7 +10,7 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [ CommonModule,CarouselModule],
+  imports: [ CommonModule,CarouselModule,RouterModule],
   providers:[AuthService],
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
@@ -18,51 +18,15 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 export class NavBarComponent {
 
 
-  constructor(){
-  }
-  campaigns = [
-    {
-      image: '../../../../assets/images/thumb-img-1.png',
-      title: 'Emergency Campaign 1',
-      requiredAmount: '100,000 AED',
-      collectedAmount: '23,640 AED',
-      progress: 50,
-    },
-    {
-      image: '../../../../assets/images/thumb-img-1.png',
-      title: 'Emergency Campaign 2',
-      requiredAmount: '200,000 AED',
-      collectedAmount: '50,000 AED',
-      progress: 25,
-    },
-    {
-      image: '../../../../assets/images/thumb-img-1.png',
-      title: 'Emergency Campaign 3',
-      requiredAmount: '150,000 AED',
-      collectedAmount: '75,000 AED',
-      progress: 50,
-    },
+  routes = [
+    { path: '/Main/Home', name: 'Home' },
+    { path: '/Main/Services', name: 'Services' },
+    { path: '/Main/Emergency', name: 'Emergency' },
   ];
 
-  // Owl carousel options
-  customOptions: OwlOptions = {
-    loop: true,
-    margin: 10,
-    nav: true,
-    dots: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-    navText: ['<', '>'],
-  };
+  constructor(private router: Router) {}
+
+  navigate(route: any): void {
+    this.router.navigate([route.path]);
+  }
 }

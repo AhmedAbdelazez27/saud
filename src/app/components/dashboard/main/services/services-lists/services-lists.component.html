@@ -29,27 +29,29 @@
 <section class="Campaigns">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card campain-container">
-                    <img src="../../../../../../assets/images/thumb-img-1.png" class="card-img-top" />
-                    <div class="card-body">
-                        <h2 class="blue bold">مشروع النقل</h2>
-                        <p class="text-22">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ</p>
-                      
-                        <div class="d-flex" style="gap:8px;">
-                            <button (click)="goDetails(1)" class="btn btn-blue w-100">
-
-                                تسجيل طلب باص
-                            </button>
-                            
-                            <button href="#" class="btn btn-more-grey w-100">
-
-                                More...
-                            </button>
-                        </div>
-                    </div>
+          <div class="col-lg-6" *ngFor="let project of projects">
+            <div class="card campain-container">
+              <img [src]="project.image" class="card-img-top" [alt]="project.title" />
+              <div class="card-body">
+                <h2 class="blue bold">{{ project.title }}</h2>
+                <p class="text-22">{{ project.description }}</p>
+      
+                <div class="d-flex" style="gap: 8px;">
+                  <button
+                    (click)="goDetails(project.id)"
+                    class="btn btn-blue w-100"
+                  >
+                    {{ project.primaryActionText }}
+                  </button>
+      
+                  <button class="btn btn-more-grey w-100">
+                    {{ project.secondaryActionText }}
+                  </button>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
 </section>

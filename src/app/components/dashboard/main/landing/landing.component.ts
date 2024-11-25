@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { LandingService } from '../servicesApi/landing.service';
+import { SpinnerService } from '../../../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-landing',
@@ -9,8 +11,9 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
-export class LandingComponent {
-
+export class LandingComponent implements OnInit{
+  sliderItems: any[] = [];
+  donationsItems: any[] = [];
   campaigns = [
     {
       image: '../../../../../assets/images/thumb-img-1.png',
@@ -80,4 +83,43 @@ export class LandingComponent {
     },
     navText: ['<', '>'],
   };
+
+  constructor(
+    private landingService:LandingService,
+    private _SpinnerService: SpinnerService 
+  ){
+
+  }
+  ngOnInit(): void {
+    this.gettingSliderData();
+
+  }
+
+  gettingSliderData(){
+    this._SpinnerService.showSpinner();
+    this.landingService.getSlider().subscribe({
+      next: (res)=>{
+        this.sliderItems= res.result.filter((item: { isActive: any; })=> item.isActive);
+        console.log(res);
+        this._SpinnerService.hideSpinner();
+        this.gettingDonations();
+      },
+      error: (err)=>{
+        console.log(err);
+        this.gettingDonations();
+      }
+    })
+  }
+
+  gettingDonations(){
+    this.landingService.getDonations().subscribe({
+      next: (res)=>{
+        this.donationsItems= res.result.filter((item: { isActive: any; })=> item.isActive);
+        console.log(res);
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  }
 }
