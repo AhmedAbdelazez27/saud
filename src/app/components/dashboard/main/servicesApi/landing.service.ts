@@ -13,9 +13,20 @@ export class LandingService {
     
     return this.http.get<any>(`${this.baseUrl}PrSliderSettings/GetAllSliders`);
   }
-  // http://compassint.ddns.net:2036/api/services/app/WebsiteQuickDonation/GetAllWebsiteQuickDonation
   getDonations(): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}WebsiteQuickDonation/GetAllWebsiteQuickDonation`)
+  }
+
+  getEmergencys(): Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetAllIsActiveAndTmProjectCampainTypeStusutsStaged`)
+  }
+
+  // getSingleEmergency(): Observable<any>{
+  //   return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetAllIsActiveAndTmProjectCampainTypeStusutsStaged`)
+  // }
+
+  getAllWebsiteStatistic(): Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}WebsiteStatistics/GetAllWebsiteStatistic?IsActive=true&StatisticsTypeLkpId=12442`)
   }
 
 }

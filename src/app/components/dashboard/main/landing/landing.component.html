@@ -398,13 +398,13 @@
         <img src="../../../../assets/images/acheivement.png" style="margin-bottom:24px;" />
         <h1 class="title-blue">Our Achievements</h1>
       </div>
-      <div class="col-lg justify-content-center d-flex" style=" margin-bottom: 54px;">
+      <div class="col-lg justify-content-center d-flex" *ngFor="let itemStatis of websiteStatistic ; let index = index" style=" margin-bottom: 54px;">
         <div class="achievement-box-green">
-          <h1 class="text-32-white">12,352</h1>
+          <h1 class="text-32-white">{{itemStatis?.value}}</h1>
         </div>
         <div class="achievement-box-blue">
           <p class="text-24-white">
-            Emergency
+            {{itemStatis?.nameAr}}
           </p>
           <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
             <path
@@ -432,7 +432,7 @@
         </div>
 
       </div>
-      <div class="col-lg justify-content-center d-flex" style=" margin-bottom: 54px;">
+      <!-- <div class="col-lg justify-content-center d-flex" style=" margin-bottom: 54px;">
         <div class="achievement-box-green">
           <h1 class="text-32-white">12,352</h1>
         </div>
@@ -484,7 +484,7 @@
           </svg>
         </div>
 
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

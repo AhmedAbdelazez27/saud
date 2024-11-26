@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LandingService } from '../../servicesApi/landing.service';
 
 @Component({
   selector: 'app-services-lists',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './services-lists.component.scss'
 })
 export class ServicesListsComponent {
+  
   projects = [
     {
       id: 1,
@@ -32,10 +34,17 @@ export class ServicesListsComponent {
   ];
 
 
-  constructor(private router:Router){
+  constructor(
+    private router:Router,
+    private landingService:LandingService
+  ){
 
   }
+
+
+
   goDetails(id:any){
     this.router.navigate([`Main/Services/Details/${id}`]);
   }
+
 }
