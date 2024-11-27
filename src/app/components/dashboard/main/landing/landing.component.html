@@ -378,7 +378,7 @@
                   <div class="d-flex" style="gap: 8px;">
                     <button class="btn btn-blue">Add to Cart</button>
                     <button class="btn btn-green">Donate Now</button>
-                    <button class="btn btn-white">More...</button>
+                    <button class="btn btn-white" (click)="goDetailsEmergency(campaign.id)">More...</button>
                   </div>
                 </div>
               </div>
@@ -400,7 +400,9 @@
       </div>
       <div class="col-lg justify-content-center d-flex" *ngFor="let itemStatis of websiteStatistic ; let index = index" style=" margin-bottom: 54px;">
         <div class="achievement-box-green">
-          <h1 class="text-32-white">{{itemStatis?.value}}</h1>
+        
+          <h1 class="text-32-white">
+            {{animatedValues[index]}}</h1>
         </div>
         <div class="achievement-box-blue">
           <p class="text-24-white">
@@ -525,7 +527,7 @@
                   <div class="d-flex" style="gap: 8px;">
                     <button class="btn btn-blue">Add to Cart</button>
                     <button class="btn btn-green">Donate Now</button>
-                    <button class="btn btn-white">More...</button>
+                    <button class="btn btn-white" >More...</button>
                   </div>
                 </div>
               </div>

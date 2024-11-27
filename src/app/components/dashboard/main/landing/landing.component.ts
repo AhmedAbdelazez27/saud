@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { LandingService } from '../servicesApi/landing.service';
 import { SpinnerService } from '../../../../shared/services/spinner.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -65,7 +66,8 @@ export class LandingComponent implements OnInit {
 
   constructor(
     private landingService: LandingService,
-    private _SpinnerService: SpinnerService
+    private _SpinnerService: SpinnerService,
+    private router: Router
   ) {
 
   }
@@ -104,9 +106,13 @@ export class LandingComponent implements OnInit {
   getListEmergenys() {
     this.landingService.getEmergencys().subscribe({
       next: (res) => {
-        this.campaigns1 = res.result.items.filter((item: { isActive: any; }) => item.isActive).map((item: { projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number; }) => {
+        this.campaigns1 = res.result.items.filter((item: { isActive: any; }) => item.isActive).map((item: {
+          id: any; projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number; 
+}) => {
+         console.log("id = ",item?.id);
+         
           return {
-            id: 1,
+            id: item.id,
             title: item?.projectCampainName,
             description: item?.projectCampainDesc,
             titleEn: item?.projectCampainNameEn,
@@ -123,13 +129,48 @@ export class LandingComponent implements OnInit {
       }
     })
   }
-
+  animatedValues: number[] = []; // Array to store animated values
   getAllWebsiteStatistic(){
    this.landingService.getAllWebsiteStatistic().subscribe({
     next : (res)=>{
       this.websiteStatistic = res.result ;
+
+       // Initialize animation for each statistic
+    this.websiteStatistic.forEach((stat, index) => {
+      this.animateCounter(0, stat.value, 10, (currentValue) => {
+        this.animatedValues[index] = currentValue;
+      });
+    });
       console.log(this.websiteStatistic);
     }
    })
   }
+
+  goDetailsEmergency(emergencyId:any){
+    this.router.navigate([`Main/Emergency/Details/${emergencyId}`]);
+  }
+
+
+  animateCounter(
+    startValue: number,
+    endValue: number,
+    duration: number,
+    callback: (currentValue: number) => void
+  ): void {
+    const stepTime = 10;
+    const step = (endValue - startValue) / (duration * 100);
+    let current = startValue;
+
+    const intervalId = setInterval(() => {
+      current += step;
+
+      if (current >= endValue) {
+        callback(endValue);
+        clearInterval(intervalId);
+      } else {
+        callback(Math.floor(current));
+      }
+    }, stepTime);
+  }
 }
+ 

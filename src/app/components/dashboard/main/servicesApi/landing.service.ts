@@ -21,9 +21,9 @@ export class LandingService {
     return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetAllIsActiveAndTmProjectCampainTypeStusutsStaged`)
   }
 
-  // getSingleEmergency(): Observable<any>{
-  //   return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetAllIsActiveAndTmProjectCampainTypeStusutsStaged`)
-  // }
+  getSingleEmergency(id:any): Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetDetailIsActiveAndTmProjectCampainTypeStusutsStagedAsync?Id=${id}`)
+  }
 
   getAllWebsiteStatistic(): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}WebsiteStatistics/GetAllWebsiteStatistic?IsActive=true&StatisticsTypeLkpId=12442`)

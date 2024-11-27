@@ -7,6 +7,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { authGuard } from './shared/guards/auth.guard';
+import { ToastModule } from 'primeng/toast';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
@@ -19,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       HttpClientModule, // Ensure this module is imported
       BrowserAnimationsModule,
-      // ToastModule,
+      ToastModule,
       // TranslateModule.forRoot({
       //   defaultLanguage: 'en',
       //   loader: {
