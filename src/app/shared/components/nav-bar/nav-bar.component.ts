@@ -27,6 +27,6 @@ export class NavBarComponent {
   constructor(private router: Router) {}
 
   navigate(route: any): void {
-    this.router.navigate([route.path]);
+    this.router.navigate([route]);
   }
 }

@@ -19,21 +19,21 @@ export class LandingComponent implements OnInit {
   campaigns = [
     {
       image: '../../../../../assets/images/thumb-img-1.png',
-      title: 'Emergency Campaign 1',
+      title: 'Donation 1',
       requiredAmount: '100,000 AED',
       collectedAmount: '23,640 AED',
       progress: 50,
     },
     {
       image: '../../../../../assets/images/thumb-img-1.png',
-      title: 'Emergency Campaign 2',
+      title: 'Donation 2',
       requiredAmount: '200,000 AED',
       collectedAmount: '50,000 AED',
       progress: 25,
     },
     {
       image: '../../../../../assets/images/thumb-img-1.png',
-      title: 'Emergency Campaign 3',
+      title: 'Donation 3',
       requiredAmount: '150,000 AED',
       collectedAmount: '75,000 AED',
       progress: 50,
