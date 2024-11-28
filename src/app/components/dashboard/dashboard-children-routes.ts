@@ -1,3 +1,4 @@
+import { councilsHallsChildrenRoutes } from "./main/councils-halls/councilsHalls-children-routes";
 import { emergencysChildrenRoutes } from "./main/emergencys/emergencys-children-routes";
 import { LandingComponent } from "./main/landing/landing.component";
 import { servicesChildrenRoutes } from "./main/services/services-children-routes";
@@ -24,6 +25,14 @@ export const dashBoardChildrenRoutes: any[] = [
         c.EmergencysComponent
       ),
       children: emergencysChildrenRoutes 
+  },
+  {
+    path: 'CouncilsHall',
+    loadComponent: ()=>
+      import('./main/councils-halls/councils-halls.component').then((c)=>
+        c.CouncilsHallsComponent
+      ),
+      children: councilsHallsChildrenRoutes 
   }
   
   // Errors
