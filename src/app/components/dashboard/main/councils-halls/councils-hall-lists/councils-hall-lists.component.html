@@ -42,12 +42,12 @@
             <div class="text-center">
                 <h1 class="title-blue">القاعات المتاحة</h1>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4" *ngFor="let hall of hallsList ; let i = index">
                 <div class="card campain-container">
-                    <img src="../../../../../../assets/images/thumb-img-1.png" class="card-img-top">
+                    <img [src]="hall?.imagePath" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="text-24-black">Emergency</h5>
-                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15</p>
+                        <h5 class="text-24-black">{{hall?.hallNameEn}}</h5>
+                        <p> {{hall?.bodyEn}}</p>
                         <div style="padding:16px 0;">
                             <div class="d-flex" style="justify-content: space-between;">
                                 <p class="text-14-blue" style="margin-bottom: 0;">Required Amount</p>
@@ -95,12 +95,12 @@
             <div class="text-center">
                 <h1 class="title-blue">المجالس المتاحة</h1>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4" *ngFor="let council of councilsList ; let i = index">
                 <div class="card campain-container">
-                    <img src="../../../../../../assets/images/thumb-img-1.png" class="card-img-top">
+                    <img [src]="council?.imagePath" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="text-24-black">Emergency</h5>
-                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15</p>
+                        <h5 class="text-24-black">{{council?.hallNameEn}}</h5>
+                        <p> {{council?.bodyEn}}</p>
                         
                         <div class="d-flex justify-content-end" style="gap:8px;">
 
