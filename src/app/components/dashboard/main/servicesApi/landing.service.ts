@@ -37,4 +37,8 @@ export class LandingService {
     return this.http.get<any>(`${this.baseUrl}WebsiteHallsCouncils/GetAllWebsiteHallsCouncils?HallsCouncilsTypeLkpId=12451`)
   }
 
+  getSingleHallCouncils(id:any): Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}WebsiteHallsCouncils/GetDetailForWebsiteById?Id=${id}`)
+  }
+
 }

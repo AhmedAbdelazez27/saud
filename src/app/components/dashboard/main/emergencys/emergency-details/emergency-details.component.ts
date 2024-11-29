@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LandingService } from '../../servicesApi/landing.service';
+import { SpinnerService } from '../../../../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-emergency-details',
@@ -17,6 +18,7 @@ export class EmergencyDetailsComponent implements OnInit{
   constructor(
     private landingService:LandingService,
     private route:ActivatedRoute,
+    private _SpinnerService: SpinnerService,
 
   ){
 
@@ -32,10 +34,11 @@ export class EmergencyDetailsComponent implements OnInit{
   }
 
   getEmergencyDetails(id:any){
+    this._SpinnerService.showSpinner();
     this.landingService.getSingleEmergency(id).subscribe({
       next: (res)=>{
-        console.log(res);
-        this.emergencyItem = res.result
+        this.emergencyItem = res.result[0]
+        this._SpinnerService.hideSpinner();
       }
     })
   }

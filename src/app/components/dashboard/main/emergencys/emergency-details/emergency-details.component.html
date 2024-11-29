@@ -28,7 +28,7 @@
 
 <section style="margin-top:150px;">
     <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="emergencyItem">
             <div class="col-lg-12">
                 <img src=" ../../../../../../../../assets/images/amer image.png" class="w-100 img-shadow mb-4" />
                 <h1 class="title-blue text-start">حالة طارئة</h1>
@@ -51,8 +51,8 @@
                     </div>
 
                     <div class="progress" role="progressbar" aria-label="Example with label"
-                    [attr.aria-valuenow]="emergencyItem.progress" aria-valuemin="25" aria-valuemax="100">
-                    <div class="progress-bar" [style.width.%]="emergencyItem?.progress">
+                    [attr.aria-valuenow]="emergencyItem.totalAmount" aria-valuemin="25" aria-valuemax="100">
+                    <div class="progress-bar" [style.width.%]="emergencyItem?.totalAmount/emergencyItem?.targetAmount*100">
                       {{ emergencyItem?.collectedAmount }}
                     </div>
                   </div>

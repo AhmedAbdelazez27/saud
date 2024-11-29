@@ -57,7 +57,7 @@
                         </div>
                         <div class="d-flex justify-content-end" style="gap:8px;">
 
-                            <button href="#" class="btn btn-blue" style="padding-left:20px; padding-right:20px;">
+                            <button (click)="goDetails('Main/CouncilsHall/HallsDetails/' + hall?.id)" class="btn btn-blue" style="padding-left:20px; padding-right:20px;">
 
                                 More...
                             </button>
@@ -104,7 +104,7 @@
                         
                         <div class="d-flex justify-content-end" style="gap:8px;">
 
-                            <button href="#" class="btn btn-blue" style="padding-left:20px; padding-right:20px;">
+                            <button (click)="goDetails('Main/CouncilsHall/CouncilDetails/' + council?.id)" class="btn btn-blue" style="padding-left:20px; padding-right:20px;">
 
                                 More...
                             </button>

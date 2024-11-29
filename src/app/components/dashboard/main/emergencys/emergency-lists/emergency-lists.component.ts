@@ -56,7 +56,7 @@ export class EmergencyListsComponent implements OnInit{
       next: (res)=>{
         console.log(res);
         
-        this.campaigns= res.result.items.filter((item: { isActive: any; })=> item.isActive).map((item: {
+        this.campaigns= res.result.map((item: {
           id: any; projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number; 
 })=>{
           return {  

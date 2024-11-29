@@ -106,7 +106,7 @@ export class LandingComponent implements OnInit {
   getListEmergenys() {
     this.landingService.getEmergencys().subscribe({
       next: (res) => {
-        this.campaigns1 = res.result.items.filter((item: { isActive: any; }) => item.isActive).map((item: {
+        this.campaigns1 = res.result.map((item: {
           id: any; projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number; 
 }) => {
          console.log("id = ",item?.id);

@@ -46,4 +46,9 @@ export class CouncilsHallListsComponent implements OnInit{
       }
     })
   }
+
+  goDetails(route:any){
+    this.router.navigate([route]);
+  }
+
 }
