@@ -18,11 +18,11 @@ export class LandingService {
   }
 
   getEmergencys(): Observable<any>{
-    return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetAllIsActiveAndTmProjectCampainTypeStusutsStaged`)
+    return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetWebsiteTmProjectCampain `)
   }
 
   getSingleEmergency(id:any): Observable<any>{
-    return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetDetailIsActiveAndTmProjectCampainTypeStusutsStagedAsync?Id=${id}`)
+    return this.http.get<any>(`${this.baseUrl}TmProjectCampain/GetWebsiteTmProjectCampain?Id=${id}`)
   }
 
   getAllWebsiteStatistic(): Observable<any>{
