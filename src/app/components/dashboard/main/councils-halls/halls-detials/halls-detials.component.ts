@@ -6,32 +6,34 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HallReservationService } from '../../servicesApi/hall-reservation.service';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModal for handling modal display
+import { DialogModule } from 'primeng/dialog';
+
 
 
 @Component({
   selector: 'app-halls-detials',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,NgbModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, DialogModule],
   templateUrl: './halls-detials.component.html',
   styleUrl: './halls-detials.component.scss'
 })
-export class HallsDetialsComponent implements OnInit{
-  currentItem:any;
+export class HallsDetialsComponent implements OnInit {
+  currentItem: any;
   reservationForm: FormGroup;
   typeOfEventOptions: any[] = [];
   otherOptions: any[] = [];
-  hallID:any;
-  @ViewChild('exampleModal') exampleModal: any;
+  hallID: any;
+  displayDialog: boolean = false;
 
   constructor(
     private landingService: LandingService,
     private _SpinnerService: SpinnerService,
-    private route:ActivatedRoute,
+    private route: ActivatedRoute,
     private fb: FormBuilder,
     private hallReservationService: HallReservationService,
     private modalService: NgbModal  // Inject modal service
-    
-  ){
+
+  ) {
     this.reservationForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -47,7 +49,7 @@ export class HallsDetialsComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe((params: { [x: string]: any; }) => {
       let id = params['hallId']; // Access visitId from the URL  
-      this.hallID = id;   
+      this.hallID = id;
       this.gettingSingleHallCouncil(id);
 
     });
@@ -57,10 +59,10 @@ export class HallsDetialsComponent implements OnInit{
   }
 
 
-  gettingSingleHallCouncil(id:any){
+  gettingSingleHallCouncil(id: any) {
     this._SpinnerService.showSpinner();
     this.landingService.getSingleHallCouncils(id).subscribe({
-      next: (res)=>{
+      next: (res) => {
         console.log(res.result);
         this.currentItem = res.result;
         this._SpinnerService.hideSpinner();
@@ -68,8 +70,8 @@ export class HallsDetialsComponent implements OnInit{
     })
   };
 
-   // Fetch TypeOfEvent options
-   fetchTypeOfEventOptions() {
+  // Fetch TypeOfEvent options
+  fetchTypeOfEventOptions() {
     this.hallReservationService.getTypeOfEventOptions().subscribe((response) => {
       this.typeOfEventOptions = response.result.results;
     });
@@ -84,8 +86,7 @@ export class HallsDetialsComponent implements OnInit{
 
   // Submit form
   submitForm() {
-    console.log(this.reservationForm);
-    const finalData = {...this.reservationForm.value,eventDate : this.formatDate(this.reservationForm.value?.eventDate),websiteHallsCouncilId : this.hallID}
+    const finalData = { ...this.reservationForm.value, eventDate: this.formatDate(this.reservationForm.value?.eventDate), websiteHallsCouncilId: this.hallID }
     if (this.reservationForm.valid) {
       this.hallReservationService
         .createHallReservation(finalData)
@@ -93,7 +94,7 @@ export class HallsDetialsComponent implements OnInit{
           next: (response) => {
             console.log('Reservation successful', response);
             // Trigger the modal to show on success
-          this.modalService.open(this.exampleModal); 
+            this.displayDialog = true;
             this.reservationForm.reset();
           },
           error: (error) => {
@@ -112,5 +113,8 @@ export class HallsDetialsComponent implements OnInit{
     const [year, month, day] = inputDate.split('-');
     return `${day}/${month}/${year}`;
   }
-
+  onDialogOkClick() {
+    this.displayDialog = false;
+    // this._routenavigator.navigate(['/Main/List']); // Replace '/previous-page' with your actual route
+  }
 }
