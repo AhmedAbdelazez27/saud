@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
+import { SpinnerService } from '../../../../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-volunteer-inner',
@@ -19,7 +20,12 @@ export class VolunteerInnerComponent implements OnInit {
   universities: any[] = [];
   selectedFile: File | null = null;
 
-  constructor(private fb: FormBuilder, private _ServicesService: ServicesService, private router:Router){
+  constructor(
+    private fb: FormBuilder,
+    private _ServicesService: ServicesService,
+    private router:Router,
+    private _SpinnerService:SpinnerService,
+    ){
 
     this.volunteerForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.maxLength(200)]],
@@ -112,16 +118,24 @@ export class VolunteerInnerComponent implements OnInit {
    */
   onSubmit(): void {
     if (this.volunteerForm.valid) {
+      this._SpinnerService.showSpinner();
+      const finalData = {
+        ...this.volunteerForm.value,
+        fromDate : this.formatDate(this.volunteerForm.value?.fromDate),
+        toDate : this.formatDate(this.volunteerForm.value?.toDate)
+      }
       this._ServicesService
-        .submitVolunteerRequest(this.volunteerForm.value)
+        .submitVolunteerRequest(finalData)
         .subscribe({
           next: (response) => {
             console.log('Volunteer request submitted successfully:', response);
             this.displayDialog = true;
+            this._SpinnerService.hideSpinner();
             this.volunteerForm.reset();
           },
           error: (error) => {
             console.error('Error submitting volunteer request:', error);
+            this._SpinnerService.hideSpinner();
           },
         });
     }

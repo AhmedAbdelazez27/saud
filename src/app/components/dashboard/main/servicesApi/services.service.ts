@@ -44,5 +44,38 @@ export class ServicesService {
         `${this.apiUrl}WebsiteVolunteerProjectRequest/CreateWebsiteVolunteerProjectRequest`,
         data
       );
+    };
+
+  
+    getDrivers(): Observable<any> {
+      return this.http.get(
+        `${this.apiUrl}Websitedrivers/GetWebsitedriversSelect2?pageSize=20&pageNumber=1&lang=en-US`
+      );
+    }
+  
+    uploadFile(file: File): Observable<any> {
+      const formData = new FormData();
+      formData.append('file', file);
+      return this.http.post(`${this.apiUrl}WebsiteTransportRequest/UploadAttach`, formData);
+    }
+  
+    createTransportRequest(data: any): Observable<any> {
+      return this.http.post(
+        `${this.apiUrl}WebsiteTransportRequest/CreateWebsiteTransportRequest`,
+        data
+      );
+    };
+  
+    uploadFileAmbulanceDetails(file: File): Observable<any> {
+      const formData = new FormData();
+      formData.append('file', file);
+      return this.http.post(`${this.apiUrl}WebsiteAmbulanceRequest/UploadAttach`, formData);
+    }
+  
+    createAmbulanceRequest(data: any): Observable<any> {
+      return this.http.post(
+        `${this.apiUrl}WebsiteAmbulanceRequest/CreateWebsiteAmbulanceRequest`,
+        data
+      );
     }
 }
