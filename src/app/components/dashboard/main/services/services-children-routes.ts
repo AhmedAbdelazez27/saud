@@ -1,5 +1,7 @@
+import { FoodInnerComponent } from "./food-inner/food-inner.component";
 import { ServiceDetailsComponent } from "./service-details/service-details.component";
 import { ServicesListsComponent } from "./services-lists/services-lists.component";
+import { VolunteerInnerComponent } from "./volunteer-inner/volunteer-inner.component";
 
 export const servicesChildrenRoutes: any[] = [
     { path: '', redirectTo: 'List', pathMatch: 'full' },
@@ -9,8 +11,18 @@ export const servicesChildrenRoutes: any[] = [
       pathMatch: 'full'
     },
     {
-      path: 'Details/:serviceId',
+      path: 'ClothesDetails',
       component: ServiceDetailsComponent,
+      pathMatch: 'full'
+    },
+    {
+      path: 'FoodDetails',
+      component: FoodInnerComponent,
+      pathMatch: 'full'
+    },
+    {
+      path: 'VolunteerDetails',
+      component: VolunteerInnerComponent,
       pathMatch: 'full'
     }
 ];

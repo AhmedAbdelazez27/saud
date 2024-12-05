@@ -43,8 +43,8 @@ export class ServicesListsComponent {
 
 
 
-  goDetails(id:any){
-    this.router.navigate([`Main/Services/Details/${id}`]);
+  goDetails(route:string){
+    this.router.navigate([`${route}`]);
   }
 
 }

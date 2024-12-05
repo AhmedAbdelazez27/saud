@@ -1,0 +1,209 @@
+
+<section class="volunteer-inner-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="inner-blur">
+                    <h1 class="title-48-cyan"> التطوع</h1>
+                    <h3 class="text-white">مؤسسة سعود بن راشد المعلا للأعمال الخيرية و الانسانية</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+<section class="mt-150">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <img src="../../../../../../assets/images/send-food.png" class="w-100 img-shadow" style="margin-bottom:24px;">
+            </div>
+
+            <div class="col-lg-6">
+                <h1 class="blue">توزيع الطعام</h1>
+                <p class="text-22">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-150">
+
+            <div class="col-lg-6 order-lg-last">
+                <img src="../../../../../../assets/images/send-clothes.png" class="w-100 img-shadow" style="margin-bottom:24px;">
+            </div>
+
+            <div class="col-lg-6 order-lg-first">
+                <h1 class="blue">توزيع الملابس المستعملة</h1>
+                <p class="text-22">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section style="margin-top:150px;">
+    <div class="container">
+      <div class="row">
+        <div class="inner-form-container">
+          <h1 class="title-blue text-start">تسجيل طلب تطوع</h1>
+          <form [formGroup]="volunteerForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">الاسم</label>
+                  <input type="text" id="fullName" class="form-control" formControlName="fullName" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="idNumber" class="form-label">رقم الهوية</label>
+                  <input type="text" id="idNumber" class="form-control" formControlName="idNumber" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="email" class="form-label">البريد الالكتروني</label>
+                  <input type="email" id="email" class="form-control" formControlName="email" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="mobileNumber" class="form-label">رقم الهاتف</label>
+                  <input type="tel" id="mobileNumber" class="form-control" formControlName="mobileNumber" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="typeOfVolunteerWorkLkpId" class="form-label">نوع العمل التطوعي</label>
+                  <select
+                    id="typeOfVolunteerWorkLkpId"
+                    class="form-select"
+                    formControlName="typeOfVolunteerWorkLkpId"
+                  >
+                    <option *ngFor="let work of volunteerTypes" [value]="work.id">{{ work.text }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label for="universityLkpId" class="form-label">جهة الجامعة</label>
+                  <select
+                    id="universityLkpId"
+                    class="form-select"
+                    formControlName="universityLkpId"
+                  >
+                    <option *ngFor="let university of universities" [value]="university.id">
+                      {{ university.text }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label for="fromDate" class="form-label">التاريخ من</label>
+                  <input type="date" id="fromDate" class="form-control" formControlName="fromDate" />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label for="toDate" class="form-label">التاريخ إلى</label>
+                  <input type="date" id="toDate" class="form-control" formControlName="toDate" />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label for="workingHours" class="form-label">إجمالي عدد ساعات العمل</label>
+                  <input
+                    type="number"
+                    id="workingHours"
+                    class="form-control"
+                    formControlName="workingHours"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <!-- <div class="mb-3">
+                  <label for="universitycardFilePath" class="form-label">صورة البطاقة الجامعية</label>
+                  <input
+                    type="file"
+                    id="universitycardFilePath"
+                    class="form-control"
+                    (change)="onFileSelect($event)"
+                  />
+                </div> -->
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">صورة البطاقة الجامعية</label>
+                    <div class="drop-zone">
+                        <label for="fileInput" class="drop-zone-label">
+                            Drag &amp; drop your files here or <span>browse</span>
+                        </label>
+                        <input type="file" id="fileInput" multiple="" (change)="onFileSelect($event)">
+                    </div>
+
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label for="notes" class="form-label">ملاحظات</label>
+                  <textarea id="notes" class="form-control" formControlName="notes" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <button type="submit" class="btn btn-blue" [disabled]="volunteerForm.invalid">
+                  ارسال الطلب
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M2.81668 1.03594C2.1745 1.14844 1.51356 1.65469 1.22762 2.25469C1.06356 2.60156 0.960435 3.14063 0.997935 3.49219C1.03543 3.84844 3.02762 10.2984 3.17762 10.5422C3.25731 10.6688 3.37918 10.7906 3.49637 10.8516C3.60418 10.9078 4.612 11.1844 5.737 11.4656C6.862 11.7469 7.78075 11.9859 7.78075 12C7.78075 12.0141 6.85731 12.2531 5.73231 12.5344C4.41043 12.8625 3.60887 13.0828 3.48231 13.1578C3.36512 13.2234 3.23856 13.35 3.16825 13.4672C3.10731 13.575 2.59637 15.15 2.03387 16.9688L1.012 20.2734V20.7188C1.01668 21.75 1.56512 22.5422 2.512 22.8797C2.83543 22.9969 3.46356 23.0156 3.79637 22.9266C3.91356 22.8938 5.10418 22.3313 6.44481 21.6797C7.78543 21.0281 11.6245 19.1625 14.9761 17.5313C18.3276 15.9 21.2573 14.475 21.487 14.3531C22.4479 13.8609 22.987 13.0125 22.987 12C22.987 10.9875 22.4479 10.1391 21.487 9.64688C21.2573 9.525 18.3276 8.1 14.9761 6.46875C11.6245 4.8375 7.78543 2.97188 6.44481 2.32031C5.10418 1.66875 3.92293 1.11094 3.81981 1.0875C3.5245 1.00781 3.09325 0.984377 2.81668 1.03594ZM11.9573 7.22344C16.7386 9.54844 20.7042 11.4891 20.7745 11.5406C20.8495 11.5922 20.9292 11.7094 20.9573 11.8172C21.0323 12.0563 20.9526 12.3375 20.7745 12.4594C20.6011 12.5813 3.28543 21 3.20575 21C3.112 21 2.9995 20.8641 2.9995 20.7516C2.9995 20.6953 3.40262 19.3406 3.89481 17.7422L4.79012 14.8313L8.42762 13.9266C10.4339 13.425 12.1682 12.9891 12.2854 12.9563C12.6932 12.8344 12.9839 12.4359 12.9839 12C12.9839 11.5641 12.6932 11.1656 12.2854 11.0438C12.1682 11.0109 10.4339 10.575 8.42762 10.0734L4.79012 9.16875L3.89481 6.25781C3.40262 4.65938 2.9995 3.30469 2.9995 3.24844C2.9995 3.13594 3.112 3 3.20575 3C3.24325 3 7.18075 4.90313 11.9573 7.22344Z" fill="#EFEFEF" />
+    </svg>
+</span> -->
+
+<p-dialog [(visible)]="displayDialog" modal="true" [closable]="false" [contentStyle]="{ overflow: 'hidden' }">
+
+    <div class="dialog-content">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h1 class="blue mb-4">تم ارسال الطلب بنجاح</h1>
+                    <p>
+                        هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل
+                        الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم
+                        لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p-footer class="modal-footer">
+        <button (click)="onDialogOkClick()" class="btn btn-blue btn-wide" style="margin:auto;" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        اغلاق
+        </button>
+    </p-footer>
+</p-dialog>

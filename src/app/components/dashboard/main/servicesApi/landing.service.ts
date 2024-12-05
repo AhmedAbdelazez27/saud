@@ -41,4 +41,8 @@ export class LandingService {
     return this.http.get<any>(`${this.baseUrl}WebsiteHallsCouncils/GetDetailForWebsiteById?Id=${id}`)
   }
 
+  getAllTmAutoCouponsForWebsite(): Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}TmAutoCoupons/GetAllTmAutoCouponsForWebsite`)
+  }
+
 }

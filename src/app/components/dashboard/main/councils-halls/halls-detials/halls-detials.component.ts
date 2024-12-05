@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LandingService } from '../../servicesApi/landing.service';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HallReservationService } from '../../servicesApi/hall-reservation.service';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModal for handling modal display
@@ -29,6 +29,7 @@ export class HallsDetialsComponent implements OnInit {
     private landingService: LandingService,
     private _SpinnerService: SpinnerService,
     private route: ActivatedRoute,
+    private router:Router,
     private fb: FormBuilder,
     private hallReservationService: HallReservationService,
     private modalService: NgbModal  // Inject modal service
@@ -108,13 +109,13 @@ export class HallsDetialsComponent implements OnInit {
   }
 
   formatDate(inputDate: any): string {
-    if (typeof inputDate !== 'string' || !inputDate) return '';
+    if (typeof inputDate !== 'string' || !inputDate) return ''; 
 
     const [year, month, day] = inputDate.split('-');
     return `${day}/${month}/${year}`;
   }
   onDialogOkClick() {
     this.displayDialog = false;
-    // this._routenavigator.navigate(['/Main/List']); // Replace '/previous-page' with your actual route
+    this.router.navigate(['/Main/Home']);
   }
 }

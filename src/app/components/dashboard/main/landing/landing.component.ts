@@ -16,29 +16,7 @@ export class LandingComponent implements OnInit {
   sliderItems: any[] = [];
   websiteStatistic: any[] = [];
   donationsItems: any[] = [];
-  campaigns = [
-    {
-      image: '../../../../../assets/images/thumb-img-1.png',
-      title: 'Donation 1',
-      requiredAmount: '100,000 AED',
-      collectedAmount: '23,640 AED',
-      progress: 50,
-    },
-    {
-      image: '../../../../../assets/images/thumb-img-1.png',
-      title: 'Donation 2',
-      requiredAmount: '200,000 AED',
-      collectedAmount: '50,000 AED',
-      progress: 25,
-    },
-    {
-      image: '../../../../../assets/images/thumb-img-1.png',
-      title: 'Donation 3',
-      requiredAmount: '150,000 AED',
-      collectedAmount: '75,000 AED',
-      progress: 50,
-    },
-  ];
+  coupons : any[] = [];
 
   campaigns1: any[] = [];
 
@@ -75,6 +53,7 @@ export class LandingComponent implements OnInit {
     this.gettingSliderData();
     this.getListEmergenys();
     this.getAllWebsiteStatistic();
+    this.getAllTmAutoCouponsForWebsite();
   }
 
   gettingSliderData() {
@@ -171,6 +150,15 @@ export class LandingComponent implements OnInit {
         callback(Math.floor(current));
       }
     }, stepTime);
+  };
+
+  getAllTmAutoCouponsForWebsite(){
+    this.landingService.getAllTmAutoCouponsForWebsite().subscribe({
+      next :(res)=>{
+        console.log(res.result);
+        this.coupons = res.result;
+      }
+    })
   }
 }
  
