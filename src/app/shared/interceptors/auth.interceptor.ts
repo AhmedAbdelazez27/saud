@@ -9,11 +9,8 @@ export const authInterceptor: HttpInterceptorFn = (
   next: HttpHandlerFn
 ): Observable<HttpEvent<unknown>> => {
   const router = inject(Router);
-  console.log("test interceptor");
 
   const authToken = localStorage.getItem('token');
-  console.log(authToken);
-  
 
   const authReq = authToken
     ? req.clone({

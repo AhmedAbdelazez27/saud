@@ -6,12 +6,13 @@ import { SpinnerService } from '../../../../shared/services/spinner.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, CarouselModule , ToastModule],
+  imports: [CommonModule, CarouselModule , ToastModule , FormsModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
   providers: [MessageService]
@@ -23,6 +24,7 @@ export class LandingComponent implements OnInit {
   coupons : any[] = [];
   currentItemCart : any;
   campaigns1: any[] = [];
+  inputValue: number = 0; // Initialize the value
 
   // Owl carousel options
   customOptions: OwlOptions = {
@@ -66,12 +68,10 @@ export class LandingComponent implements OnInit {
     this.landingService.getSlider().subscribe({
       next: (res) => {
         this.sliderItems = res.result.filter((item: { isActive: any; }) => item.isActive);
-        console.log(res);
         this._SpinnerService.hideSpinner();
         this.gettingDonations();
       },
       error: (err) => {
-        console.log(err);
         this.gettingDonations();
       }
     })
@@ -91,9 +91,9 @@ export class LandingComponent implements OnInit {
     this.landingService.getEmergencys().subscribe({
       next: (res) => {
         this.campaigns1 = res.result.map((item: {
+          imagePath: any;
           id: any; projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number; 
 }) => {
-         console.log("id = ",item?.id);
          
           return {
             id: item.id,
@@ -104,12 +104,11 @@ export class LandingComponent implements OnInit {
             requiredAmount: `${item?.targetAmount} AED`,
             collectedAmount: `${item?.totalAmount} AED`,
             progress: item?.targetAmount > 0 ? (item?.totalAmount / +item.targetAmount * 100).toFixed(2) : 0,
-            image: '../../../../../../assets/images/thumb-img-1.png',
+            filePath: item?.imagePath,
           }
         });
       },
       error: (err) => {
-        console.log(err);
       }
     })
   }
@@ -125,7 +124,6 @@ export class LandingComponent implements OnInit {
         this.animatedValues[index] = currentValue;
       });
     });
-      console.log(this.websiteStatistic);
     }
    })
   }
@@ -160,24 +158,78 @@ export class LandingComponent implements OnInit {
   getAllTmAutoCouponsForWebsite(){
     this.landingService.getAllTmAutoCouponsForWebsite().subscribe({
       next :(res)=>{
-        console.log(res.result);
         this.coupons = res.result;
       }
     })
   };
 
   goDetails(route:string){
-    console.log("test");
     
     this.router.navigate([`${route}`]);
   };
 
-  selectCurrentItem(item:any){
-    this.currentItemCart = {...item}
+  selectCurrentItem(item:any,isRouting:boolean,typeV?:string){
+    console.log(item);
+    
+    this.currentItemCart = {...item,isRouting,typeV}
   }
 
+
+addToCartDonation(item: any) {
+  console.log(item);
+  let cartItem:any;
+  if (item?.typeV == 'Coupons') {
+    
+    cartItem = {
+        id: item['id'],
+        Image: item.filePath,
+        Name: item.couponNameEn,
+        Price: this.inputValue,
+        Quantity: 1,
+        Type: item?.typeV,
+        ProjectName: null,
+        ProjectNotes: null,
+        SponsorshipFrom: null,
+        PaymentOption: null
+    };
+  } else if (item?.typeV == 'Campaign'){
+    cartItem = {
+              id: item?.id,
+              Image: item?.filePath,
+              Name: item?.titleEn,
+              Price: this.inputValue,
+              Quantity: 1,
+              Type: item?.typeV,
+              ProjectName: null,
+              ProjectNotes: null,
+              SponsorshipFrom: null,
+              PaymentOption: null
+          };
+  }
+
+  // Retrieve existing items from localStorage
+  let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
+
+  // Check if the item already exists
+  let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
+
+  if (!isItemFound) {
+      // Add the new item if it does not exist
+      oldItems.push(cartItem);
+      localStorage.setItem('items', JSON.stringify(oldItems));
+      this.showSuccess();
+      if (this.currentItemCart.isRouting) {
+        console.log("routing here to cart");
+        
+      }
+  } else {
+    this.handleFailure();
+
+  }
+  this.inputValue = 0;
+}
+
 //   addToCart(item: any,type:string) {
-//     console.log(item);
 
 //     let cartItem: { [key: string]: any } = {
 //         id: item['id'],
@@ -202,51 +254,22 @@ export class LandingComponent implements OnInit {
 //         // Add the new item if it does not exist
 //         oldItems.push(cartItem);
 //         localStorage.setItem('items', JSON.stringify(oldItems));
-//         console.log('Item added to cart:', cartItem);
 //         this.showSuccess();
 //     } else {
-//         console.log('Item already exists in the cart:', cartItem);
 
 //     }
 // }
-addToCartDonation(item: any,type:string) {
-  console.log(item);
-
-  let cartItem: { [key: string]: any } = {
-      id: item['id'],
-      Image: item['filePath'],
-      Name: item['couponNameEn'],
-      Price: item['targetAmount'],
-      Quantity: 1,
-      Type: type,
-      ProjectName: null,
-      ProjectNotes: null,
-      SponsorshipFrom: null,
-      PaymentOption: null
-  };
-
-  // Retrieve existing items from localStorage
-  let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
-
-  // Check if the item already exists
-  let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
-
-  if (!isItemFound) {
-      // Add the new item if it does not exist
-      oldItems.push(cartItem);
-      localStorage.setItem('items', JSON.stringify(oldItems));
-      console.log('Item added to cart:', cartItem);
-      this.showSuccess();
-  } else {
-      console.log('Item already exists in the cart:', cartItem);
-
-  }
-}
-
-showSuccess() {
-  console.log("toaster");
-  
+showSuccess() {  
   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Added to Cart Successfully' });
-}
+};
+// On Failure
+handleFailure(): void {
+  this.messageService.add({
+    severity: 'error',
+    summary: 'Failed',
+    detail: 'Item already exists in the cart',
+  });
+};
+
 }
  

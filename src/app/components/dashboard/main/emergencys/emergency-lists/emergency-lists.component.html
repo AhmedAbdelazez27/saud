@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-lg-4" *ngFor="let campaign of campaigns; let i = index">
               <div class="card campain-container">
-                <img [src]="campaign.image" class="card-img-top" alt="{{ campaign.title }}" />
+                <img [src]="campaign.filePath" class="card-img-top" alt="{{ campaign.title }}" />
                 <div class="card-body">
                   <h5 class="text-24-black">{{ campaign.title }}</h5>
                   <div style="padding:16px 0;">

@@ -69,7 +69,7 @@ export class EmergencyListsComponent implements OnInit{
             requiredAmount: `${item?.targetAmount } AED`,
             collectedAmount: `${item?.totalAmount } AED`,
             progress: item?.targetAmount > 0 ? (item?.totalAmount / +item.targetAmount * 100).toFixed(2) : 0,
-            image: '../../../../../../assets/images/thumb-img-1.png',
+            filePath: '../../../../../../assets/images/thumb-img-1.png',
           }
         });
         console.log(res);
@@ -113,6 +113,7 @@ export class EmergencyListsComponent implements OnInit{
         console.log('Item added to cart:', cartItem);
         this.showSuccess();
     } else {
+      this.handleFailure();
         console.log('Item already exists in the cart:', cartItem);
 
     }
@@ -122,5 +123,14 @@ showSuccess() {
   
   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Added to Cart Successfully' });
 }
-  
+
+// On Failure
+handleFailure(): void {
+  this.messageService.add({
+    severity: 'error',
+    summary: 'Failed',
+    detail: 'Failed to Add to Cart',
+  });
+};
+
 }
