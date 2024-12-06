@@ -587,7 +587,20 @@ input, select {
 
 
 
-
+.upload-result {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #649e83;
+    color: #fff;
+    border-radius: 10px;
+}
+.upload-result-failed {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: red;
+    color: #fff;
+    border-radius: 10px;
+}
 .drop-zone {
     width: 100%;
     height: max-content;

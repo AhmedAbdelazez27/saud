@@ -18,7 +18,8 @@ export class AmbulanceInnerComponent {
   displayDialog: boolean =false;
   ambulanceForm: FormGroup;
   drivers: any[] = [];
-  selectedFile: File | null = null;
+  fileFailed: boolean =false;
+  selectedFileName: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -36,23 +37,23 @@ export class AmbulanceInnerComponent {
         isApprove: [false, Validators.requiredTrue],
         filePath: ['', Validators.required],
         notes: [''],
-        websitedriverId: ['', Validators.required],
-        plateNumber: ['', [Validators.required, Validators.maxLength(200)]],
+        // websitedriverId: ['', Validators.required],
+        // plateNumber: ['', [Validators.required, Validators.maxLength(200)]],
       });
     };
 
     ngOnInit(): void {
-      this.loadDrivers();
+      // this.loadDrivers();
     }
   
-    loadDrivers(): void {
-      this._ServicesService.getDrivers().subscribe({
-        next: (response) => {
-          this.drivers = response.result.results;
-        },
-        error: (error) => console.error('Error loading drivers:', error),
-      });
-    }
+    // loadDrivers(): void {
+    //   this._ServicesService.getDrivers().subscribe({
+    //     next: (response) => {
+    //       this.drivers = response.result.results;
+    //     },
+    //     error: (error) => console.error('Error loading drivers:', error),
+    //   });
+    // }
   
     onFileSelect(event: any): void {
       const file = event.target.files[0];
@@ -60,9 +61,13 @@ export class AmbulanceInnerComponent {
         this._ServicesService.uploadFile(file).subscribe({
           next: (response) => {
             console.log('File uploaded successfully:', response);
+            this.selectedFileName =  file.name;
             this.ambulanceForm.patchValue({ filePath: response.result });
           },
-          error: (error) => console.error('Error uploading file:', error),
+          error: (error) => {
+            this.fileFailed = true;
+            console.error('Error uploading file:', error)
+          },
         });
       }
     }

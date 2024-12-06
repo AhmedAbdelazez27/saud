@@ -155,7 +155,12 @@
                         </label>
                         <input type="file" id="fileInput" multiple="" (change)="onFileSelect($event)">
                     </div>
-
+                        <div class="upload-result" *ngIf="selectedFileName">
+                          Uploaded File: {{selectedFileName}}
+                      </div>
+                      <div class="upload-result-failed" *ngIf="fileFailed">
+                        Uploaded {{selectedFileName}}  File: Failed
+                    </div>
                 </div>
               </div>
               <div class="col-lg-12">

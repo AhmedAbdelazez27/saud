@@ -18,8 +18,9 @@ export class TransportInnerComponent implements OnInit {
   transportForm: FormGroup;
   universities: any[] = [];
   drivers: any[] = [];
-  selectedFile: File | null = null;
+  selectedFileName: string | null = null;
   displayDialog: boolean =false;
+  fileFailed: boolean =false;
 
   constructor(
     private fb: FormBuilder,
@@ -36,7 +37,7 @@ export class TransportInnerComponent implements OnInit {
         universityLkpId: ['', Validators.required],
         fromDate: ['', Validators.required],
         toDate: ['', Validators.required],
-        websitedriverId: ['', Validators.required],
+        // websitedriverId: ['', Validators.required],
         isApprove: [false, Validators.requiredTrue],
         filePath: ['', Validators.required],
         notes: [''],
@@ -45,7 +46,7 @@ export class TransportInnerComponent implements OnInit {
 
     ngOnInit(): void {
       this.loadUniversities();
-      this.loadDrivers();
+      // this.loadDrivers();
     }
   
     loadUniversities(): void {
@@ -57,24 +58,29 @@ export class TransportInnerComponent implements OnInit {
       });
     }
   
-    loadDrivers(): void {
-      this._ServicesService.getDrivers().subscribe({
-        next: (response) => {
-          this.drivers = response.result.results;
-        },
-        error: (error) => console.error('Error loading drivers:', error),
-      });
-    }
+    // loadDrivers(): void {
+    //   this._ServicesService.getDrivers().subscribe({
+    //     next: (response) => {
+    //       this.drivers = response.result.results;
+    //     },
+    //     error: (error) => console.error('Error loading drivers:', error),
+    //   });
+    // }
   
     onFileSelect(event: any): void {
       const file = event.target.files[0];
       if (file) {
         this._ServicesService.uploadFile(file).subscribe({
           next: (response) => {
+            console.log(event.target.files[0]);
+            
+            this.selectedFileName = event.target.files[0].name
             console.log('File uploaded successfully:', response);
             this.transportForm.patchValue({ filePath: response.result});
           },
-          error: (error) => console.error('Error uploading file:', error),
+          error: (error) => {
+            this.fileFailed = true
+            console.error('Error uploading file:', error)},
         });
       }
     }

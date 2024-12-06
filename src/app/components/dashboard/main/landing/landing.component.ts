@@ -4,20 +4,24 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { LandingService } from '../servicesApi/landing.service';
 import { SpinnerService } from '../../../../shared/services/spinner.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, CarouselModule],
+  imports: [CommonModule, CarouselModule , ToastModule],
   templateUrl: './landing.component.html',
-  styleUrl: './landing.component.scss'
+  styleUrl: './landing.component.scss',
+  providers: [MessageService]
 })
 export class LandingComponent implements OnInit {
   sliderItems: any[] = [];
   websiteStatistic: any[] = [];
   donationsItems: any[] = [];
   coupons : any[] = [];
-
+  currentItemCart : any;
   campaigns1: any[] = [];
 
   // Owl carousel options
@@ -45,7 +49,8 @@ export class LandingComponent implements OnInit {
   constructor(
     private landingService: LandingService,
     private _SpinnerService: SpinnerService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {
 
   }
@@ -159,6 +164,89 @@ export class LandingComponent implements OnInit {
         this.coupons = res.result;
       }
     })
+  };
+
+  goDetails(route:string){
+    console.log("test");
+    
+    this.router.navigate([`${route}`]);
+  };
+
+  selectCurrentItem(item:any){
+    this.currentItemCart = {...item}
   }
+
+//   addToCart(item: any,type:string) {
+//     console.log(item);
+
+//     let cartItem: { [key: string]: any } = {
+//         id: item['id'],
+//         Image: "https://erp.fujcharity.ae/ERPAttachments/AppAttachments/HrPerson-Profile/HrPerson-Profile-13215342-c615-4b0c-b3e8-428fccf7017a.jpg",
+//         Name: item['projectCampainName'],
+//         Price: item['targetAmount'],
+//         Quantity: 1,
+//         Type: type,
+//         ProjectName: null,
+//         ProjectNotes: null,
+//         SponsorshipFrom: null,
+//         PaymentOption: null
+//     };
+
+//     // Retrieve existing items from localStorage
+//     let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
+
+//     // Check if the item already exists
+//     let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
+
+//     if (!isItemFound) {
+//         // Add the new item if it does not exist
+//         oldItems.push(cartItem);
+//         localStorage.setItem('items', JSON.stringify(oldItems));
+//         console.log('Item added to cart:', cartItem);
+//         this.showSuccess();
+//     } else {
+//         console.log('Item already exists in the cart:', cartItem);
+
+//     }
+// }
+addToCartDonation(item: any,type:string) {
+  console.log(item);
+
+  let cartItem: { [key: string]: any } = {
+      id: item['id'],
+      Image: item['filePath'],
+      Name: item['couponNameEn'],
+      Price: item['targetAmount'],
+      Quantity: 1,
+      Type: type,
+      ProjectName: null,
+      ProjectNotes: null,
+      SponsorshipFrom: null,
+      PaymentOption: null
+  };
+
+  // Retrieve existing items from localStorage
+  let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
+
+  // Check if the item already exists
+  let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
+
+  if (!isItemFound) {
+      // Add the new item if it does not exist
+      oldItems.push(cartItem);
+      localStorage.setItem('items', JSON.stringify(oldItems));
+      console.log('Item added to cart:', cartItem);
+      this.showSuccess();
+  } else {
+      console.log('Item already exists in the cart:', cartItem);
+
+  }
+}
+
+showSuccess() {
+  console.log("toaster");
+  
+  this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Added to Cart Successfully' });
+}
 }
  

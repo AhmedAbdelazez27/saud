@@ -18,7 +18,8 @@ export class VolunteerInnerComponent implements OnInit {
   volunteerForm: FormGroup;
   volunteerTypes: any[] = [];
   universities: any[] = [];
-  selectedFile: File | null = null;
+  selectedFileName: string | null = null;
+  fileFailed: boolean =false;
 
   constructor(
     private fb: FormBuilder,
@@ -79,28 +80,23 @@ export class VolunteerInnerComponent implements OnInit {
    */
     onFileSelect(event: any): void {
       const file = event.target.files[0];
-      this.selectedFile = file;
-  
-      if (this.selectedFile) {
-        console.log(this.selectedFile);
-        
-        this.volunteerForm.patchValue({
-                universitycardFilePath: this.selectedFile.name, // Assuming API returns `filePath`
-              });
-        // Upload file to the server
-        // this.volunteerRequestService.uploadFile(this.selectedFile).subscribe({
-        //   next: (response) => {
-        //     console.log('File uploaded successfully:', response);
-        //     this.volunteerForm.patchValue({
-        //       universitycardFilePath: response.result.filePath, // Assuming API returns `filePath`
-        //     });
-        //   },
-        //   error: (error) => {
-        //     console.error('Error uploading file:', error);
-        //   },
-        // });
+      if (file) {
+        this._ServicesService.uploadFileVolunteerDetails(file).subscribe({
+          next: (response) => {
+            console.log('File uploaded successfully:', response);
+            this.selectedFileName =  file.name;
+            this.volunteerForm.patchValue({
+              universitycardFilePath: file.name, // Assuming API returns `filePath`
+            });
+          },
+          error: (error) => {
+            this.fileFailed = true;
+            console.error('Error uploading file:', error)
+          },
+        });
       }
     }
+
 
 
   formatDate(inputDate: any): string {
