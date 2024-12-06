@@ -220,7 +220,7 @@ addToCartDonation(item: any) {
       this.showSuccess();
       if (this.currentItemCart.isRouting) {
         console.log("routing here to cart");
-        
+        // this.router.navigate(['/Main/Cart']);
       }
   } else {
     this.handleFailure();

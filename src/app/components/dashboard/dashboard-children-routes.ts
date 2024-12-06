@@ -1,3 +1,4 @@
+import { CartComponent } from "./main/cart/cart.component";
 import { councilsHallsChildrenRoutes } from "./main/councils-halls/councilsHalls-children-routes";
 import { emergencysChildrenRoutes } from "./main/emergencys/emergencys-children-routes";
 import { LandingComponent } from "./main/landing/landing.component";
@@ -33,7 +34,12 @@ export const dashBoardChildrenRoutes: any[] = [
         c.CouncilsHallsComponent
       ),
       children: councilsHallsChildrenRoutes 
-  }
+  },
+  {
+    path: 'Cart',
+    component: CartComponent,
+    pathMatch: 'full'
+  },
   
   // Errors
 //   {

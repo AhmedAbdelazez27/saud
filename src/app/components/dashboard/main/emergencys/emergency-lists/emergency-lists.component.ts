@@ -87,36 +87,36 @@ export class EmergencyListsComponent implements OnInit{
   addToCart(item: any) {
     console.log(item);
 
-    let cartItem: { [key: string]: any } = {
-        id: item['id'],
-        Image: "https://erp.fujcharity.ae/ERPAttachments/AppAttachments/HrPerson-Profile/HrPerson-Profile-13215342-c615-4b0c-b3e8-428fccf7017a.jpg",
-        Name: item['projectCampainName'],
-        Price: item['targetAmount'],
-        Quantity: 1,
-        Type: item?.tmProjectCampainType?.nameEn,
-        ProjectName: null,
-        ProjectNotes: null,
-        SponsorshipFrom: null,
-        PaymentOption: null
-    };
+    // let cartItem: { [key: string]: any } = {
+    //     id: item['id'],
+    //     Image: "https://erp.fujcharity.ae/ERPAttachments/AppAttachments/HrPerson-Profile/HrPerson-Profile-13215342-c615-4b0c-b3e8-428fccf7017a.jpg",
+    //     Name: item['projectCampainName'],
+    //     Price: item['targetAmount'],
+    //     Quantity: 1,
+    //     Type: item?.tmProjectCampainType?.nameEn,
+    //     ProjectName: null,
+    //     ProjectNotes: null,
+    //     SponsorshipFrom: null,
+    //     PaymentOption: null
+    // };
 
-    // Retrieve existing items from localStorage
-    let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
+    // // Retrieve existing items from localStorage
+    // let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
 
-    // Check if the item already exists
-    let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
+    // // Check if the item already exists
+    // let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
 
-    if (!isItemFound) {
-        // Add the new item if it does not exist
-        oldItems.push(cartItem);
-        localStorage.setItem('items', JSON.stringify(oldItems));
-        console.log('Item added to cart:', cartItem);
-        this.showSuccess();
-    } else {
-      this.handleFailure();
-        console.log('Item already exists in the cart:', cartItem);
+    // if (!isItemFound) {
+    //     // Add the new item if it does not exist
+    //     oldItems.push(cartItem);
+    //     localStorage.setItem('items', JSON.stringify(oldItems));
+    //     console.log('Item added to cart:', cartItem);
+    //     this.showSuccess();
+    // } else {
+    //   this.handleFailure();
+    //     console.log('Item already exists in the cart:', cartItem);
 
-    }
+    // }
 }
 showSuccess() {
   console.log("toaster");
