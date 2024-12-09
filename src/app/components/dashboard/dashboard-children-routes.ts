@@ -1,5 +1,6 @@
 import { CartComponent } from "./main/cart/cart.component";
 import { councilsHallsChildrenRoutes } from "./main/councils-halls/councilsHalls-children-routes";
+import { donationsChildrenRoutes } from "./main/donations/donations-children-routes";
 import { emergencysChildrenRoutes } from "./main/emergencys/emergencys-children-routes";
 import { LandingComponent } from "./main/landing/landing.component";
 import { servicesChildrenRoutes } from "./main/services/services-children-routes";
@@ -40,7 +41,14 @@ export const dashBoardChildrenRoutes: any[] = [
     component: CartComponent,
     pathMatch: 'full'
   },
-  
+  {
+    path: 'Donations',
+    loadComponent: ()=>
+      import('./main/donations/donations.component').then((c)=>
+        c.DonationsComponent
+      ),
+      children: donationsChildrenRoutes 
+  },
   // Errors
 //   {
 //     path: ':lang/Errors',

@@ -4,13 +4,15 @@ import { Router } from '@angular/router';
 import { LandingService } from '../../servicesApi/landing.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-emergency-lists',
   standalone: true,
   imports: [
     CommonModule,
-    ToastModule
+    ToastModule,
+    FormsModule
   ],
   templateUrl: './emergency-lists.component.html',
   styleUrl: './emergency-lists.component.scss',
@@ -18,6 +20,8 @@ import { ToastModule } from 'primeng/toast';
 })
 export class EmergencyListsComponent implements OnInit{
   campaigns: any[] = [];
+  currentItemCart : any;
+  inputValue: number = 0;
   constructor(
     private router:Router,
     private landingService: LandingService,
@@ -83,7 +87,11 @@ export class EmergencyListsComponent implements OnInit{
   goDetails(id:any){
     this.router.navigate([`Main/Emergency/Details/${id}`]);
   }
-
+  selectCurrentItem(item:any,isRouting:boolean,typeV?:string){
+    console.log(item);
+    
+    this.currentItemCart = {...item,isRouting,typeV}
+  }
   addToCart(item: any) {
     console.log(item);
 
@@ -117,6 +125,59 @@ export class EmergencyListsComponent implements OnInit{
     //     console.log('Item already exists in the cart:', cartItem);
 
     // }
+}
+addToCartDonation(item: any) {
+  console.log(item);
+  let cartItem:any;
+  if (item?.typeV == 'Coupons') {
+    
+    cartItem = {
+        id: item['id'],
+        Image: item.filePath,
+        Name: item.couponNameEn,
+        Price: this.inputValue,
+        Quantity: 1,
+        Type: item?.typeV,
+        ProjectName: null,
+        ProjectNotes: null,
+        SponsorshipFrom: null,
+        PaymentOption: null
+    };
+  } else if (item?.typeV == 'Campaign'){
+    cartItem = {
+              id: item?.id,
+              Image: item?.filePath,
+              Name: item?.title,
+              Price: this.inputValue,
+              Quantity: 1,
+              Type: item?.typeV,
+              ProjectName: null,
+              ProjectNotes: null,
+              SponsorshipFrom: null,
+              PaymentOption: null
+          };
+  }
+
+  // Retrieve existing items from localStorage
+  let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
+
+  // Check if the item already exists
+  let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
+
+  if (!isItemFound) {
+      // Add the new item if it does not exist
+      oldItems.push(cartItem);
+      localStorage.setItem('items', JSON.stringify(oldItems));
+      this.showSuccess();
+      if (this.currentItemCart.isRouting) {
+        console.log("routing here to cart");
+        this.router.navigate(['/Main/Cart']);
+      }
+  } else {
+    this.handleFailure();
+
+  }
+  this.inputValue = 0;
 }
 showSuccess() {
   console.log("toaster");

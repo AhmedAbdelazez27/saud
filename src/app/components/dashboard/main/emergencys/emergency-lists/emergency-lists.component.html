@@ -50,7 +50,8 @@
                     </div>
                   </div>
                   <div class="d-flex" style="gap:8px;">
-                    <button class="btn btn-blue" (click)="addToCart(campaign)">
+                    <button class="btn btn-blue" (click)="selectCurrentItem(campaign,false,'Campaign')" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
                       <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
                             <path d="M13.4238 23.9966C10.6709 23.9966 7.91804 23.9966 5.16515 23.9966C3.82694 23.9966 3.04696 23.3696 2.79461 22.0619C2.0758 18.3532 1.36464 14.6368 0.66877 10.9204C0.408775 9.5363 1.30346 8.40455 2.7105 8.32044C3.33754 8.2822 3.97224 8.2822 4.59928 8.32044C5.0428 8.34338 5.27221 8.21338 5.46338 7.78515C6.33513 5.81225 7.2757 3.86994 8.1551 1.90468C8.73626 0.612353 9.69212 -0.0223405 11.1221 0.000600194C12.7662 0.0235409 14.4103 0.0158939 16.0544 0.00824699C17.4079 0.000600077 18.3408 0.612353 18.8761 1.8588C19.7325 3.85464 20.6043 5.85049 21.4531 7.85398C21.606 8.21338 21.7895 8.35103 22.1719 8.32808C22.8219 8.2975 23.4719 8.30514 24.1218 8.32044C25.6359 8.35867 26.5765 9.47512 26.2783 10.9663C25.5365 14.7285 24.7565 18.4832 23.9689 22.2455C23.7318 23.3619 22.9136 23.989 21.7437 23.9966C18.9678 24.0042 16.192 23.9966 13.4238 23.9966ZM7.25276 8.26691C11.428 8.26691 15.5038 8.26691 19.6331 8.26691C18.769 6.26342 17.9355 4.3211 17.0867 2.37879C16.9032 1.96586 16.5438 1.83586 16.1002 1.83586C14.4026 1.84351 12.6974 1.85115 10.9997 1.83586C10.4492 1.82821 10.1051 2.04997 9.8833 2.54702C9.44742 3.52583 8.98861 4.48934 8.54509 5.46049C8.12451 6.37048 7.70393 7.28811 7.25276 8.26691ZM7.00041 16.0897C7.00041 16.7397 6.98512 17.3897 7.00806 18.032C7.02335 18.5902 7.38276 18.942 7.8951 18.9573C8.43038 18.9726 8.82038 18.6055 8.82802 18.0244C8.84332 16.7626 8.84332 15.5085 8.82802 14.2468C8.82038 13.658 8.44568 13.2909 7.91039 13.2986C7.37511 13.2986 7.0157 13.6656 7.00041 14.2621C6.98512 14.8738 7.00041 15.4779 7.00041 16.0897ZM14.3414 16.1585C14.3414 15.5315 14.3491 14.8968 14.3414 14.2697C14.3261 13.6733 13.9744 13.3062 13.4468 13.2909C12.9115 13.2833 12.5215 13.6427 12.5138 14.2315C12.4985 15.4932 12.4985 16.7473 12.5138 18.0091C12.5215 18.5979 12.9038 18.9649 13.4391 18.9573C13.9744 18.9496 14.3261 18.5826 14.3414 17.9861C14.3491 17.382 14.3414 16.7703 14.3414 16.1585ZM18.012 16.0897C18.012 16.7167 18.0043 17.3514 18.012 17.9785C18.0273 18.5749 18.3714 18.9496 18.899 18.9573C19.4572 18.9726 19.8319 18.5902 19.8396 17.9632C19.8549 16.7397 19.8472 15.5238 19.8396 14.3003C19.8319 13.6656 19.4725 13.2909 18.9219 13.2909C18.3714 13.2909 18.0196 13.6733 18.012 14.308C18.0043 14.9044 18.012 15.5009 18.012 16.0897Z" fill="white" />
@@ -58,7 +59,8 @@
                       </span>
                       Add to Cart
                     </button>
-                    <button class="btn btn-green" (click)="goDetails(i)">
+                    <button class="btn btn-green" (click)="selectCurrentItem(campaign,true,'Campaign')" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
                       <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                             <path d="M24.6176 7.2313C24.4515 7.391 24.3046 7.58903 24.113 7.70402C23.0525 8.3556 22.2413 9.24355 21.5833 10.2848C21.0084 11.1919 20.5229 12.1629 19.6413 12.84C18.7406 13.5363 17.7696 14.0985 16.5942 14.124C15.2655 14.156 14.1284 14.6926 12.9977 15.3186C12.1162 15.8105 11.2218 16.2768 10.2956 16.6793C9.66953 16.954 8.986 16.9476 8.32164 16.7559C7.01847 16.379 6.56492 15.2994 7.26122 14.1304C7.98946 12.8975 9.07543 12.0607 10.3467 11.4219C11.1963 11.0003 12.0203 10.5275 12.838 10.0421C13.1127 9.88235 13.3299 9.62045 13.579 9.40964C12.9274 8.79 12.1353 8.6814 11.4965 9.1605C11.3113 9.30104 11.2346 9.60128 11.1324 9.84402C10.8449 10.5275 10.6788 10.617 10.0017 10.3487C9.10738 9.99095 8.1811 9.82486 7.2165 9.8057C6.56492 9.79292 6.37328 9.55017 6.52659 8.91775C6.74379 8.04259 6.98015 7.16742 7.2165 6.29864C7.46564 5.37876 8.03418 4.7144 8.92851 4.395C10.3467 3.87757 11.7584 3.31541 13.2149 2.9449C15.5274 2.3572 17.6802 1.48842 19.5583 0C19.686 0 19.8074 0 19.9352 0C20.0757 0.0894331 20.2162 0.185253 20.3632 0.26191C21.8516 1.06042 23.0909 2.14 23.8063 3.67953C24.1832 4.4972 24.3557 5.40431 24.624 6.27309C24.6176 6.60527 24.6176 6.91828 24.6176 7.2313Z" fill="white" />
@@ -78,3 +80,64 @@
 </section>
 
 <p-toast position="top-right"></p-toast>
+
+
+<!-- start modal add to cart  -->
+<div class="modal modal-blur fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center ">
+          <h3 class="blue mb-4">
+            {{currentItemCart?.title}}
+          </h3>
+          <img [src]="currentItemCart?.filePath || '../../../../../assets/images/Rectangle 4161-2.png'"
+            class="img-shadow w-100  mb-4" style="height: 250px; width: 250px;">
+
+        </div>
+
+        <div class="container mt-4 text-center">
+          <div class="row">
+            <div class="col-md-4">
+              <button class="btn btn-danger custom-btn">
+                المتبقي: <span>{{currentItemCart?.targetAmount - currentItemCart?.totalAmount }} </span>
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-success custom-btn">
+                المدفوع: <span>{{currentItemCart?.totalAmount}}</span>
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-primary custom-btn">
+                المطلوب: <span>{{currentItemCart?.targetAmount}}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="mb-3  mb-4">
+          <label for="exampleFormControlInput1" class="form-label">قيمة التبرع</label>
+          <input type="number" [(ngModel)]="inputValue" class="form-control" id="exampleFormControlInput1"
+            placeholder="">
+        </div>
+
+        <div class="d-flex justify-content-center " style="gap:8px;">
+          <button class="btn btn-blue btn-wide" style="margin:auto;" [disabled]="!inputValue"
+            (click)="addToCartDonation(currentItemCart)" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"  >
+            OK
+          </button>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end modal add to cart  -->

@@ -6,13 +6,13 @@ import { SpinnerService } from '../../../../shared/services/spinner.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, CarouselModule , ToastModule , FormsModule],
+  imports: [CommonModule, CarouselModule , ToastModule , FormsModule, ReactiveFormsModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
   providers: [MessageService]
@@ -25,6 +25,8 @@ export class LandingComponent implements OnInit {
   currentItemCart : any;
   campaigns1: any[] = [];
   inputValue: number = 0; // Initialize the value
+  selectedValue: number = 10; // Default selected value
+  inputValueFast: number = 10; // Initialize the value
 
   // Owl carousel options
   customOptions: OwlOptions = {
@@ -62,7 +64,14 @@ export class LandingComponent implements OnInit {
     this.getAllWebsiteStatistic();
     this.getAllTmAutoCouponsForWebsite();
   }
-
+  updateValue(){
+    console.log(this.selectedValue);
+    setTimeout(() => {
+      this.inputValueFast = this.selectedValue;
+    }, 200);
+    console.log(this.inputValueFast);
+    
+  }
   gettingSliderData() {
     this._SpinnerService.showSpinner();
     this.landingService.getSlider().subscribe({
@@ -91,11 +100,13 @@ export class LandingComponent implements OnInit {
     this.landingService.getEmergencys().subscribe({
       next: (res) => {
         this.campaigns1 = res.result.map((item: {
+          
           imagePath: any;
           id: any; projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number; 
 }) => {
          
           return {
+            ...item,
             id: item.id,
             title: item?.projectCampainName,
             description: item?.projectCampainDesc,
@@ -189,7 +200,7 @@ addToCartDonation(item: any) {
         Type: item?.typeV,
         ProjectName: null,
         ProjectNotes: null,
-        SponsorshipFrom: null,
+        SponsorshipFrom: null,  
         PaymentOption: null
     };
   } else if (item?.typeV == 'Campaign'){
@@ -220,7 +231,7 @@ addToCartDonation(item: any) {
       this.showSuccess();
       if (this.currentItemCart.isRouting) {
         console.log("routing here to cart");
-        // this.router.navigate(['/Main/Cart']);
+        this.router.navigate(['/Main/Cart']);
       }
   } else {
     this.handleFailure();
@@ -229,36 +240,36 @@ addToCartDonation(item: any) {
   this.inputValue = 0;
 }
 
-//   addToCart(item: any,type:string) {
+addToFastDonation(route:boolean) {
+  let cartItem:any;
 
-//     let cartItem: { [key: string]: any } = {
-//         id: item['id'],
-//         Image: "https://erp.fujcharity.ae/ERPAttachments/AppAttachments/HrPerson-Profile/HrPerson-Profile-13215342-c615-4b0c-b3e8-428fccf7017a.jpg",
-//         Name: item['projectCampainName'],
-//         Price: item['targetAmount'],
-//         Quantity: 1,
-//         Type: type,
-//         ProjectName: null,
-//         ProjectNotes: null,
-//         SponsorshipFrom: null,
-//         PaymentOption: null
-//     };
+    cartItem = {
+              id: null,
+              Image: null,
+              Name: "Fast",
+              Price: this.inputValueFast,
+              Quantity: 1,
+              Type: "Fast Donation",
+              ProjectName: null,
+              ProjectNotes: null,
+              SponsorshipFrom: null,
+              PaymentOption: null
+          };
 
-//     // Retrieve existing items from localStorage
-//     let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
+  // Retrieve existing items from localStorage
+  let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
 
-//     // Check if the item already exists
-//     let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
+      // Add the new item if it does not exist
+      oldItems.push(cartItem);
+      localStorage.setItem('items', JSON.stringify(oldItems));
+      this.showSuccess();
+      if (route) {
+        console.log("routing here to cart");
+        this.router.navigate(['/Main/Cart']);
+      }
 
-//     if (!isItemFound) {
-//         // Add the new item if it does not exist
-//         oldItems.push(cartItem);
-//         localStorage.setItem('items', JSON.stringify(oldItems));
-//         this.showSuccess();
-//     } else {
-
-//     }
-// }
+  // this.inputValueFast = 10;
+}
 showSuccess() {  
   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Added to Cart Successfully' });
 };
