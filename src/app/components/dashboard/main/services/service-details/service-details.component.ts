@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ServicesService } from '../../servicesApi/services.service';
 import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
+import { SpinnerService } from '../../../../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-service-details',
@@ -16,7 +17,7 @@ export class ServiceDetailsComponent {
   donationForm: FormGroup;
   displayDialog: boolean = false;
 
-  constructor(private fb: FormBuilder, private _ServicesService: ServicesService, private router:Router){
+  constructor(private fb: FormBuilder, private _ServicesService: ServicesService, private router:Router,private _SpinnerService:SpinnerService){
     this.donationForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.maxLength(200)]],
       idNumber: ['', [Validators.required, Validators.maxLength(50)]],
@@ -30,13 +31,16 @@ export class ServiceDetailsComponent {
   onSubmit(): void {
     this.displayDialog = true;
     if (this.donationForm.valid) {
+      this._SpinnerService.showSpinner();
       this._ServicesService.submitDonationClothes(this.donationForm.value).subscribe({
         next: (response: any) => {
           this.donationForm.reset();
           console.log('Request submitted successfully', response);
+          this._SpinnerService.hideSpinner();
         },
         error: (error: any) => {
           console.error('Error submitting request', error);
+          this._SpinnerService.hideSpinner();
         },
       });
     }else {

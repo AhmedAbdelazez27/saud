@@ -101,6 +101,7 @@ export class CouncilsHallDetailsComponent implements OnInit{
 
   onSubmit(): void {
     if (this.reservationForm.valid) {
+      this._SpinnerService.showSpinner();
       const finalData = {
         ...this.reservationForm.value,
         eventDate : this.formatDate(this.reservationForm.value?.eventDate),
@@ -111,10 +112,11 @@ export class CouncilsHallDetailsComponent implements OnInit{
           console.log('Reservation created successfully:', response);
           this.displayDialog = true;
           this.reservationForm.reset();
+          this._SpinnerService.hideSpinner();
         },
         (error) => {
           console.error('Error creating reservation:', error);
-          alert('Failed to submit the request. Please try again.');
+          this._SpinnerService.hideSpinner();
         }
       );
     } else {

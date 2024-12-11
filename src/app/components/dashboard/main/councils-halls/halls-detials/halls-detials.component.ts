@@ -89,6 +89,7 @@ export class HallsDetialsComponent implements OnInit {
   submitForm() {
     const finalData = { ...this.reservationForm.value, eventDate: this.formatDate(this.reservationForm.value?.eventDate), websiteHallsCouncilId: this.hallID }
     if (this.reservationForm.valid) {
+      this._SpinnerService.showSpinner();
       this.hallReservationService
         .createHallReservation(finalData)
         .subscribe({
@@ -97,9 +98,11 @@ export class HallsDetialsComponent implements OnInit {
             // Trigger the modal to show on success
             this.displayDialog = true;
             this.reservationForm.reset();
+            this._SpinnerService.hideSpinner();
           },
           error: (error) => {
             console.error('Error submitting reservation', error);
+            this._SpinnerService.hideSpinner();
             alert('Error submitting reservation');
           },
         });

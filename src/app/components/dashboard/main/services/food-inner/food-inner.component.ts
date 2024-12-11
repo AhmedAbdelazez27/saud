@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
+import { SpinnerService } from '../../../../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-food-inner',
@@ -16,7 +17,7 @@ export class FoodInnerComponent {
   preservingGraceForm: FormGroup;
   displayDialog: boolean = false;
 
-  constructor(private fb: FormBuilder, private _ServicesService: ServicesService, private router:Router){
+  constructor(private fb: FormBuilder, private _ServicesService: ServicesService, private router:Router,private _SpinnerService:SpinnerService){
 
     this.preservingGraceForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.maxLength(200)]],
@@ -31,14 +32,17 @@ export class FoodInnerComponent {
   onSubmit(): void {
     this.displayDialog = true;
     if (this.preservingGraceForm.valid) {
+      this._SpinnerService.showSpinner();
       this._ServicesService.submitDonationFoods(this.preservingGraceForm.value).subscribe({
         next: (response: any) => {
           console.log('Request submitted successfully', response);
           this.displayDialog = true;
           this.preservingGraceForm.reset();
+          this._SpinnerService.hideSpinner();
         },
         error: (error: any) => {
           console.error('Error submitting request', error);
+          this._SpinnerService.hideSpinner();
         },
       });
     } else {
