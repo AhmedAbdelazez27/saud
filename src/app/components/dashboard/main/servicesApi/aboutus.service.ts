@@ -14,5 +14,9 @@ export class AboutusService {
     return this.http.get<any>(`${this.apiUrl}WebsiteAboutUs/GetAllWebsiteAboutUsForWebsite`);
   };
 
+  aboutBoardOfDirectors(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}WebsiteBoardOfDirectors/GetAllWebsiteBoardOfDirectors`);
+  };
+
  
 }

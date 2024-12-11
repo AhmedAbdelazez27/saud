@@ -10,45 +10,16 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <div class="about-box-1">
-                    <div class="gates-item">
-                        <h5 class="text-28-white">الجهات الخيرية</h5>
-                        <p class="text-20 white">
-                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي
-
-                        </p>
-                    </div>
-
-                </div>
-                <div class="about-box-2">
-                    <div class="gates-item">
-                        <h5 class="text-28-white">الجهات الخيرية</h5>
-                        <p class="text-20 white">
-                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي
-
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-6" *ngFor="let itemWebsiteAboutUsDept of listWebsiteAboutUsDept ; let index = index" [ngClass]="index%2 ? 'mb-100': ''">
                 <div class="about-box-3">
                     <div class="gates-item">
-                        <h5 class="text-28-white">الجهات الخيرية</h5>
+                        <h5 class="text-28-white">{{itemWebsiteAboutUsDept?.titleEn}}</h5>
                         <p class="text-20 white">
-                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي
-
-                        </p>
-                    </div>
-
-                </div>
-                <div class="about-box-4">
-                    <div class="gates-item">
-                        <h5 class="text-28-white">الجهات الخيرية</h5>
-                        <p class="text-20 white">
-                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي
-
+                           {{itemWebsiteAboutUsDept?.DeptBodyEn ? itemWebsiteAboutUsDept?.DeptBodyEn : ' هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على
+                            الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم
+                            إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
+                            هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي'
+}}
                         </p>
                     </div>
 
@@ -68,7 +39,7 @@
         <div class="text-center mb-5">
             <img src="../../../../../../assets/images/acheivement.png" style="margin-bottom:24px;">
             <h1 class="title-blue mb-4">
-               {{websiteAboutUs?.titleEn}}
+                {{websiteAboutUs?.titleEn}}
 
             </h1>
             <p class="text-20">
@@ -85,78 +56,24 @@
 
 <section class="mt-150">
     <div class="container">
-        <div class="row mt-150">
+        <div class="row">
+            <ng-container
+                *ngFor="let itemindexAboutUsBranchs of listWebsiteAboutUsBranchs ;let indexAboutUsBranchs =index">
+                <div class="col-lg-6 mt-150" [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-5':'order-lg-1'">
+                    <img [src]="itemindexAboutUsBranchs?.imagePath ? itemindexAboutUsBranchs?.imagePath:'../../../../../../assets/images/about 1.png'"
+                        class="w-100 img-shadow mb-3">
+                </div>
 
-            <div class="col-lg-6">
-                <img src="../../../../../../assets/images/about 1.png" class="w-100 img-shadow mb-3">
-            </div>
+                <div class="col-lg-6 mt-150" [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-1':'order-lg-5'">
+                    <h1 class="blue">{{itemindexAboutUsBranchs?.titleEn}}</h1>
+                    <p class="text-22">
+                        {{itemindexAboutUsBranchs?.bodyEn}}
+                    </p>
+                    <button class="btn btn-blue btn-wide"
+                        (click)="navigateToUrl(itemindexAboutUsBranchs?.url)">More...</button>
+                </div>
+            </ng-container>
 
-            <div class="col-lg-6">
-                <h1 class="blue">البرامج الخيرية</h1>
-                <p class="text-22">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                </p>
-                <button class="btn btn-blue btn-wide">More...</button>
-            </div>
-        </div>
-        <div class="row mt-150">
-            <div class="col-lg-6 order-lg-5">
-                <img src="../../../../../../assets/images/about 2.png" class="w-100 img-shadow mb-3">
-            </div>
-            <div class="col-lg-6 order-lg-1">
-                <h1 class="blue">المساعدات</h1>
-                <p class="text-22">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                </p>
-                <button class="btn btn-blue btn-wide">More...</button>
-            </div>
-
-
-
-        </div>
-        <div class="row mt-150">
-
-            <div class="col-lg-6">
-                <img src="../../../../../../assets/images/about 3.png" class="w-100 img-shadow mb-3">
-            </div>
-
-            <div class="col-lg-6">
-                <h1 class="blue">التبرع الالكتروني</h1>
-                <p class="text-22">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                </p>
-                <button class="btn btn-blue btn-wide">More...</button>
-            </div>
-        </div>
-
-        <div class="row mt-150">
-            <div class="col-lg-6 order-lg-5">
-                <img src="../../../../../../assets/images/about 4.png" class="w-100 img-shadow mb-3">
-            </div>
-            <div class="col-lg-6 order-lg-1">
-                <h1 class="blue">الحالات الطارئة</h1>
-                <p class="text-22">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                </p>
-                <button class="btn btn-blue btn-wide">More...</button>
-            </div>
-
-
-
-        </div>
-        <div class="row mt-150">
-
-            <div class="col-lg-6">
-                <img src="../../../../../../assets/images/about 5.png" class="w-100 img-shadow mb-3">
-            </div>
-
-            <div class="col-lg-6">
-                <h1 class="blue">الخدمات الالكترونية</h1>
-                <p class="text-22">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                </p>
-                <button class="btn btn-blue btn-wide">More...</button>
-            </div>
         </div>
     </div>
 </section>
