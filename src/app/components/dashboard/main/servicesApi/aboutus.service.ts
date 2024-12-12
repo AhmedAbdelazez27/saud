@@ -18,5 +18,9 @@ export class AboutusService {
     return this.http.get<any>(`${this.apiUrl}WebsiteBoardOfDirectors/GetAllWebsiteBoardOfDirectors`);
   };
 
+  aboutStrtegies(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}WebsiteStrategy/GetAllWebsiteStrategyForWebsite `);
+  };
+
  
 }
