@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row" *ngIf="emergencyItem">
             <div class="col-lg-12">
-                <img src=" ../../../../../../../../assets/images/amer image.png" class="w-100 img-shadow mb-4" />
+                <img [src]="emergencyItem?.imagePath" class="w-100 img-shadow mb-4" style="height: 380px;"/>
                 <h1 class="title-blue text-start">حالة طارئة</h1>
                 <p class="text-22">
                   {{emergencyItem?.projectCampainDesc}}
@@ -70,7 +70,7 @@
 <section style="margin-top:150px;">
     <div class="container">
         <div class="row">
-            <div class="white-box mb-4">
+            <!-- <div class="white-box mb-4">
                 <h1 class="title-blue text-start mb-4">طريقة التبرع</h1>
                 <h3 class="text-black">SMS</h3>
                 <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج </p>
@@ -78,7 +78,7 @@
                 <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج </p>
 
 
-            </div>
+            </div> -->
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">قيمة التبرع</label>
                 <input type="number" [(ngModel)]="inputValue" class="form-control" id="exampleFormControlInput1" placeholder="500 درهم">

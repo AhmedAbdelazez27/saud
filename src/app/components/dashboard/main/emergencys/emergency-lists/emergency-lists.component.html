@@ -24,11 +24,11 @@
 
 
 <section class="Campaigns">
-    <div class="container">
+    <div class="container">`
         <div class="row">
             <div class="col-lg-4" *ngFor="let campaign of campaigns; let i = index">
               <div class="card campain-container">
-                <img [src]="campaign.filePath" class="card-img-top" alt="{{ campaign.title }}" />
+                <img [src]="campaign.filePath" class="card-img-top" style="width: 360px;height: 260px;" alt="{{ campaign.title }}" />
                 <div class="card-body">
                   <h5 class="text-24-black">{{ campaign.title }}</h5>
                   <div style="padding:16px 0;">
@@ -101,23 +101,27 @@
         </div>
 
         <div class="container mt-4 text-center">
-          <div class="row">
+          <div class="row" >
+            
             <div class="col-md-4">
-              <button class="btn btn-danger custom-btn">
+
+              <button class="btn w-100 px-0 btn-danger custom-btn ">
                 المتبقي: <span>{{currentItemCart?.targetAmount - currentItemCart?.totalAmount }} </span>
               </button>
             </div>
             <div class="col-md-4">
-              <button class="btn btn-success custom-btn">
+              
+              <button class="btn w-100 px-0 btn-success custom-btn ">
                 المدفوع: <span>{{currentItemCart?.totalAmount}}</span>
               </button>
             </div>
             <div class="col-md-4">
-              <button class="btn btn-primary custom-btn">
+              
+              <button class="btn w-100 px-0 btn-primary custom-btn ">
                 المطلوب: <span>{{currentItemCart?.targetAmount}}</span>
               </button>
             </div>
-          </div>
+            
         </div>
         
 

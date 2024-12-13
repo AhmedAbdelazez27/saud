@@ -141,7 +141,7 @@
                 <ng-container *ngIf="selectedTab === 'general'">
                     <div class="text-center ">
                         <h3 class="blue mb-4">
-                            {{currentItemCart?.couponNameEn ? currentItemCart?.couponNameEn :
+                            {{currentItemCart?.autoCouponName ? currentItemCart?.autoCouponName :
                             currentItemCart?.projectCampainNameEn}}
                         </h3>
                         <img [src]="currentItemCart?.filePath || '../../../../../assets/images/Rectangle 4161-2.png'"

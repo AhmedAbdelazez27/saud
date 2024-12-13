@@ -5,6 +5,7 @@ import { LandingService } from '../../servicesApi/landing.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
+import { SpinnerService } from '../../../../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-emergency-lists',
@@ -25,7 +26,8 @@ export class EmergencyListsComponent implements OnInit{
   constructor(
     private router:Router,
     private landingService: LandingService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private _SpinnerService : SpinnerService
   ){}
   ngOnInit(): void {
     this.getListEmergenys();
@@ -55,13 +57,13 @@ export class EmergencyListsComponent implements OnInit{
   // ];
 
   getListEmergenys(){
-    // this._SpinnerService.showSpinner();
+    this._SpinnerService.showSpinner();
     this.landingService.getEmergencys().subscribe({
       next: (res)=>{
         console.log(res);
         
         this.campaigns= res.result.map((item: {
-          id: any; projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number; 
+          id: any; projectCampainName: any; projectCampainDesc: any; projectCampainNameEn: any; projectCampainDescEn: any; targetAmount: number; totalAmount: number,imagePath:any          ; 
 })=>{
           return {  
             ...item,
@@ -73,14 +75,16 @@ export class EmergencyListsComponent implements OnInit{
             requiredAmount: `${item?.targetAmount } AED`,
             collectedAmount: `${item?.totalAmount } AED`,
             progress: item?.targetAmount > 0 ? (item?.totalAmount / +item.targetAmount * 100).toFixed(2) : 0,
-            filePath: '../../../../../../assets/images/thumb-img-1.png',
+            filePath: item.imagePath
+            ,
           }
         });
         console.log(res);
-        // this._SpinnerService.hideSpinner();
+        this._SpinnerService.hideSpinner();
       },
       error: (err)=>{
         console.log(err);
+        this._SpinnerService.hideSpinner();
       }
     })
 }
