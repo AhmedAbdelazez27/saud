@@ -14,6 +14,7 @@ import { SpinnerService } from '../../../../../shared/services/spinner.service';
 export class StrategyComponent implements OnInit {
   
   aboutStrategy: any[] = []; // Explicitly set the type
+  websiteStatistic: any[] = [];
 
   constructor(
     private _AboutusService: AboutusService,
@@ -23,6 +24,7 @@ export class StrategyComponent implements OnInit {
 
   ngOnInit(): void {
     this.gettingAboutInfo();
+    this.getAllWebsiteStatistic();
   }
 
   gettingAboutInfo() {
@@ -37,5 +39,44 @@ export class StrategyComponent implements OnInit {
         this._SpinnerService.hideSpinner();
       }
     });
+  };
+
+
+  animatedValues: number[] = []; // Array to store animated values
+  getAllWebsiteStatistic(){
+   this._AboutusService.aboutWebsiteStatistic().subscribe({
+    next : (res)=>{
+      this.websiteStatistic = res.result ;
+
+       // Initialize animation for each statistic
+    this.websiteStatistic.forEach((stat, index) => {
+      this.animateCounter(0, stat.value, 10, (currentValue) => {
+        this.animatedValues[index] = currentValue;
+      });
+    });
+    }
+   })
   }
+
+  animateCounter(
+    startValue: number,
+    endValue: number,
+    duration: number,
+    callback: (currentValue: number) => void
+  ): void {
+    const stepTime = 10;
+    const step = (endValue - startValue) / (duration * 100);
+    let current = startValue;
+
+    const intervalId = setInterval(() => {
+      current += step;
+
+      if (current >= endValue) {
+        callback(endValue);
+        clearInterval(intervalId);
+      } else {
+        callback(Math.floor(current));
+      }
+    }, stepTime);
+  };
 }

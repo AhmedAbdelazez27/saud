@@ -21,6 +21,8 @@ export class AboutusService {
   aboutStrtegies(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}WebsiteStrategy/GetAllWebsiteStrategyForWebsite `);
   };
-
+  aboutWebsiteStatistic(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}WebsiteStatistics/GetAllWebsiteStatistic?IsActive=true&StatisticsTypeLkpId=12472 `);
+  };
  
 }
