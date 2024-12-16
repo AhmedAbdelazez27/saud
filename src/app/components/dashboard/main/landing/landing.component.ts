@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartService } from '../../../../shared/services/cart.service';
 
 
 @Component({
@@ -54,7 +55,8 @@ export class LandingComponent implements OnInit {
     private landingService: LandingService,
     private _SpinnerService: SpinnerService,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cartService: CartService
   ) {
 
   }
@@ -228,6 +230,7 @@ addToCartDonation(item: any) {
       // Add the new item if it does not exist
       oldItems.push(cartItem);
       localStorage.setItem('items', JSON.stringify(oldItems));
+      this.cartService.addToCart(cartItem);
       this.showSuccess();
       if (this.currentItemCart.isRouting) {
         console.log("routing here to cart");
@@ -261,6 +264,7 @@ addToFastDonation(route:boolean) {
 
       // Add the new item if it does not exist
       oldItems.push(cartItem);
+      this.cartService.addToCart(cartItem);
       localStorage.setItem('items', JSON.stringify(oldItems));
       this.showSuccess();
       if (route) {

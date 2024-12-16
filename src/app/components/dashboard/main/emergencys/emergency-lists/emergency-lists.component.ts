@@ -6,6 +6,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { CartService } from '../../../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-emergency-lists',
@@ -27,7 +28,8 @@ export class EmergencyListsComponent implements OnInit{
     private router:Router,
     private landingService: LandingService,
     private messageService: MessageService,
-    private _SpinnerService : SpinnerService
+    private _SpinnerService : SpinnerService,
+    private cartService: CartService
   ){}
   ngOnInit(): void {
     this.getListEmergenys();
@@ -99,37 +101,7 @@ export class EmergencyListsComponent implements OnInit{
   addToCart(item: any) {
     console.log(item);
 
-    // let cartItem: { [key: string]: any } = {
-    //     id: item['id'],
-    //     Image: "https://erp.fujcharity.ae/ERPAttachments/AppAttachments/HrPerson-Profile/HrPerson-Profile-13215342-c615-4b0c-b3e8-428fccf7017a.jpg",
-    //     Name: item['projectCampainName'],
-    //     Price: item['targetAmount'],
-    //     Quantity: 1,
-    //     Type: item?.tmProjectCampainType?.nameEn,
-    //     ProjectName: null,
-    //     ProjectNotes: null,
-    //     SponsorshipFrom: null,
-    //     PaymentOption: null
-    // };
-
-    // // Retrieve existing items from localStorage
-    // let oldItems = JSON.parse(localStorage.getItem('items') || '[]');
-
-    // // Check if the item already exists
-    // let isItemFound = oldItems.some((existingItem: any) => existingItem.id === cartItem['id']);
-
-    // if (!isItemFound) {
-    //     // Add the new item if it does not exist
-    //     oldItems.push(cartItem);
-    //     localStorage.setItem('items', JSON.stringify(oldItems));
-    //     console.log('Item added to cart:', cartItem);
-    //     this.showSuccess();
-    // } else {
-    //   this.handleFailure();
-    //     console.log('Item already exists in the cart:', cartItem);
-
-    // }
-}
+  }
 addToCartDonation(item: any) {
   console.log(item);
   let cartItem:any;
@@ -172,6 +144,7 @@ addToCartDonation(item: any) {
       // Add the new item if it does not exist
       oldItems.push(cartItem);
       localStorage.setItem('items', JSON.stringify(oldItems));
+      this.cartService.addToCart(cartItem);
       this.showSuccess();
       if (this.currentItemCart.isRouting) {
         console.log("routing here to cart");

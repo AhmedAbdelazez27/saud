@@ -6,6 +6,7 @@ import { SpinnerService } from '../../../../../shared/services/spinner.service';
 import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
+import { CartService } from '../../../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-emergency-details',
@@ -28,7 +29,8 @@ export class EmergencyDetailsComponent implements OnInit{
     private router:Router,
     private route:ActivatedRoute,
     private _SpinnerService: SpinnerService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cartService: CartService
 
   ){
 
@@ -80,6 +82,7 @@ export class EmergencyDetailsComponent implements OnInit{
         // Add the new item if it does not exist
         oldItems.push(cartItem);
         localStorage.setItem('items', JSON.stringify(oldItems));
+        this.cartService.addToCart(cartItem);
         this.showSuccess();
         if (routing) {
           console.log("routing here to cart");
