@@ -11,6 +11,11 @@ export const authChildrenRoutes: any[] = [
     component: LoginComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'Register',
+    component: LoginComponent,
+    pathMatch: 'full'
+  },
 //   {
 //     path: 'Errors',
 //     loadComponent: () =>

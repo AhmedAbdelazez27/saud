@@ -1,4 +1,5 @@
 import { aboutChildrenRoutes } from "./main/about/about-children-routes";
+import { authChildrenRoutes } from "./main/auth/auth-children-routes";
 import { CartComponent } from "./main/cart/cart.component";
 import { councilsHallsChildrenRoutes } from "./main/councils-halls/councilsHalls-children-routes";
 import { donationsChildrenRoutes } from "./main/donations/donations-children-routes";
@@ -57,6 +58,14 @@ export const dashBoardChildrenRoutes: any[] = [
         c.AboutComponent
       ),
       children: aboutChildrenRoutes 
+  },
+  {
+    path: 'Auth',
+    loadComponent: ()=>
+      import('./main/auth/auth.component').then((c)=>
+        c.AuthComponent
+      ),
+      children: authChildrenRoutes 
   },
   // Errors
 //   {
