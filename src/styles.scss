@@ -1112,6 +1112,14 @@ footer a {
     padding: 90px 0;
 }
 
+.police-header {
+    background-image: url('./assets/icons/business-privacy-policy-scaled.jpg');
+    background-position: center center;
+    background-size:contain;
+    margin-top: 146px;
+    padding: 90px 0;
+}
+
 .donation-header {
     background-image: url('./assets/images/donation-header.png');
     background-position: center;
@@ -1388,3 +1396,26 @@ box-shadow:none;
     color: #fff;
     border-radius: 10px;
 }
+
+.police-content {
+    padding: 20px 0;
+}
+
+.content-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+ .section-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+.content-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+  }

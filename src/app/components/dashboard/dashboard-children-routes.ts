@@ -5,6 +5,7 @@ import { councilsHallsChildrenRoutes } from "./main/councils-halls/councilsHalls
 import { donationsChildrenRoutes } from "./main/donations/donations-children-routes";
 import { emergencysChildrenRoutes } from "./main/emergencys/emergencys-children-routes";
 import { LandingComponent } from "./main/landing/landing.component";
+import { policesChildrenRoutes } from "./main/polices/polices-children-routes";
 import { servicesChildrenRoutes } from "./main/services/services-children-routes";
 
 export const dashBoardChildrenRoutes: any[] = [
@@ -58,6 +59,14 @@ export const dashBoardChildrenRoutes: any[] = [
         c.AboutComponent
       ),
       children: aboutChildrenRoutes 
+  },
+  {
+    path: 'Polices',
+    loadComponent: ()=>
+      import('./main/polices/polices.component').then((c)=>
+        c.PolicesComponent
+      ),
+      children: policesChildrenRoutes 
   },
   {
     path: 'Auth',

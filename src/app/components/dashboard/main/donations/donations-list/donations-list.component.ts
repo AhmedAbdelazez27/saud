@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
+import { CartService } from '../../../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-donations-list',
@@ -27,6 +28,7 @@ export class DonationsListComponent implements OnInit {
     private _DonationService: DonationService,
     private messageService: MessageService,
     private router:Router,
+    private cartService: CartService,
     private _SpinnerService: SpinnerService,
   ) {
 
@@ -105,6 +107,7 @@ export class DonationsListComponent implements OnInit {
         // Add the new item if it does not exist
         oldItems.push(cartItem);
         localStorage.setItem('items', JSON.stringify(oldItems));
+        this.cartService.addToCart(cartItem);
         this.showSuccess();
         if (this.currentItemCart.isRouting) {
           console.log("routing here to cart");
