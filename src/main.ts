@@ -4,8 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
 import { routes } from './app/app.routes';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
-import { HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './app/shared/interceptors/auth.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from './app/translation.config';
 
 bootstrapApplication(AppComponent, {
   // providers: [
@@ -26,6 +28,14 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       HttpClientModule,
       BrowserAnimationsModule,
+      TranslateModule.forRoot({
+              defaultLanguage: 'en', // Default language
+              loader: { // Loader for translation files
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+              }
+            })
     )
   ]
 }).catch(err => console.error(err));
