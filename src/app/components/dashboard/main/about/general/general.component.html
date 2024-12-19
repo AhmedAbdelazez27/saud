@@ -69,8 +69,10 @@
                     <p class="text-22">
                         {{itemindexAboutUsBranchs?.bodyEn}}
                     </p>
-                    <button class="btn btn-blue btn-wide"
-                        (click)="navigateToUrl(itemindexAboutUsBranchs?.url)">More...</button>
+                    <a [href]="itemindexAboutUsBranchs?.url" target="_blank" >
+                        <button class="btn btn-blue btn-wide"
+                        >More...</button>
+                    </a>
                 </div>
             </ng-container>
 
