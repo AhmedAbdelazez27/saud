@@ -28,12 +28,12 @@ export class AppComponent implements OnInit{
       this.translate.use(savedLang);
       document.documentElement.lang = savedLang;
       document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
-      this.loadStyleFile(savedLang);
+      // this.loadStyleFile(savedLang);
     } else {
       this.translate.setDefaultLang('en');
       this.translate.use('en');
       localStorage.setItem('language', 'en');
-      this.loadStyleFile('en');
+      // this.loadStyleFile('en');
     }
   }
 
@@ -45,18 +45,18 @@ export class AppComponent implements OnInit{
     this.cartService.addToCart(parsedItem);
   };
 
-  private loadStyleFile(lang: string): void {
-    const head = document.getElementsByTagName('head')[0];
-    let existingLink = document.getElementById('dynamic-style') as HTMLLinkElement;
+  // private loadStyleFile(lang: string): void {
+  //   const head = document.getElementsByTagName('head')[0];
+  //   let existingLink = document.getElementById('dynamic-style') as HTMLLinkElement;
 
-    if (existingLink) {
-      head.removeChild(existingLink); // Remove existing style file
-    }
+  //   if (existingLink) {
+  //     head.removeChild(existingLink); // Remove existing style file
+  //   }
 
-    const link = document.createElement('link');
-    link.id = 'dynamic-style';
-    link.rel = 'stylesheet';
-    link.href = lang === 'ar' ? 'assets/style/rtl.scss' : 'assets/style/ltr.scss'; // Path to your CSS files
-    head.appendChild(link);
-  }
+  //   const link = document.createElement('link');
+  //   link.id = 'dynamic-style';
+  //   link.rel = 'stylesheet';
+  //   link.href = lang === 'ar' ? 'assets/style/rtl.scss' : 'assets/style/ltr.scss'; // Path to your CSS files
+  //   head.appendChild(link);
+  // }
 }

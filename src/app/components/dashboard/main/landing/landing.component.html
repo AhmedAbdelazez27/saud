@@ -8,7 +8,7 @@
       d="M0.0170359 22.2557C0.323663 20.9866 0.66436 19.7431 1.37982 18.6188C3.33031 15.544 7.13761 13.9682 10.6553 14.837C10.0591 15.3736 9.42028 15.8421 8.92627 16.4383C8.28746 17.2134 7.78493 18.0992 7.22278 18.9339C7.09502 19.1213 6.98429 19.3257 6.81394 19.462C5.9622 20.1775 5.65557 21.0803 5.95368 22.1365C6.25179 23.2011 7.00984 23.7974 8.10008 23.9507C8.44929 24.0018 8.80702 23.9677 9.15623 24.0018C9.76097 24.0614 10.1613 24.4958 10.1613 25.0665C10.1613 25.6456 9.76949 26.0971 9.15623 26.1226C8.38966 26.1567 7.61458 26.1311 6.84801 26.1482C6.16662 26.1567 5.8174 26.4207 5.85147 26.9062C5.89406 27.511 6.32845 27.6217 6.83098 27.6132C7.19723 27.6132 7.57199 27.6132 8.00638 27.6132C8.00638 27.8942 7.98935 28.1157 8.00638 28.3371C8.04897 28.7715 8.28746 29.0271 8.73036 29.0271C9.15623 29.0271 9.43731 28.763 9.42028 28.3712C9.38621 27.7409 9.6758 27.528 10.2209 27.2895C11.4219 26.7785 11.8392 25.5349 11.4048 23.9762C13.5853 23.8911 15.4165 22.8945 17.2308 21.668C17.5203 22.7242 17.4863 23.7037 17.3244 24.6832C16.7027 28.4394 13.7982 31.2927 10.025 31.8889C9.93132 31.906 9.83763 31.9656 9.74394 31.9996C9.07958 31.9996 8.41522 31.9996 7.74234 31.9996C7.64865 31.9656 7.55496 31.906 7.46127 31.8889C4.75273 31.463 2.62337 30.1003 1.27761 27.7239C0.672877 26.6677 0.417354 25.4157 0 24.2488C0.0170349 23.5929 0.0170359 22.9286 0.0170359 22.2557Z"
       fill="white" />
   </svg>
-  Fast Donation
+  {{"FAST_DONATION"|translate}}
 </button>
 
 <!-- body of canvas  -->
@@ -24,19 +24,20 @@
         d="M0.0170359 22.2557C0.323663 20.9866 0.66436 19.7431 1.37982 18.6188C3.33031 15.544 7.13761 13.9682 10.6553 14.837C10.0591 15.3736 9.42028 15.8421 8.92627 16.4383C8.28746 17.2134 7.78493 18.0992 7.22278 18.9339C7.09502 19.1213 6.98429 19.3257 6.81394 19.462C5.9622 20.1775 5.65557 21.0803 5.95368 22.1365C6.25179 23.2011 7.00984 23.7974 8.10008 23.9507C8.44929 24.0018 8.80702 23.9677 9.15623 24.0018C9.76097 24.0614 10.1613 24.4958 10.1613 25.0665C10.1613 25.6456 9.76949 26.0971 9.15623 26.1226C8.38966 26.1567 7.61458 26.1311 6.84801 26.1482C6.16662 26.1567 5.8174 26.4207 5.85147 26.9062C5.89406 27.511 6.32845 27.6217 6.83098 27.6132C7.19723 27.6132 7.57199 27.6132 8.00638 27.6132C8.00638 27.8942 7.98935 28.1157 8.00638 28.3371C8.04897 28.7715 8.28746 29.0271 8.73036 29.0271C9.15623 29.0271 9.43731 28.763 9.42028 28.3712C9.38621 27.7409 9.6758 27.528 10.2209 27.2895C11.4219 26.7785 11.8392 25.5349 11.4048 23.9762C13.5853 23.8911 15.4165 22.8945 17.2308 21.668C17.5203 22.7242 17.4863 23.7037 17.3244 24.6832C16.7027 28.4394 13.7982 31.2927 10.025 31.8889C9.93132 31.906 9.83763 31.9656 9.74394 31.9996C9.07958 31.9996 8.41522 31.9996 7.74234 31.9996C7.64865 31.9656 7.55496 31.906 7.46127 31.8889C4.75273 31.463 2.62337 30.1003 1.27761 27.7239C0.672877 26.6677 0.417354 25.4157 0 24.2488C0.0170349 23.5929 0.0170359 22.9286 0.0170359 22.2557Z"
         fill="white" />
     </svg>
-    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Fast Donation</h5>
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">{{"FAST_DONATION"|translate}}</h5>
 
   </div>
   <div class="offcanvas-body">
     <div class="" style="margin-bottom:24px;">
-      <label for="exampleFormControlInput1" class="form-label">Select Donation Type</label>
+      <label for="exampleFormControlInput1" class="form-label">{{ 'SELECT_DONATION_TYPE' | translate }}</label>
       <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option *ngFor="let donate of donationsItems" [value]="donate.id">{{donate?.quickDonationNameAr ||'testtt'}}
+        <option selected>{{ 'OPEN_SELECT_MENU' | translate }}</option>
+        <option *ngFor="let donate of donationsItems" [value]="donate.id">
+          {{ currentLang === 'ar' ? donate?.quickDonationNameAr : donate?.quickDonationNameEn || 'testtt' }}
         </option>
-
       </select>
     </div>
+    
 
 
 
@@ -104,7 +105,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Enter Donation Amount</label>
+      <label for="exampleFormControlInput1" class="form-label">{{ 'ENTER_DONATION_AMOUNT' | translate }}</label>
       <input type="number" [(ngModel)]="inputValueFast" [value]="inputValueFast" class="form-control" id="exampleFormControlInput1" placeholder="100 AED">
     </div>
 
@@ -117,7 +118,7 @@
               fill="white"></path>
           </svg>
         </span>
-        Add to Cart
+        {{ 'BUTTON.ADD_TO_CART' | translate }}
       </button>
       <button class="btn btn-green" (click)="addToFastDonation(true)"  aria-controls="offcanvasScrolling">
         <span>
@@ -130,7 +131,7 @@
               fill="white"></path>
           </svg>
         </span>
-        Donate Now
+        {{ 'BUTTON.DONATE_NOW' | translate }}
       </button>
 
     </div>
@@ -158,10 +159,10 @@
         <img [src]="slide.imageImagePath" class="d-block w-100" alt="Slide Image" />
         <div class="carousel-caption d-none d-md-block">
           <h5 class="slider-title">
-            {{ slide.titleAr || 'Default Title' }}
+            {{currentLang === 'ar' ? slide.titleAr : slide?.titleEn }}
           </h5>
           <p class="slider-subtitle">
-            {{ slide.detailsAr || 'Default description for this slide.' }} </p>
+            {{ currentLang === 'ar' ? slide.detailsAr : slide?.detailsEn}} </p>
         </div>
       </div>
     </div>
@@ -193,7 +194,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <h1 class="title-blue">About</h1>
+        <h1 class="title-blue">{{'ABOUT'|translate}}</h1>
       </div>
       <div class="col-lg-6">
         <img src="../../../../assets/images/about-img.png" class="w-100 img-shadow" style="margin-bottom:24px;" />
@@ -201,12 +202,7 @@
 
       <div class="col-lg-6">
         <p class="text-22">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-          PageMaker including versions of Lorem Ipsum.
+          {{'LANDING.ABOUT_DESC' | translate}}
         </p>
       </div>
     </div>
@@ -219,7 +215,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <h1 class="title-blue">Goodness Gates</h1>
+        <h1 class="title-blue">{{ 'GATES.GOODNESS' | translate }}</h1>
       </div>
       <div class="col-xl-3 col-lg-6">
         <div class="grade-cyan">
@@ -228,7 +224,7 @@
             <div class="d-flex"
               style="display: flex; flex-wrap: inherit; align-items: center; justify-content: space-between; width:100%;">
               <div class="text-24-white">
-                Fast Donation
+                {{ 'GATES.FAST_DONATION' | translate }}
               </div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
@@ -242,10 +238,10 @@
               </div>
             </div>
             <p class="text-16-white" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;max-width: 90%;">
-              التبرع السريع - صدقة جارية - سقيا ماء 
+              {{ 'GATES.FAST_DONATION_DESC' | translate }}
             </p>
 
-            <button class="btn btn-white-wide">More...</button>
+            <button class="btn btn-white-wide">{{'MORE'|translate}}</button>
 
           </div>
 
@@ -258,7 +254,7 @@
             <div class="d-flex"
               style="display: flex; flex-wrap: inherit; align-items: center; justify-content: space-between; width:100%;">
               <div class="text-24-white">
-                Emergency
+                {{ 'GATES.EMERGENCY' | translate }}
               </div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
@@ -287,10 +283,10 @@
               </div>
             </div>
             <p class="text-16-white" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;max-width: 90%;">
-              حالات عاجلة - حالات طارئة
+              {{ 'GATES.EMERGENCY_DESC' | translate }}
             </p>
 
-            <button class="btn btn-white-wide">More...</button>
+            <button class="btn btn-white-wide">{{'MORE'|translate}}</button>
 
           </div>
 
@@ -303,7 +299,7 @@
             <div class="d-flex"
               style="display: flex; flex-wrap: inherit; align-items: center; justify-content: space-between; width:100%;">
               <div class="text-24-white">
-                Campaines
+                {{ 'GATES.CAMPAIGNS' | translate }}
               </div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="66" height="64" viewBox="0 0 66 64" fill="none">
@@ -329,10 +325,10 @@
               </div>
             </div>
             <p class="text-16-white"style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;max-width: 90%;">
-              بناء مساجد - مساعدة غزة - حالة مرضية
+              {{ 'GATES.CAMPAIGNS_DESC' | translate }}
             </p>
 
-            <button class="btn btn-white-wide" (click)="goDetails('/Main/Emergency/List')">More...</button>
+            <button class="btn btn-white-wide" (click)="goDetails('/Main/Emergency/List')">{{'MORE'|translate}}</button>
 
           </div>
 
@@ -345,7 +341,7 @@
             <div class="d-flex"
               style="display: flex; flex-wrap: inherit; align-items: center; justify-content: space-between; width:100%;">
               <div class="text-24-white">
-                Projects
+                {{ 'GATES.PROJECTS' | translate }}
               </div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="65" height="64" viewBox="0 0 65 64" fill="none">
@@ -362,9 +358,9 @@
               </div>
             </div>
             <p class="text-16-white" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;max-width: 90%;">
-              مشروع آمر - النقل - التطوع - جمع الملابس المستعملة - حفظ النعمة
+              {{ 'GATES.PROJECTS_DESC' | translate }}
             </p>
-            <button class="btn btn-white-wide" (click)="goDetails('/Main/Services/List')">More...</button>
+            <button class="btn btn-white-wide" (click)="goDetails('/Main/Services/List')">{{'MORE'|translate}}</button>
 
           </div>
 
@@ -380,7 +376,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <h1 class="title-blue">Campaigns</h1>
+        <h1 class="title-blue">{{"CAMPAIGN.CAMPAIGN"|translate}}</h1>
       </div>
 
       <!-- Owl Carousel -->
@@ -392,11 +388,11 @@
                 <div class="card campain-container">
                   <img [src]="campaign.filePath" class="card-img-top"  style="height: 380px;"/>
                   <div class="card-body">
-                    <h5 class="text-24-black">{{ campaign.title }}</h5>
+                    <h5 class="text-24-black">{{ currentLang === 'ar' ? campaign.projectCampainName : campaign.projectCampainNameEn }}</h5>
                     <div style="padding: 16px 0;">
                       <div class="d-flex" style="justify-content: space-between;">
                         <p class="text-14-blue" style="margin-bottom: 0;">
-                          Required Amount
+                          {{ 'CAMPAIGN.REQUIRED_AMOUNT' | translate }}
                         </p>
                         <p class="text-14-black" style="margin-bottom: 0;">
                           {{ campaign.requiredAmount }}
@@ -419,7 +415,7 @@
                               fill="white" />
                           </svg>
                         </span>
-                        Add to Cart
+                        {{ 'BUTTON.ADD_TO_CART' | translate }}
                       </button>
                       <button class="btn btn-green" (click)="selectCurrentItem(campaign,true,'Campaign')"                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal">
@@ -433,11 +429,11 @@
                               fill="white" />
                           </svg>
                         </span>
-                        Donate Now
+                        {{ 'BUTTON.DONATE_NOW' | translate }}
                       </button>
                       <button class="btn btn-white" (click)="goDetailsEmergency(campaign.id)">
   
-                        More...
+                        {{'MORE'|translate}}
                       </button>
                     </div>
                   </div>
@@ -457,7 +453,7 @@
     <div class="row">
       <div class="text-center">
         <img src="../../../../assets/images/acheivement.png" style="margin-bottom:24px;" />
-        <h1 class="title-blue">Our Achievements</h1>
+        <h1 class="title-blue">{{"LANDING.ACHIEVEMENTS"|translate}}</h1>
       </div>
       <div class="col-lg justify-content-center d-flex" *ngFor="let itemStatis of websiteStatistic ; let index = index"
         style=" margin-bottom: 54px;">
@@ -468,7 +464,7 @@
         </div>
         <div class="achievement-box-blue">
           <p class="text-24-white">
-            {{itemStatis?.nameAr}}
+            {{currentLang === 'ar' ? itemStatis?.nameAr : itemStatis?.nameEn  }}
           </p>
           <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
             <path
@@ -505,7 +501,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <h1 class="title-blue">Donation</h1>
+        <h1 class="title-blue">{{"LANDING.DONATIONS"|translate}}</h1>
       </div>
 
       <!-- Owl Carousel -->
@@ -517,7 +513,7 @@
                 <div class="card campain-container">
                   <img [src]="campaign.filePath" class="card-img-top" />
                   <div class="card-body">
-                    <h5 class="text-24-black text-center">{{ campaign?.couponNameEn }}</h5>
+                    <h5 class="text-24-black text-center">{{currentLang === 'ar' ? campaign.autoCouponName : campaign?.couponNameEn  }}</h5>
   
                     <div class="d-flex justify-content-center" style="gap:8px;">
                       <button (click)="selectCurrentItem(campaign,false,'Coupons')" class="btn btn-blue" data-bs-toggle="modal"
@@ -529,7 +525,7 @@
                               fill="white" />
                           </svg>
                         </span>
-                        Add to Cart
+                        {{ 'BUTTON.ADD_TO_CART' | translate }}
                       </button>
                       <button (click)="selectCurrentItem(campaign,true,'Coupons')" class="btn btn-green" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
@@ -543,7 +539,7 @@
                               fill="white" />
                           </svg>
                         </span>
-                        Donate Now
+                        {{ 'BUTTON.DONATE_NOW' | translate }}
                       </button>
   
                     </div>
@@ -569,17 +565,17 @@
         </div>
         <div class="col-lg-8 align-content-center">
           <h1 class="blue">
-            طلب المساعدة
+            {{"REQUEST_HELP"|translate}}
           </h1>
           <h4>
-            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص
-            أو شكل توضع الفقرات في الصفحة
+            {{"LANDING.REQUEST_AID"|translate}}
           </h4>
         </div>
         <div class="col-lg-2 align-content-center ">
           <div class="d-flex justify-content-end">
-            <button class="btn btn-blue" style="height:max-content;">
-              طلب المساعدة
+           <a href="https://charity.uaq.ae/home" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <button class="btn btn-blue" style="height:max-content;" >
+              {{"REQUEST_HELP"|translate}}
               <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                   <path d="M18 12.5L12 18.5M5.5 12.5H18H5.5ZM18 12.5L12 6.5L18 12.5Z" stroke="white" stroke-width="1.5"
@@ -587,6 +583,7 @@
                 </svg>
               </span>
             </button>
+           </a>
           </div>
 
         </div>
@@ -619,24 +616,24 @@
           <div class="row">
             <div class="col-md-4">
               <button class="btn btn-danger custom-btn">
-                المتبقي: <span>{{currentItemCart?.targetAmount - currentItemCart?.totalAmount }} </span>
+                {{ 'CAMPAIGN.REQUIRED_AMOUNT' | translate }}: <span>{{currentItemCart?.targetAmount - currentItemCart?.totalAmount }} </span>
               </button>
             </div>
             <div class="col-md-4">
               <button class="btn btn-success custom-btn">
-                المدفوع: <span>{{currentItemCart?.totalAmount}}</span>
+                {{"PAID"|translate}}: <span>{{currentItemCart?.totalAmount}}</span>
               </button>
             </div>
             <div class="col-md-4">
               <button class="btn btn-primary custom-btn">
-                المطلوب: <span>{{currentItemCart?.targetAmount}}</span>
+                {{"REMAINING"|translate}}: <span>{{currentItemCart?.targetAmount}}</span>
               </button>
             </div>
           </div>
         </div>
 
         <div class="mb-3  mb-4">
-          <label for="exampleFormControlInput1" class="form-label">قيمة التبرع</label>
+          <label for="exampleFormControlInput1" class="form-label">{{"VALUE"|translate}}</label>
           <input type="number" [(ngModel)]="inputValue" class="form-control" id="exampleFormControlInput1"
             placeholder="">
         </div>
@@ -645,7 +642,7 @@
           <button class="btn btn-blue btn-wide" style="margin:auto;" [disabled]="!inputValue"
             (click)="addToCartDonation(currentItemCart)" data-bs-toggle="modal"
             data-bs-target="#exampleModal"  >
-            OK
+            {{"OK"|translate}}
           </button>
           
         </div>

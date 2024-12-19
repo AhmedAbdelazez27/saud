@@ -6,13 +6,14 @@ import { AboutusService } from '../../servicesApi/aboutus.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { CartService } from '../../../../../shared/services/cart.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-registeration',
   templateUrl: './registeration.component.html',
   styleUrl: './registeration.component.scss',
   standalone: true,
-  imports: [CommonModule,FormsModule, ToastModule]  ,
+  imports: [CommonModule,FormsModule, ToastModule,TranslateModule]  ,
   providers: [MessageService]
 
 })

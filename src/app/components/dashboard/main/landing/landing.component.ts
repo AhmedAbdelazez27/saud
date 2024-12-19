@@ -8,12 +8,13 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartService } from '../../../../shared/services/cart.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, CarouselModule, ToastModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, CarouselModule, ToastModule, FormsModule, ReactiveFormsModule,TranslateModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
   providers: [MessageService]
@@ -31,6 +32,7 @@ export class LandingComponent implements OnInit {
 
   // Owl carousel options
   customOptions?: OwlOptions;
+  currentLang: string;
 
 
   constructor(
@@ -38,7 +40,8 @@ export class LandingComponent implements OnInit {
     private _SpinnerService: SpinnerService,
     private router: Router,
     private messageService: MessageService,
-    private cartService: CartService
+    private cartService: CartService,
+    private translate: TranslateService
   ) {
     // Determine the language direction dynamically
     const currentLanguage = localStorage.getItem('language') || 'en'; // Assuming 'lang' in localStorage
@@ -80,8 +83,9 @@ export class LandingComponent implements OnInit {
         navText: ['<', '>'],
       };
     }
-
-
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;
+    console.log(this.currentLang);
+    
   }
   ngOnInit(): void {
     this.gettingSliderData();

@@ -15,69 +15,58 @@
                     <div class="col-lg-6 mb-5">
                         <div class="login-container">
                             <img src="../assets/images/login-logo.png" class="w-100 mb-5" />
-                            <p>ليس لديك حساب؟</p>
-                            <h2 class="mb-4">انشاء حساب جديد</h2>
+                            <p>{{ 'REGISTER.NO_ACCOUNT' | translate }}</p>
+                            <h2 class="mb-4">{{ 'REGISTER.TITLE' | translate }}</h2>
                             <div class="form-floating mb-4">
-                                <input type="BeneficentName" class="form-control" id="floatingInput" placeholder="BeneficentName" [(ngModel)]="formValues.BeneficentName" name="BeneficentName">
-                                <label for="floatingInput"> الاسم</label>
+                                <input type="BeneficentName" class="form-control" id="floatingInput" placeholder="{{ 'REGISTER.BENEFICENT_NAME' | translate }}" [(ngModel)]="formValues.BeneficentName" name="BeneficentName">
+                                <label for="floatingInput">{{ 'REGISTER.BENEFICENT_NAME' | translate }}</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="IdNumber" class="form-control" id="floatingInput" placeholder="IdNumber" [(ngModel)]="formValues.IdNumber" name="IdNumber" >
-                                <label for="floatingInput"> رقم الهوية</label>
+                                <input type="IdNumber" class="form-control" id="floatingInput" placeholder="{{ 'REGISTER.ID_NUMBER' | translate }}" [(ngModel)]="formValues.IdNumber" name="IdNumber">
+                                <label for="floatingInput">{{ 'REGISTER.ID_NUMBER' | translate }}</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="EmailAddress" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="formValues.EmailAddress" name="EmailAddress">
-                                <label for="floatingInput"> البريد الالكتروني</label>
+                                <input type="EmailAddress" class="form-control" id="floatingInput" placeholder="{{ 'REGISTER.EMAIL_ADDRESS' | translate }}" [(ngModel)]="formValues.EmailAddress" name="EmailAddress">
+                                <label for="floatingInput">{{ 'REGISTER.EMAIL_ADDRESS' | translate }}</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="MobileNumber1" class="form-control" id="floatingInput" placeholder="MobileNumber" [(ngModel)]="formValues.MobileNumber1" name="MobileNumber1">
-                                <label for="floatingInput"> رقم الهاتف</label>
+                                <input type="MobileNumber1" class="form-control" id="floatingInput" placeholder="{{ 'REGISTER.MOBILE_NUMBER' | translate }}" [(ngModel)]="formValues.MobileNumber1" name="MobileNumber1">
+                                <label for="floatingInput">{{ 'REGISTER.MOBILE_NUMBER' | translate }}</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="UserName" class="form-control" id="floatingInput" placeholder="UserName" [(ngModel)]="formValues.UserName" name="UserName">
-                                <label for="floatingInput"> اسم المستخدم</label>
+                                <input type="UserName" class="form-control" id="floatingInput" placeholder="{{ 'REGISTER.USERNAME' | translate }}" [(ngModel)]="formValues.UserName" name="UserName">
+                                <label for="floatingInput">{{ 'REGISTER.USERNAME' | translate }}</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="Password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="formValues.Password" name="Password">
-                                <label for="floatingPassword">كلمة المرور</label>
+                                <input type="Password" class="form-control" id="floatingPassword" placeholder="{{ 'REGISTER.PASSWORD' | translate }}" [(ngModel)]="formValues.Password" name="Password">
+                                <label for="floatingPassword">{{ 'REGISTER.PASSWORD' | translate }}</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="Password" class="form-control" id="floatingPassword" placeholder="ReEnterPassword" [(ngModel)]="formValues.ReEnterPassword" name="ReEnterPassword">
-                                <label for="floatingPassword">إعادة إدخال كلمة المرور</label>
+                                <input type="Password" class="form-control" id="floatingPassword" placeholder="{{ 'REGISTER.REENTER_PASSWORD' | translate }}" [(ngModel)]="formValues.ReEnterPassword" name="ReEnterPassword">
+                                <label for="floatingPassword">{{ 'REGISTER.REENTER_PASSWORD' | translate }}</label>
                             </div>
-                            <button class="btn btn-green w-100" style="height: 58px; font-size: 16px;" (click)="OnRegisterlogin()">انشاء الحساب</button>
-                           
+                            <button class="btn btn-green w-100" style="height: 58px; font-size: 16px;" (click)="OnRegisterlogin()">
+                                {{ 'REGISTER.SUBMIT' | translate }}
+                            </button>
                         </div>
                     </div>
-
+                
                     <div class="col-lg-6 mb-5 align-items-center d-flex">
                         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-
-                                    <h1 class="white">
-                                        مؤسسة سعود بن راشد المعلا
-                                        للأعمال الخيرية و الانسانية
-                                    </h1>
-                                    <p class="white">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي</p>
-
+                                    <h1 class="white">{{ 'REGISTER.CAROUSEL.TITLE' | translate }}</h1>
+                                    <p class="white">{{ 'REGISTER.CAROUSEL.DESCRIPTION' | translate }}</p>
                                 </div>
                                 <div class="carousel-item">
-                                    <h1 class="white">
-                                        مؤسسة سعود بن راشد المعلا
-                                        للأعمال الخيرية و الانسانية
-                                    </h1>
-                                    <p class="white">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي</p>
+                                    <h1 class="white">{{ 'REGISTER.CAROUSEL.TITLE' | translate }}</h1>
+                                    <p class="white">{{ 'REGISTER.CAROUSEL.DESCRIPTION' | translate }}</p>
                                 </div>
                                 <div class="carousel-item">
-                                    <h1 class="white">
-                                        مؤسسة سعود بن راشد المعلا
-                                        للأعمال الخيرية و الانسانية
-                                    </h1>
-                                    <p class="white">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي</p>
+                                    <h1 class="white">{{ 'REGISTER.CAROUSEL.TITLE' | translate }}</h1>
+                                    <p class="white">{{ 'REGISTER.CAROUSEL.DESCRIPTION' | translate }}</p>
                                 </div>
-                            </div><br>
+                            </div>
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -85,8 +74,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
+                
             </div>
         </div>
     </div>

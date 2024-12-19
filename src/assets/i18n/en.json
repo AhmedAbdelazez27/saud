@@ -1,18 +1,98 @@
 {
-    "HEADER_TITLE": "Privacy and Security Policy",
-    "WELCOME_TITLE": "Welcome to the Saud bin Rashid Al Mualla Foundation",
-    "WELCOME_TEXT": "We welcome visitors to the website of the Saud bin Rashid Al Mualla Charitable and Humanitarian Est., and we emphasize that you read the following terms of use carefully before entering the website, as they are terms and conditions that apply to you once you use the website.",
-    "TERMS_TITLE": "Terms and Conditions",
-    "PRIVACY_TITLE": "Privacy and Security",
-    "PRIVACY_TEXT_1": "Saud bin Rashid Al Mualla Charitable and Humanitarian Est. is committed to protecting the rights of all visitors to this portal.",
-    "COLLECTION_INFO": "Collection and use of electronic information:",
-    "COLLECTION_DETAIL": "Our server automatically captures your IP address when you visit the portal...",
-    "COOKIES_TITLE": "Cookies:",
-    "COOKIES_DETAIL": "A cookie is a small text file sent to your hard drive to enable our server to recognize your computer.",
-    "SECURE_TRANSMISSIONS": "Secure transmissions:",
-    "SECURE_TRANSMISSIONS_DETAIL": "Please be assured that this portal has security measures in place to protect the information you provide to us.",
-    "PERSONAL_INFO_PROTECTION": "Personal information protection:",
-    "PERSONAL_INFO_PROTECTION_DETAIL": "Your personal information will only be available to association employees who need access to it.",
-    "MODIFY_DATA": "The right to review, modify, or correct your data:"
-  }
-  
+  "LANDING": {
+    "ABOUT_DESC": "The Saud bin Rashid Al Mualla Foundation for Charity and Humanitarian Work was established under the high directives of His Highness Sheikh Saud bin Rashid Al Mualla, Member of the Supreme Council, Ruler of Umm Al Quwain, through an Amiri Decree No. (7) of 2013. It was officially registered by Ministerial Decision No. (491) of 2013 as a public benefit private foundation headquartered in Umm Al Quwain. The Foundation's Board of Trustees was formed in accordance with the provisions of the law under Amiri Decree No. (3) of 2014, chaired by His Highness Sheikh Majid bin Saud Al Mualla.",
+    "ACHIEVEMENTS": "Our Achievements",
+    "DONATIONS": "Donations",
+    "REQUEST_AID": "The foundation provides a variety of assistance to individuals and families, aiming to improve the quality of life and meet the needs of the community."
+  },
+  "GATES": {
+    "GOODNESS": "Goodness Gates",
+    "FAST_DONATION": "Fast Donation",
+    "FAST_DONATION_DESC": "Quick Donation - Ongoing Charity - Water Supply",
+    "EMERGENCY": "Emergency",
+    "EMERGENCY_DESC": "Urgent Cases - Emergency Cases",
+    "CAMPAIGNS": "Campaigns",
+    "CAMPAIGNS_DESC": "Build Mosques - Support Gaza - Medical Cases",
+    "PROJECTS": "Projects",
+    "PROJECTS_DESC": "Amer Project - Transportation - Volunteering - Used Clothes Collection - Preserve Blessings"
+  },
+  "CAMPAIGN": {
+    "REQUIRED_AMOUNT": "Required Amount",
+    "CAMPAIGN": "Campaigns"
+  },
+  "BUTTON": {
+    "ADD_TO_CART": "Add to Cart",
+    "DONATE_NOW": "Donate Now",
+    "MORE": "More..."
+  },
+  "LOGIN": {
+    "ENTER_AS_USER": "Enter as User",
+    "TITLE": "Login",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "SUBMIT": "Submit",
+    "NO_ACCOUNT": "Don't have an account?",
+    "CREATE_ACCOUNT": "Create a New Account"
+  },
+  "CAROUSEL": {
+    "TITLE": "Saud Bin Rashid Al Mualla Foundation for Charity and Humanity",
+    "DESCRIPTION": "It is a long-established fact that the readable content of a page will distract the reader from focusing on the external appearance of the text or the arrangement of paragraphs on the page being read. Therefore, the Lorem Ipsum method is used because it provides a natural distribution of letters to some extent, rather than using 'Here is textual content'."
+  },
+  "REGISTER": {
+    "NO_ACCOUNT": "Don't have an account?",
+    "TITLE": "Create New Account",
+    "BENEFICENT_NAME": "Name",
+    "ID_NUMBER": "ID Number",
+    "EMAIL_ADDRESS": "Email Address",
+    "MOBILE_NUMBER": "Phone Number",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "REENTER_PASSWORD": "Re-enter Password",
+    "SUBMIT": "Create Account",
+    "CAROUSEL": {
+      "TITLE": "Saud Bin Rashid Al Mualla Foundation for Charity and Humanity",
+      "DESCRIPTION": "It is a long-established fact that the readable content of a page will distract the reader from focusing on the external appearance of the text or the arrangement of paragraphs on the page being read. Therefore, the Lorem Ipsum method is used because it provides a natural distribution of letters to some extent, rather than using 'Here is textual content'."
+    }
+  },
+  "MENU": {
+    "TERMS": "Terms and Conditions",
+    "POLICIES": "Policies, and Security",
+    "CONTACT_US": "Contact Us",
+    "DONOR_LOGIN": "Donor Login",
+    "REQUEST_HELP": "Request Help",
+    "PROJECTS": "Projects",
+    "HALL_BOOKING": "Hall Booking",
+    "CAMPAIGNS": "Campaigns",
+    "DONATIONS": "Donations",
+    "ABOUT_US": "About Us",
+    "HOME": "Home"
+  },
+  "LogOut": "Logout",
+  "logIn": "Login",
+  "SELECT_DONATION_TYPE": "Select Donation Type",
+  "OPEN_SELECT_MENU": "Open this select menu",
+   "ENTER_DONATION_AMOUNT": "Enter Donation Amount",
+  "HEADER_TITLE": "Privacy and Security",
+  "WELCOME_TITLE": "Welcome to the Saud bin Rashid Al Mualla Foundation",
+  "WELCOME_TEXT": "We welcome visitors to the website of the Saud bin Rashid Al Mualla Charitable and Humanitarian Est., and we emphasize that you read the following terms of use carefully before entering the website, as they are terms and conditions that apply to you once you use the website.",
+  "TERMS_TITLE": "Terms and Conditions",
+  "PRIVACY_TITLE": "Privacy and Security",
+  "PRIVACY_TEXT_1": "Saud bin Rashid Al Mualla Charitable and Humanitarian Est. is committed to protecting the rights of all visitors to this portal.",
+  "COLLECTION_INFO": "Collection and use of electronic information:",
+  "COLLECTION_DETAIL": "Our server automatically captures your IP address when you visit the portal...",
+  "COOKIES_TITLE": "Cookies:",
+  "COOKIES_DETAIL": "A cookie is a small text file sent to your hard drive to enable our server to recognize your computer.",
+  "SECURE_TRANSMISSIONS": "Secure transmissions:",
+  "SECURE_TRANSMISSIONS_DETAIL": "Please be assured that this portal has security measures in place to protect the information you provide to us.",
+  "PERSONAL_INFO_PROTECTION": "Personal information protection:",
+  "PERSONAL_INFO_PROTECTION_DETAIL": "Your personal information will only be available to association employees who need access to it.",
+  "MODIFY_DATA": "The right to review, modify, or correct your data:",
+  "ABOUT": "About",
+  "MORE": "More...",
+  "PAID": "Paid",
+  "REMAINING": "Remaining",
+  "VALUE": "Donation Value",
+  "OK": "Ok",
+  "REQUEST_HELP": "Request Help",
+  "FAST_DONATION": "Fast Donation"
+}
