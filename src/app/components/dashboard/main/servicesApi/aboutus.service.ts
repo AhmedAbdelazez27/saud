@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -25,4 +25,15 @@ export class AboutusService {
     return this.http.get<any>(`${this.apiUrl}WebsiteStatistics/GetAllWebsiteStatistic?IsActive=true&StatisticsTypeLkpId=12472 `);
   };
  
+  login(body: any): Observable<any> {
+  
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+     return this.http.post<any>(`${this.apiUrl}SpBeneficent/Login`, body, { headers });
+   }
+ 
+   Registerlogin(body: any): Observable<any> {
+  
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+     return this.http.post<any>(`${this.apiUrl}SpBeneficent/Registration`, body, { headers });
+   }
 }

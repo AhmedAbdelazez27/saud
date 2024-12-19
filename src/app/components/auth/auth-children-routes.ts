@@ -1,11 +1,13 @@
 // Services
 
+import { RegisterationComponent } from "../dashboard/main/auth/registeration/registeration.component";
 import { LoginComponent } from "./login/login.component";
 
 
 
 export const authChildrenRoutes: any[] = [
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
+  { path: '', redirectTo: 'Register', pathMatch: 'full' },
   {
     path: 'Login',
     component: LoginComponent,
@@ -13,9 +15,8 @@ export const authChildrenRoutes: any[] = [
   },
   {
     path: 'Register',
-    component: LoginComponent,
-    pathMatch: 'full'
-  },
+    component: RegisterationComponent,
+    pathMatch: 'full'  },
 //   {
 //     path: 'Errors',
 //     loadComponent: () =>

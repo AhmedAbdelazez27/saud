@@ -10,11 +10,13 @@ import { CartService } from '../../services/cart.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslationService } from '../../services/translation.service';
 
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [ CommonModule,CarouselModule,RouterModule,TranslateModule],
-  providers:[AuthService],
+  imports: [ CommonModule,CarouselModule,RouterModule,ToastModule,TranslateModule],
+  providers:[AuthService,MessageService],
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
@@ -28,23 +30,31 @@ export class NavBarComponent implements OnInit{
   ];
   cartCount: number=0;
   currentLanguage: string;
-
-
-  constructor(private router: Router,private cartService: CartService,private translationService: TranslationService) {
+  userName: string | null = null; 
+  constructor(private router: Router,private cartService: CartService,private messageService : MessageService,private translationService: TranslationService) {
     this.currentLanguage = localStorage.getItem('language') || 'en';
   }
   ngOnInit(): void {
     this.cartService.cartCount$.subscribe((count) => {
       console.log(count);
-      
       this.cartCount = count;
     });
+    this.cartService.userData$.subscribe((userData) => {
+      if(userData) {
+        this.userName = userData.userName;
+      } else {
+        this.userName = null;
+      }
+    });
   }
-
+  logout() {
+    localStorage.removeItem('user');  
+    sessionStorage.removeItem('user');  
+    window.location.reload();
+  }
   navigate(route: any): void {
     this.router.navigate([route]);
   }
-
   switchLanguage(lang: string) {
     this.translationService.changeLang(lang); // Call the translation service to change language
     this.currentLanguage = lang; // Update current language to reflect in the dropdown

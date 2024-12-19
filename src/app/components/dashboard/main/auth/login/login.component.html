@@ -1,1 +1,98 @@
-<p>login works!</p>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+  
+</head>
+<body class="login-page">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="row">
+                    <div class="col-lg-6 mb-5">
+                        <div class="login-container">
+                            <img src="../assets/images/login-logo.png" class="w-100 mb-5" />
+                            <p>أدخل كمستخدم</p>
+                            <h2 class="mb-4">تسجيل دخول</h2>
+                            <div class="form-floating mb-4">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="formValues.UserName" name="UserName" required>
+                                <label for="floatingInput">اسم المستخدم</label>
+                            </div>
+                            
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="formValues.Password" name="Password" required>
+                                <label for="floatingPassword">كلمة المرور</label>
+                            </div>
+                            
+                            <button class="btn btn-green w-100" style="height: 58px; font-size: 16px;" (click)="Onlogin()">دخول</button>
+                              
+                            <div class="login-sliter"></div>
+                            <div class="d-flex justify-content-center">
+                                <span class="bg-white" style="padding:0 10px;">ليس لديك حساب؟</span>
+                            </div>
+
+                            <div class="create-account">
+                                <a (click)="onclickregister()" style="cursor: pointer;">  
+                                  انشاء حساب جديد
+                                </a>
+                              </div>
+                              
+                        </div>
+                        
+                        
+                    </div>
+
+                    <div class="col-lg-6 mb-5 align-items-center d-flex">
+                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+
+                                    <h1 class="white">
+                                        مؤسسة سعود بن راشد المعلا
+                                        للأعمال الخيرية و الانسانية
+                                    </h1>
+                                    <p class="white">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي</p>
+
+                                </div>
+                                <div class="carousel-item">
+                                    <h1 class="white">
+                                        مؤسسة سعود بن راشد المعلا
+                                        للأعمال الخيرية و الانسانية
+                                    </h1>
+                                    <p class="white">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي</p>
+                                </div>
+                                <div class="carousel-item">
+                                    <h1 class="white">
+                                        مؤسسة سعود بن راشد المعلا
+                                        للأعمال الخيرية و الانسانية
+                                    </h1>
+                                    <p class="white">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي</p>
+                                </div>
+                            </div>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/owl.carousel.js"></script>
+  
+</body>
+</html>
+<p-toast position="top-right"></p-toast>
+
+
