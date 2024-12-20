@@ -6,11 +6,12 @@ import { Router, RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { DonationService } from '../servicesApi/donations.service';
 import { CartService } from '../../../../shared/services/cart.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, FormsModule,ToastModule,RouterModule],
+  imports: [CommonModule, FormsModule,ToastModule,RouterModule,TranslateModule],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
   providers: [MessageService]

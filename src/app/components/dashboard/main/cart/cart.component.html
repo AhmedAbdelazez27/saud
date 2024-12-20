@@ -1,106 +1,134 @@
-
 <section class="cart-header">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-6">
-                <div class="inner-blur">
-                    <h1 class="title-48-cyan">السلة</h1>
-                    <h3 class="text-white">مؤسسة سعود بن راشد المعلا للأعمال الخيرية و الانسانية</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-</section>
-<section class="mb-5 mt-150">
-    <div class="container">
-      <div class="row">
-        <div class="cart-form-container">
-          <h1 class="title-blue text-start"> بيانات المتبرع</h1>
-          <div class="row">
-            <input type="hidden" [(ngModel)]="formValues.userId" name="userId" />
-            <div class="col-lg-6">
-              <div class="mb-3">
-                <label for="dONATOR_NAME" class="form-label">الاسم </label>
-                <input type="text" class="form-control" id="dONATOR_NAME" [(ngModel)]="formValues.dONATOR_NAME" name="dONATOR_NAME" />
+  <div class="container">
+      <div class="row d-flex justify-content-center">
+          <div class="col-lg-6">
+              <div class="inner-blur">
+                  <h1 class="title-48-cyan">{{ 'CART' | translate }}</h1>
+                  <h3 class="text-white">{{ 'FOUNDATION_NAME' | translate }}</h3>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="mb-3">
-                <label for="idNumber" class="form-label">رقم الهوية </label>
-                <input type="text" class="form-control" id="idNumber" [(ngModel)]="formValues.idNumber" name="idNumber" />
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="mb-3">
-                <label for="dONATOR_MAIL" class="form-label">البريد الالكتروني </label>
-                <input type="text" class="form-control" id="dONATOR_MAIL" [(ngModel)]="formValues.dONATOR_MAIL" name="dONATOR_MAIL" />
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="mb-3">
-                <label for="dONATOR_MOBILE" class="form-label">رقم الهاتف </label>
-                <input type="tel" class="form-control" id="dONATOR_MOBILE" [(ngModel)]="formValues.dONATOR_MOBILE" name="dONATOR_MOBILE" />
-              </div>
-            </div>
           </div>
-        </div>
       </div>
-    </div>
-  </section>
-  
-  <section>
-    <div class="container">
+  </div>
+</section>
+
+<section class="mb-5 mt-150">
+  <div class="container">
+      <div class="row">
+          <div class="cart-form-container">
+              <h1 class="title-blue text-start">{{ 'DONOR_INFO' | translate }}</h1>
+              <div class="row">
+                  <input type="hidden" [(ngModel)]="formValues.userId" name="userId" />
+                  <div class="col-lg-6">
+                      <div class="mb-3">
+                          <label for="dONATOR_NAME" class="form-label">{{ 'NAME' | translate }}</label>
+                          <input type="text" class="form-control" id="dONATOR_NAME" [(ngModel)]="formValues.dONATOR_NAME" name="dONATOR_NAME" />
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="mb-3">
+                          <label for="idNumber" class="form-label">{{ 'ID_NUMBER' | translate }}</label>
+                          <input type="text" class="form-control" id="idNumber" [(ngModel)]="formValues.idNumber" name="idNumber" />
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="mb-3">
+                          <label for="dONATOR_MAIL" class="form-label">{{ 'EMAIL' | translate }}</label>
+                          <input type="text" class="form-control" id="dONATOR_MAIL" [(ngModel)]="formValues.dONATOR_MAIL" name="dONATOR_MAIL" />
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="mb-3">
+                          <label for="dONATOR_MOBILE" class="form-label">{{ 'PHONE' | translate }}</label>
+                          <input type="tel" class="form-control" id="dONATOR_MOBILE" [(ngModel)]="formValues.dONATOR_MOBILE" name="dONATOR_MOBILE" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
       <div class="cart-form-container">
-        <table class="table table-hover cart-table">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">التبرعات</th>
-              <th scope="col">المبلغ</th>
-              <th scope="col">العدد</th>
-              <th scope="col">المجموع</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of items; let i = index">
-              <td style="height: 120px; width: 120px;">
-                <img
-                  style="width: 100%;"
-                  [src]="item.Image || '../../../../assets/images/cart-cell-img.png'"
-                  alt="item-image"
-                />
-              </td>
-              <td>{{ item.Name }}</td>
-              <td>{{ item.Price }} درهم</td>
-              <td>{{ item.Quantity }}</td>
-              <td>{{ item.Price * item.Quantity }} درهم</td>
-              <td>
-              
-                <button class="btn btn-delete-item" (click)="removeItem(i)">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M5.10926 8.10938C9.65707 8.10938 14.2049 8.10938 18.8905 8.10938C18.9518 11.0533 18.9518 11.0533 18.955 12.46C18.9551 12.5058 18.9552 12.5516 18.9553 12.5988C18.9596 14.4257 18.8688 16.2365 18.7175 18.0566C18.7031 18.2337 18.6895 18.4109 18.6764 18.5882C18.6722 18.6439 18.6681 18.6995 18.6638 18.7569C18.6562 18.8597 18.6486 18.9625 18.6412 19.0654C18.5717 19.9949 18.3162 20.7315 17.6249 21.375C16.9318 21.9623 16.1549 22.0455 15.2827 22.0449C15.2034 22.0451 15.1242 22.0455 15.045 22.0458C14.8312 22.0466 14.6173 22.0469 14.4034 22.0469C14.2694 22.047 14.1354 22.0472 14.0014 22.0474C13.5328 22.0483 13.0642 22.0487 12.5956 22.0486C12.1606 22.0486 11.7256 22.0496 11.2906 22.051C10.9156 22.0523 10.5406 22.0528 10.1657 22.0527C9.94237 22.0527 9.71909 22.0529 9.4958 22.0539C9.28552 22.0549 9.07527 22.0548 8.86499 22.0542C8.78843 22.0541 8.71187 22.0543 8.63532 22.0549C7.74212 22.0611 6.90945 21.8801 6.24189 21.2488C5.32953 20.3457 5.34039 19.115 5.24402 17.9121C5.24081 17.8725 5.2376 17.8328 5.2343 17.792C5.12292 16.3978 5.09579 15.0052 5.09095 13.6073C5.09081 13.5691 5.09067 13.5308 5.09052 13.4914C5.0843 11.6974 5.10014 9.90326 5.10926 8.10938Z" fill="" />
-                      <path d="M10.8959 1.96124C10.9539 1.96079 11.0118 1.96034 11.0715 1.95988C11.1643 1.95958 11.1643 1.95958 11.2589 1.95927C11.2909 1.95914 11.3229 1.95901 11.3558 1.95887C11.5253 1.95817 11.6947 1.95774 11.8642 1.95753C12.0372 1.95728 12.2103 1.95615 12.3834 1.95482C12.5181 1.95393 12.6529 1.9537 12.7877 1.95363C12.8819 1.95342 12.9762 1.95255 13.0704 1.95166C13.8923 1.95362 14.6735 2.15988 15.2723 2.74946C15.642 3.14537 15.8998 3.58687 16.1396 4.06938C16.195 4.17909 16.2505 4.28877 16.3061 4.39842C16.3418 4.47001 16.3418 4.47001 16.3783 4.54304C16.403 4.59073 16.4276 4.63841 16.4531 4.68754C16.4628 4.71715 16.4725 4.74676 16.4825 4.77726C16.5236 4.88188 16.5558 4.94103 16.6406 5.01567C16.8434 5.06383 17.0433 5.05584 17.2507 5.05138C17.3427 5.05158 17.4348 5.05178 17.5268 5.05204C17.6558 5.05201 17.7847 5.05052 17.9136 5.049C18.1385 5.04647 18.3633 5.04526 18.5881 5.04553C18.7077 5.04552 18.8273 5.04458 18.9469 5.04257C19.2794 5.04175 19.5007 5.06598 19.7812 5.25004C20.0102 5.53771 20.0457 5.7835 20.0156 6.14067C19.933 6.38396 19.8005 6.5074 19.5937 6.65629C19.4238 6.73753 19.2899 6.7618 19.1023 6.76197C19.0509 6.76225 18.9995 6.76252 18.9466 6.7628C18.8904 6.76262 18.8342 6.76245 18.7764 6.76226C18.6865 6.76253 18.6865 6.76253 18.5949 6.76281C18.4288 6.76329 18.2627 6.76319 18.0965 6.76299C17.9173 6.76287 17.7382 6.76329 17.559 6.76365C17.2079 6.76424 16.8569 6.76433 16.5059 6.76422C16.2205 6.76413 15.9352 6.76422 15.6499 6.76442C15.6093 6.76444 15.5687 6.76447 15.5269 6.7645C15.4444 6.76456 15.362 6.76461 15.2795 6.76467C14.506 6.76518 13.7324 6.76508 12.9589 6.76479C12.2512 6.76455 11.5435 6.76508 10.8358 6.76597C10.1092 6.76688 9.38261 6.76727 8.65602 6.76709C8.24807 6.767 7.84012 6.76712 7.43217 6.76778C7.08485 6.76834 6.73755 6.7684 6.39024 6.76784C6.21304 6.76756 6.03586 6.76751 5.85867 6.76807C5.66655 6.76867 5.47446 6.76818 5.28235 6.76759C5.22638 6.76793 5.1704 6.76828 5.11274 6.76863C4.77635 6.76643 4.5181 6.75054 4.25717 6.5186C4.23094 6.4867 4.20472 6.45479 4.1777 6.42192C4.15075 6.39002 4.1238 6.35811 4.09603 6.32524C3.95451 6.12695 3.95172 5.90593 3.98434 5.67192C4.08315 5.41289 4.24224 5.25331 4.47599 5.1103C4.70991 5.01541 4.95295 5.06108 5.19906 5.08379C6.45107 5.22313 6.45107 5.22313 7.58536 4.87022C7.95944 4.51286 8.16541 4.02955 8.35355 3.5565C8.63817 2.88255 9.18732 2.41741 9.85562 2.13982C10.2003 2.01988 10.5304 1.96355 10.8959 1.96124ZM9.74996 4.07817C9.38934 4.54366 9.38934 4.54366 9.18746 5.06254C11.0437 5.06254 12.9 5.06254 14.8125 5.06254C14.6808 4.79917 14.5502 4.55249 14.3964 4.30376C14.3773 4.27164 14.3581 4.23952 14.3384 4.20644C14.1335 3.8748 13.8866 3.65611 13.5 3.56254C13.2767 3.54233 13.0546 3.54283 12.8305 3.54387C12.7658 3.54377 12.701 3.54364 12.6362 3.54346C12.501 3.54325 12.3658 3.54355 12.2306 3.54421C12.0581 3.54501 11.8857 3.54455 11.7133 3.54371C11.5797 3.5432 11.4461 3.54336 11.3125 3.54373C11.2183 3.54387 11.1242 3.54344 11.03 3.54301C10.4876 3.54716 10.1083 3.65148 9.74996 4.07817Z" fill="" />
-                  </svg>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-  
-        <div class="cart-total d-flex justify-content-between">
-          <h4 class="text-24-white">اجمالي مبلغ التبرع</h4>
-          <h4 class="text-24-white">{{ totalSum }} درهم</h4>
+          <table class="table table-hover cart-table">
+              <thead>
+                  <tr>
+                      <th scope="col"></th>
+                      <th scope="col">{{ 'DONATIONS' | translate }}</th>
+                      <th scope="col">{{ 'AMOUNT' | translate }}</th>
+                      <th scope="col">{{ 'QUANTITY' | translate }}</th>
+                      <th scope="col">{{ 'TOTAL' | translate }}</th>
+                      <th scope="col"></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items; let i = index">
+                      <td style="height: 120px; width: 120px;">
+                          <img style="width: 100%;" [src]="item.Image || '../../../../assets/images/cart-cell-img.png'" alt="item-image" />
+                      </td>
+                      <td>{{ item.Name }}</td>
+                      <td>{{ item.Price }} درهم</td>
+                      <td>{{ item.Quantity }}</td>
+                      <td>{{ item.Price * item.Quantity }} درهم</td>
+                      <td>
+                          <button class="btn btn-delete-item" (click)="removeItem(i)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                              <path d="M5.10926 8.10938C9.65707 8.10938 14.2049 8.10938 18.8905 8.10938C18.9518 11.0533 18.9518 11.0533 18.955 12.46C18.9551 12.5058 18.9552 12.5516 18.9553 12.5988C18.9596 14.4257 18.8688 16.2365 18.7175 18.0566C18.7031 18.2337 18.6895 18.4109 18.6764 18.5882C18.6722 18.6439 18.6681 18.6995 18.6638 18.7569C18.6562 18.8597 18.6486 18.9625 18.6412 19.0654C18.5717 19.9949 18.3162 20.7315 17.6249 21.375C16.9318 21.9623 16.1549 22.0455 15.2827 22.0449C15.2034 22.0451 15.1242 22.0455 15.045 22.0458C14.8312 22.0466 14.6173 22.0469 14.4034 22.0469C14.2694 22.047 14.1354 22.0472 14.0014 22.0474C13.5328 22.0483 13.0642 22.0487 12.5956 22.0486C12.1606 22.0486 11.7256 22.0496 11.2906 22.051C10.9156 22.0523 10.5406 22.0528 10.1657 22.0527C9.94237 22.0527 9.71909 22.0529 9.4958 22.0539C9.28552 22.0549 9.07527 22.0548 8.86499 22.0542C8.78843 22.0541 8.71187 22.0543 8.63532 22.0549C7.74212 22.0611 6.90945 21.8801 6.24189 21.2488C5.32953 20.3457 5.34039 19.115 5.24402 17.9121C5.24081 17.8725 5.2376 17.8328 5.2343 17.792C5.12292 16.3978 5.09579 15.0052 5.09095 13.6073C5.09081 13.5691 5.09067 13.5308 5.09052 13.4914C5.0843 11.6974 5.10014 9.90326 5.10926 8.10938Z" fill="" />
+                              <path d="M10.8959 1.96124C10.9539 1.96079 11.0118 1.96034 11.0715 1.95988C11.1643 1.95958 11.1643 1.95958 11.2589 1.95927C11.2909 1.95914 11.3229 1.95901 11.3558 1.95887C11.5253 1.95817 11.6947 1.95774 11.8642 1.95753C12.0372 1.95728 12.2103 1.95615 12.3834 1.95482C12.5181 1.95393 12.6529 1.9537 12.7877 1.95363C12.8819 1.95342 12.9762 1.95255 13.0704 1.95166C13.8923 1.95362 14.6735 2.15988 15.2723 2.74946C15.642 3.14537 15.8998 3.58687 16.1396 4.06938C16.195 4.17909 16.2505 4.28877 16.3061 4.39842C16.3418 4.47001 16.3418 4.47001 16.3783 4.54304C16.403 4.59073 16.4276 4.63841 16.4531 4.68754C16.4628 4.71715 16.4725 4.74676 16.4825 4.77726C16.5236 4.88188 16.5558 4.94103 16.6406 5.01567C16.8434 5.06383 17.0433 5.05584 17.2507 5.05138C17.3427 5.05158 17.4348 5.05178 17.5268 5.05204C17.6558 5.05201 17.7847 5.05052 17.9136 5.049C18.1385 5.04647 18.3633 5.04526 18.5881 5.04553C18.7077 5.04552 18.8273 5.04458 18.9469 5.04257C19.2794 5.04175 19.5007 5.06598 19.7812 5.25004C20.0102 5.53771 20.0457 5.7835 20.0156 6.14067C19.933 6.38396 19.8005 6.5074 19.5937 6.65629C19.4238 6.73753 19.2899 6.7618 19.1023 6.76197C19.0509 6.76225 18.9995 6.76252 18.9466 6.7628C18.8904 6.76262 18.8342 6.76245 18.7764 6.76226C18.6865 6.76253 18.6865 6.76253 18.5949 6.76281C18.4288 6.76329 18.2627 6.76319 18.0965 6.76299C17.9173 6.76287 17.7382 6.76329 17.559 6.76365C17.2079 6.76424 16.8569 6.76433 16.5059 6.76422C16.2205 6.76413 15.9352 6.76422 15.6499 6.76442C15.6093 6.76444 15.5687 6.76447 15.5269 6.7645C15.4444 6.76456 15.362 6.76461 15.2795 6.76467C14.506 6.76518 13.7324 6.76508 12.9589 6.76479C12.2512 6.76455 11.5435 6.76508 10.8358 6.76597C10.1092 6.76688 9.38261 6.76727 8.65602 6.76709C8.24807 6.767 7.84012 6.76712 7.43217 6.76778C7.08485 6.76834 6.73755 6.7684 6.39024 6.76784C6.21304 6.76756 6.03586 6.76751 5.85867 6.76807C5.66655 6.76867 5.47446 6.76818 5.28235 6.76759C5.22638 6.76793 5.1704 6.76828 5.11274 6.76863C4.77635 6.76643 4.5181 6.75054 4.25717 6.5186C4.23094 6.4867 4.20472 6.45479 4.1777 6.42192C4.15075 6.39002 4.1238 6.35811 4.09603 6.32524C3.95451 6.12695 3.95172 5.90593 3.98434 5.67192C4.08315 5.41289 4.24224 5.25331 4.47599 5.1103C4.70991 5.01541 4.95295 5.06108 5.19906 5.08379C6.45107 5.22313 6.45107 5.22313 7.58536 4.87022C7.95944 4.51286 8.16541 4.02955 8.35355 3.5565C8.63817 2.88255 9.18732 2.41741 9.85562 2.13982C10.2003 2.01988 10.5304 1.96355 10.8959 1.96124ZM9.74996 4.07817C9.38934 4.54366 9.38934 4.54366 9.18746 5.06254C11.0437 5.06254 12.9 5.06254 14.8125 5.06254C14.6808 4.79917 14.5502 4.55249 14.3964 4.30376C14.3773 4.27164 14.3581 4.23952 14.3384 4.20644C14.1335 3.8748 13.8866 3.65611 13.5 3.56254C13.2767 3.54233 13.0546 3.54283 12.8305 3.54387C12.7658 3.54377 12.701 3.54364 12.6362 3.54346C12.501 3.54325 12.3658 3.54355 12.2306 3.54421C12.0581 3.54501 11.8857 3.54455 11.7133 3.54371C11.5797 3.5432 11.4461 3.54336 11.3125 3.54373C11.2183 3.54387 11.1242 3.54344 11.03 3.54301C10.4876 3.54716 10.1083 3.65148 9.74996 4.07817Z" fill="" />
+                          </svg>
+                          </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <div class="cart-total d-flex justify-content-between">
+              <h4 class="text-24-white">{{ 'TOTAL_DONATION_AMOUNT' | translate }}</h4>
+              <h4 class="text-24-white">{{ totalSum }} درهم</h4>
+          </div>
+      </div>
+
+      <div class="d-flex justify-content-center mt-5" style="gap: 8px;">
+          <button class="btn btn-blue btn-wide" (click)="onSubmit()">{{ 'COMPLETE_PAYMENT' | translate }}</button>
+          <button class="btn btn-green btn-wide" [routerLink]="['/Main/Home']">{{ 'DONATE_MORE' | translate }}</button>
+      </div>
+  </div>
+</section>
+<section class="section-ad">
+  <div class="container">
+    <div class="ad">
+      <div class="row">
+        <div class="col-lg-2 align-content-center">
+          <img src="../../../../../assets/images/ad-logo.png" class="w-100"
+            style="max-width: 180px; mix-blend-mode: darken;" />
+        </div>
+        <div class="col-lg-8 align-content-center">
+          <h1 class="blue">
+            {{"REQUEST_HELP"|translate}}
+          </h1>
+          <h4>
+            {{"LANDING.REQUEST_AID"|translate}}
+          </h4>
+        </div>
+        <div class="col-lg-2 align-content-center ">
+          <div class="d-flex justify-content-end">
+           <a href="https://charity.uaq.ae/home" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <button class="btn btn-blue" style="height:max-content;" >
+              {{"REQUEST_HELP"|translate}}
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                  <path d="M18 12.5L12 18.5M5.5 12.5H18H5.5ZM18 12.5L12 6.5L18 12.5Z" stroke="white" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+           </a>
+          </div>
+
         </div>
       </div>
-  
-      <div class="d-flex justify-content-center mt-5" style="gap: 8px;">
-        <button class="btn btn-blue btn-wide" (click)="onSubmit()"> اتمام عملية الدفع </button>
-        <button class="btn btn-green btn-wide"  [routerLink]="['/Main/Home']"> تبرع أكثر </button>
-      </div>
+
     </div>
-  </section>
-  
+  </div>
+</section>
