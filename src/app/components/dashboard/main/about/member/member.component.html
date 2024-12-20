@@ -26,11 +26,9 @@
                 }">
                 <div class="member-item-caption w-100">
                   <div class="member-item-caption-details">
-                    <h3 class="white">{{ aboutBoardOfDirector.meberNameEn }}</h3>
-                    <h4 class="white">{{ aboutBoardOfDirector.positionEn }}</h4>
-                    <!-- <p class="white">
-                      هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام
-                    </p> -->
+                    <h3 class="white">{{currentLang === 'ar' ? aboutBoardOfDirector.meberNameAr : aboutBoardOfDirector.meberNameEn  }}</h3>
+                    <h4 class="white">{{currentLang === 'ar' ? aboutBoardOfDirector.positionAr : aboutBoardOfDirector.positionEn  }}</h4>
+                   
                   </div>
                 </div>
               </div>

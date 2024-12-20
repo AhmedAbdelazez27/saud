@@ -3,7 +3,10 @@ import { AboutusService } from '../../servicesApi/aboutus.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateService } from '@ngx-translate/core';
 interface BoardMember {
+positionAr: any;
+meberNameAr: any;
   meberNameEn: string;
   positionEn: string;
   imagePath: string;
@@ -19,12 +22,14 @@ interface BoardMember {
 })
 export class MemberComponent implements OnInit {
   aboutBoardOfDirectors: BoardMember[] = []; // Explicitly set the type
+  currentLang: string;
 
   constructor(
     private _AboutusService: AboutusService,
     private router: Router,
-    private _SpinnerService: SpinnerService,
-  ) {}
+    private _SpinnerService: SpinnerService, private translate: TranslateService
+      ){
+        this.currentLang = this.translate.currentLang || this.translate.defaultLang;}
 
   ngOnInit(): void {
     this.gettingAboutInfo();

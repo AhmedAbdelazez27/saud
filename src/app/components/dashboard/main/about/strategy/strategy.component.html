@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row mt-150">
             <div class="text-center">
-                <h1 class="title-blue">رؤيتنا</h1>
+                <h1 class="title-blue">{{'OUR_VISION' | translate}}</h1>
             </div>
             <div class="col-lg-6">
                 <img [src]="aboutStrategy[0]?.websiteStrategy?.imagePath ? aboutStrategy[0]?.websiteStrategy?.imagePath:'../../../../../../assets/images/vision.png'"
@@ -11,7 +11,7 @@
 
             <div class="col-lg-6">
                 <p class="text-22">
-                    {{aboutStrategy[0]?.websiteStrategy?.ourVisionEn}}
+                    {{currentLang === 'ar' ? aboutStrategy[0]?.websiteStrategy?.ourVisionAr : aboutStrategy[0]?.websiteStrategy?.ourVisionEn }}
                 </p>
             </div>
         </div>
@@ -27,7 +27,7 @@
       <div class="row">
         <div class="text-center">
           <img src="../../../../../../assets/images/acheivement.png" style="margin-bottom:24px;" />
-          <h1 class="title-blue">Our Achievements</h1>
+          <h1 class="title-blue">{{'OUR_ACHIEVEMENTS' | translate}}</h1>
         </div>
         <div class="col-lg justify-content-center d-flex" *ngFor="let itemStatis of websiteStatistic ; let index = index"
           style=" margin-bottom: 54px;">
@@ -38,7 +38,7 @@
           </div>
           <div class="achievement-box-blue">
             <p class="text-24-white">
-              {{itemStatis?.nameAr}}
+              {{currentLang === 'ar' ? itemStatis?.nameAr : itemStatis?.nameEn}}
             </p>
             <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
               <path
@@ -75,7 +75,7 @@
     <div class="container">
         <div class="row mt-150">
             <div class="text-center">
-                <h1 class="title-blue">السياسات</h1>
+                <h1 class="title-blue">{{"POLICIES" | translate}}</h1>
             </div>
         </div>
         <div class="row mt-5" *ngFor="let item of aboutStrategy[0].listWebsiteStrategyPolicy ; let index=index">
@@ -86,7 +86,7 @@
 
             <div class="col-lg-6 order-lg-1" [ngClass]="index%2 ? 'order-lg-1':'order-lg-5'">
                 <p class="text-22">
-                    {{item?.policyDescEn}}
+                    {{currentLang === 'ar' ? item?.policyDescAr : item?.policyDescEn }}
                 </p>
             </div>
         </div>
@@ -95,10 +95,10 @@
 
 </section>
 
-<section class="donation-bg">
+<!-- <section class="donation-bg">
     <div class="container">
         <h1 class="white text-center mb-4">
-            التبرع
+          {{'DONATION' | translate}}
         </h1>
 
         <h4 class="white">
@@ -112,7 +112,7 @@
         </h4>
 
     </div>
-</section>
+</section> -->
 
 
 
@@ -129,7 +129,7 @@
     <div class="container">
         <div class="row mt-150">
             <div class="text-center">
-                <h1 class="title-blue">المساعدة</h1>
+                <h1 class="title-blue"> {{"ASSISTANCE" | translate}}</h1>
             </div>
             <div class="col-lg-6 order-lg-5">
                 <img src="../../../../../../assets/images/help.png" class="w-100 img-shadow mb-3">
@@ -137,13 +137,7 @@
 
             <div class="col-lg-6 order-lg-1">
                 <p class="text-22">
-                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل
-                    الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها
-                    تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي"
-                    فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب
-                    تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص، وإذا قمت بإدخال "lorem ipsum" في أي محرك بحث ستظهر
-                    العديد من المواقع الحديثة العهد في نتائج البحث. على مدى السنين ظهرت نسخ جديدة ومختلفة من نص لوريم
-                    إيبسوم، أحياناً عن طريق الصدفة، وأحياناً عن عمد كإدخال بعض العبارات الفكاهية إليها.
+                  {{"DONATION_MISSION" | translate}}
                 </p>
             </div>
         </div>

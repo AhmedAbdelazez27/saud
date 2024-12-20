@@ -3,11 +3,12 @@ import { AboutusService } from '../../servicesApi/aboutus.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-strategy',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,TranslateModule],
   templateUrl: './strategy.component.html',
   styleUrl: './strategy.component.scss'
 })
@@ -15,12 +16,14 @@ export class StrategyComponent implements OnInit {
   
   aboutStrategy: any[] = []; // Explicitly set the type
   websiteStatistic: any[] = [];
+  currentLang: string;
 
   constructor(
     private _AboutusService: AboutusService,
     private router: Router,
-    private _SpinnerService: SpinnerService,
-  ) {}
+    private _SpinnerService: SpinnerService, private translate: TranslateService
+  ){
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;}
 
   ngOnInit(): void {
     this.gettingAboutInfo();

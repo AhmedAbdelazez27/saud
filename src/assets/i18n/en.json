@@ -155,7 +155,12 @@
   "GENERAL": "About Us",
   "STRATEGY": "Foundation Strategy",
   "MEMBER": "Board Members",
-  "REQUEST_AID": "The foundation provides a variety of assistance to individuals and families, aiming to improve the quality of life and meet the needs of the community."
-
+  "REQUEST_AID": "The foundation provides a variety of assistance to individuals and families, aiming to improve the quality of life and meet the needs of the community.",
+  "OUR_VISION": "Our Vision",
+  "OUR_ACHIEVEMENTS": "Our Achievements",
+  "DONATION": "Donation",
+  "DONATION_MISSION": "The Foundation strives to collect donations through several innovative and effective methods to ensure achieving charitable goals. The Foundation believes that every donation, no matter its value, makes a difference. We value your support and contributions in achieving our vision.",
+    "POLICIES": "Policies",
+  "ASSISTANCE": "Assistance"
 
 }
