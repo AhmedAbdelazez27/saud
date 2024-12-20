@@ -3,8 +3,12 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6">
                 <div class="inner-blur">
-                    <h1 class="title-48-cyan">القاعات و المجالس</h1>
-                    <h3 class="text-white">مؤسسة سعود بن راشد المعلا للأعمال الخيرية و الانسانية</h3>
+                    <h1 class="title-48-cyan">
+                        {{ 'HALLS_AND_MAJLIS' | translate }}
+                    </h1>
+                    <h3 class="text-white">
+                        {{ 'FOUNDATION_NAME' | translate }}
+                    </h3>
                 </div>
             </div>
         </div>
@@ -20,7 +24,9 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h1 class="title-blue">قاعات الحفلات</h1>
+                <h1 class="title-blue">
+                    {{ 'PARTY_HALLS' | translate }}
+                </h1>
             </div>
             <div class="col-lg-6">
                 <img src="../../../../../../assets/images/about-img.png" class="w-100 img-shadow" style="margin-bottom:24px;">
@@ -28,7 +34,7 @@
 
             <div class="col-lg-6">
                 <p class="text-22">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    {{ 'HALL_RESERVATION_DESC' | translate }}
                 </p>
             </div>
         </div>
@@ -40,17 +46,19 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h1 class="title-blue">القاعات المتاحة</h1>
-            </div>
+                <h1 class="title-blue">
+                    {{ 'AVAILABLE_HALLS' | translate }}
+                </h1>
+              </div>
             <div class="col-lg-4" *ngFor="let hall of hallsList ; let i = index">
                 <div class="card campain-container">
                     <img [src]="hall?.imagePath" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="text-24-black">{{hall?.hallNameEn}}</h5>
-                        <p> {{hall?.bodyEn}}</p>
+                        <h5 class="text-24-black">{{currentLang === 'ar' ? hall.hallNameAr : hall.hallNameEn }}</h5>
+                        <p style="height:48px;"> {{  currentLang === 'ar' ? hall?.bodyAr.slice(0,80) : hall?.bodyEn.slice(0,80)}} <span>{{hall?.bodyEn.length>100?'.....':''}}</span></p>
                         <div style="padding:16px 0;">
                             <div class="d-flex" style="justify-content: space-between;">
-                                <p class="text-14-blue" style="margin-bottom: 0;">Required Amount</p>
+                                <p class="text-14-blue" style="margin-bottom: 0;">{{"CAMPAIGN.REQUIRED_AMOUNT"|translate}}</p>
                                 <p class="text-14-black" style="margin-bottom: 0;">{{hall?.amount}} AED</p>
                             </div>
 
@@ -59,7 +67,7 @@
 
                             <button (click)="goDetails('Main/CouncilsHall/HallsDetails/' + hall?.id)" class="btn btn-blue" style="padding-left:20px; padding-right:20px;">
 
-                                More...
+                                {{ 'MORE' | translate }}
                             </button>
                         </div>
                     </div>
@@ -73,7 +81,9 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h1 class="title-blue">المجالس</h1>
+                <h1 class="title-blue">
+                    {{ 'MAJLIS' | translate }}
+                </h1>
             </div>
             <div class="col-lg-6">
                 <img src="../../../../../../assets/images/about-img.png" class="w-100 img-shadow" style="margin-bottom:24px;">
@@ -81,7 +91,7 @@
 
             <div class="col-lg-6">
                 <p class="text-22">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    {{ 'MAJLIS_DESC' | translate }}
                 </p>
             </div>
         </div>
@@ -93,20 +103,21 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h1 class="title-blue">المجالس المتاحة</h1>
+                <h1 class="title-blue">
+                    {{ 'AVAILABLE_MAJLIS' | translate }}
+                </h1>
             </div>
             <div class="col-lg-4" *ngFor="let council of councilsList ; let i = index">
                 <div class="card campain-container">
                     <img [src]="council?.imagePath" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="text-24-black">{{council?.hallNameEn}}</h5>
-                        <p> {{council?.bodyEn}}</p>
-                        
+                        <h5 class="text-24-black">{{currentLang === 'ar' ? council.hallNameAr : council.hallNameEn }}</h5>
+                        <p style="height:48px;"> {{  currentLang === 'ar' ? council?.bodyAr.slice(0,80) : council?.bodyEn.slice(0,80)}} <span>{{council?.bodyEn.length>100?'.....':''}}</span></p>
                         <div class="d-flex justify-content-end" style="gap:8px;">
 
                             <button (click)="goDetails('Main/CouncilsHall/CouncilDetails/' + council?.id)" class="btn btn-blue" style="padding-left:20px; padding-right:20px;">
 
-                                More...
+                                {{ 'MORE' | translate }}
                             </button>
                         </div>
                     </div>

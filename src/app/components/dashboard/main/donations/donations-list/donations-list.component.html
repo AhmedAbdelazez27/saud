@@ -3,8 +3,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6">
                 <div class="inner-blur">
-                    <h1 class="title-48-cyan">التبرعات</h1>
-                    <h3 class="text-white">مؤسسة سعود بن راشد المعلا للأعمال الخيرية و الانسانية</h3>
+                    <h1 class="title-48-cyan">{{ 'DONATIONS' | translate }}</h1>
+                    <h3 class="text-white">{{ 'FOUNDATION_NAME' | translate }}</h3>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                     d="M23.6119 13.2894C22.8268 13.6292 22.3815 14.5316 22.5455 15.4105C22.651 15.9613 23.2369 16.6058 23.7643 16.7581C24.0573 16.8519 26.2135 16.8753 30.2565 16.8519C36.1627 16.8167 36.3151 16.805 36.6315 16.5706C37.2526 16.1136 37.4401 15.7386 37.4401 15.0003C37.4401 14.2621 37.2526 13.8871 36.6315 13.43C36.3151 13.1839 36.1627 13.1839 30.1393 13.1605C25.1823 13.1371 23.8932 13.1605 23.6119 13.2894Z"
                     fill="" />
             </svg>
-            تبرعات عامة
+            {{ 'GENERAL_DONATIONS' | translate }}
         </button>
         <button class="btn btn-about-tabs" [ngClass]="{ active: selectedTab === 'message' }"
             (click)="switchTab('message')">
@@ -34,7 +34,7 @@
                     d="M26.6591 2.47239C21.6551 3.11692 16.5809 5.27317 12.6551 8.4138C7.42859 12.5974 3.8778 18.6208 2.69421 25.3122C2.33093 27.363 2.23718 31.4529 2.50671 33.4568C2.79968 35.5661 3.23327 37.3474 3.9364 39.3747C4.28796 40.3708 4.60437 41.449 4.63952 41.7771C4.6864 42.1169 4.54577 43.9099 4.33484 45.9958C3.84265 50.6716 3.86609 51.4099 4.54577 52.781C5.40124 54.4919 6.84265 55.5935 8.74109 55.9802C9.5614 56.1443 9.7489 56.1326 13.4403 55.7341C15.5497 55.4997 17.5419 55.3122 17.8466 55.3122C18.2333 55.3122 19.1239 55.5466 20.6591 56.074C22.8739 56.8122 24.8895 57.2927 26.8348 57.5388C28.2528 57.7146 31.827 57.6794 33.4091 57.4919C41.8348 56.4372 49.37 51.5388 53.7528 44.238C56.2137 40.1365 57.4091 36.1638 57.6551 31.2419C57.913 26.3083 57.0692 22.1833 54.9012 17.7536C50.8466 9.42161 43.1122 3.84349 33.8075 2.51927C32.495 2.33177 28.0184 2.30833 26.6591 2.47239ZM38.1786 21.5505C39.6551 22.3005 39.9598 24.2927 38.7645 25.3943C38.0966 26.0271 38.2372 26.0154 29.9755 26.0154C22.4051 26.0154 22.3348 26.0154 21.8192 25.7693C21.1981 25.4646 20.6708 24.7029 20.5536 23.9529C20.413 23.0036 20.9755 21.9372 21.8426 21.5505C22.2997 21.3396 22.7567 21.3279 30.0341 21.3279C37.3817 21.3279 37.7684 21.3396 38.1786 21.5505ZM33.7255 34.3708C34.37 34.7927 34.7333 35.4958 34.7333 36.3279C34.7333 37.1599 34.37 37.863 33.7255 38.2849L33.2333 38.613L27.7723 38.6482L22.3114 38.6833L21.7958 38.4021C20.1669 37.5466 20.1669 35.1091 21.7958 34.2536L22.3114 33.9724L27.7723 34.0076L33.2333 34.0427L33.7255 34.3708Z"
                     fill="" />
             </svg>
-            تبرع برسالة
+            {{ 'DONATE_MESSAGE' | translate }}
         </button>
 
     </div>
@@ -50,14 +50,14 @@
                         [src]="item?.filePath ? item?.filePath:'../../../../../../assets/images/Rectangle 4161.png'"
                         class="card-img-top">
                     <div class="card-body">
-                        <h5 class="text-24-black text-center">{{item?.autoCouponName}}</h5>
+                        <h5 class="text-24-black text-center">{{currentLang === 'ar' ? item.autoCouponName : item.couponNameEn }}</h5>
 
                         <div class="d-flex justify-content-center" style="gap:8px;">
                             <button class="btn btn-blue"
                                 (click)="selectCurrentItem($event,item,false,'Donation Normal')" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
 
-                                Add to Cart
+                                {{ 'BUTTON.ADD_TO_CART' | translate }}
                             </button>
                             <button class="btn btn-green"
                                 (click)="selectCurrentItem($event,item,true,'Donation Normal')" data-bs-toggle="modal"
@@ -65,7 +65,7 @@
                                 <span>
 
                                 </span>
-                                Donate Now
+                                {{ 'BUTTON.DONATE_NOW' | translate }}
                             </button>
 
                         </div>
@@ -90,7 +90,7 @@
                         [src]="item?.filePath ? item?.filePath:'../../../../../../assets/images/Rectangle 4161.png'"
                         class="card-img-top">
                     <div class="card-body">
-                        <h5 class="text-24-black text-center">{{item?.autoCouponName}}</h5>
+                        <h5 class="text-24-black text-center">{{currentLang === 'ar' ? item.autoCouponName : item.couponNameEn }}</h5>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                             [src]="currentItemCart?.filePath ? currentItemCart?.filePath:'../../../../../../assets/images/Rectangle 4161.png'"
                             class="img-shadow w-100  mb-4">
 
-                        <p class="text-24-black">خدمة التبرع عبر الرسائل النصية القصيرة</p>
+                        <p class="text-24-black"> {{ 'SMS_DONATION_SERVICE' | translate }}</p>
                     </div>
 
                     <!-- <div class="d-flex mb-3" style="gap:16px;"> -->
@@ -133,7 +133,7 @@
                     <div class="d-flex justify-content-center " style="gap:8px;">
                         <button href="#" class="btn btn-blue btn-wide">
 
-                            Confirm
+                            {{ 'CONFIRM' | translate }}
                         </button>
 
                     </div>
@@ -150,7 +150,7 @@
                     </div>
     
                     <div class="mb-3  mb-4">
-                        <label for="exampleFormControlInput1" class="form-label">قيمة التبرع</label>
+                        <label for="exampleFormControlInput1" class="form-label">{{"VALUE"|translate}} </label>
                         <input type="number" [(ngModel)]="inputValue" class="form-control" id="exampleFormControlInput1"
                             placeholder="">
                     </div>
@@ -159,7 +159,7 @@
                         <button class="btn btn-blue btn-wide" style="margin:auto;" [disabled]="!inputValue"
                             (click)="addToCartDonation(currentItemCart)" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
-                            OK
+                            {{"OK"|translate}}
                         </button>
     
                     </div>

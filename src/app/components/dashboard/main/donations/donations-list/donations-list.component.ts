@@ -7,11 +7,12 @@ import { SpinnerService } from '../../../../../shared/services/spinner.service';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { CartService } from '../../../../../shared/services/cart.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-donations-list',
   standalone: true,
-  imports: [CommonModule,FormsModule,ToastModule],
+  imports: [CommonModule,FormsModule,ToastModule,TranslateModule],
   templateUrl: './donations-list.component.html',
   styleUrl: './donations-list.component.scss',
   providers : [MessageService]
@@ -23,6 +24,7 @@ export class DonationsListComponent implements OnInit {
   listDonation:any[]=[];
   currentItemCart : any;
   inputValue: number=0;
+  currentLang: string;
   
   constructor(
     private _DonationService: DonationService,
@@ -30,7 +32,9 @@ export class DonationsListComponent implements OnInit {
     private router:Router,
     private cartService: CartService,
     private _SpinnerService: SpinnerService,
+    private translate: TranslateService
   ) {
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;
 
   }
   ngOnInit(): void {
