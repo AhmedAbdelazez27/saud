@@ -3,23 +3,22 @@
         <div class="text-center mb-5">
             <img src="../../../../../../assets/images/acheivement.png" style="margin-bottom:24px;">
             <h1 class="title-blue">
-                عن مؤسسة سعود بن راشد المعلا
+                {{"ABOUT_TITLE"|translate}}
                 <br />
-                للأعمال الخيرية و الانسانية
+                {{"ABOUT_SUBTITLE"|translate}}
             </h1>
         </div>
 
         <div class="row">
-            <div class="col-md-6" *ngFor="let itemWebsiteAboutUsDept of listWebsiteAboutUsDept ; let index = index" [ngClass]="index%2 ? 'mb-100': ''">
-                <div class="about-box-3">
+            <div class="col-md-6" *ngFor="let itemWebsiteAboutUsDept of listWebsiteAboutUsDept ; let index = index"
+                [ngClass]="index %2 ? 'mt-150': 'mb-5'">
+                <div class="about-box-3 mt-1">
                     <div class="gates-item">
-                        <h5 class="text-28-white">{{itemWebsiteAboutUsDept?.titleEn}}</h5>
+                        <h5 class="text-28-white">{{currentLang === 'ar' ? itemWebsiteAboutUsDept?.titleAr :
+                            itemWebsiteAboutUsDept?.titleEn}}</h5>
                         <p class="text-20 white">
-                           {{itemWebsiteAboutUsDept?.DeptBodyEn ? itemWebsiteAboutUsDept?.DeptBodyEn : ' هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على
-                            الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم
-                            إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
-                            هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي'
-}}
+                            {{currentLang === 'ar' ? itemWebsiteAboutUsDept?.deptBodyAr :
+                            itemWebsiteAboutUsDept?.deptBodyEn}}
                         </p>
                     </div>
 
@@ -42,8 +41,7 @@
                 {{websiteAboutUs?.titleEn}}
 
             </h1>
-            <p class="text-20">
-                {{websiteAboutUs?.bodyEn}}
+            <p class="text-20" [innerHTML]="currentLang === 'ar' ? websiteAboutUs?.bodyAr : websiteAboutUs?.bodyEn">
             </p>
         </div>
 
@@ -59,21 +57,54 @@
         <div class="row">
             <ng-container
                 *ngFor="let itemindexAboutUsBranchs of listWebsiteAboutUsBranchs ;let indexAboutUsBranchs =index">
-                <div class="col-lg-6 mt-150" [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-5':'order-lg-1'">
-                    <img [src]="itemindexAboutUsBranchs?.imagePath ? itemindexAboutUsBranchs?.imagePath:'../../../../../../assets/images/about 1.png'"
-                        class="w-100 img-shadow mb-3">
-                </div>
+                <ng-container *ngIf="indexAboutUsBranchs % 2 == 0">
+                    <div class="col-lg-6 mt-150" >
+                        <!-- [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-5':'order-lg-1'" -->
+                        <img [src]="listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.imagePath"
+                            class="w-100 img-shadow mb-3">
+                    </div>
 
-                <div class="col-lg-6 mt-150" [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-1':'order-lg-5'">
-                    <h1 class="blue">{{itemindexAboutUsBranchs?.titleEn}}</h1>
-                    <p class="text-22">
-                        {{itemindexAboutUsBranchs?.bodyEn}}
-                    </p>
-                    <a [href]="itemindexAboutUsBranchs?.url" target="_blank" >
-                        <button class="btn btn-blue btn-wide"
-                        >More...</button>
-                    </a>
-                </div>
+                    <div class="col-lg-6 mt-150" >
+                        <!-- [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-1':'order-lg-5'" -->
+                        <h1 class="blue">{{currentLang === 'ar' ?
+                            listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.titleAr :
+                            listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.titleEn }}</h1>
+                        <p class="text-22">
+                            {{currentLang === 'ar' ? listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.bodyAr :
+                            listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.bodyEn}}
+                        </p>
+                        <a [href]="listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.url.startsWith('http') 
+                            ? listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.url 
+                            : 'https://' + listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.url" target="_blank">
+                            <button class="btn btn-blue btn-wide">{{ 'MORE' | translate }}</button>
+                        </a>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="(indexAboutUsBranchs) % 2== 1">
+                    <div class="col-lg-6 mt-150" >
+                        <!-- [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-1':'order-lg-5'" -->
+                        <h1 class="blue">{{currentLang === 'ar' ?
+                            listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.titleAr :
+                            listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.titleEn }}</h1>
+                        <p class="text-22">
+                            {{currentLang === 'ar' ? listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.bodyAr :
+                            listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.bodyEn}}
+                        </p>
+                        <a [href]="listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.url.startsWith('http') 
+                            ? listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.url 
+                            : 'https://' + listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.url" target="_blank">
+                            <button class="btn btn-blue btn-wide">{{'MORE'|translate}}</button>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 mt-150">
+                        <!-- [ngClass]="indexAboutUsBranchs%2 ? 'order-lg-5':'order-lg-1'" -->
+                        <img [src]="listWebsiteAboutUsBranchs[indexAboutUsBranchs]?.imagePath"
+                            class="w-100 img-shadow mb-3">
+                    </div>
+
+
+                </ng-container>
             </ng-container>
 
         </div>

@@ -149,6 +149,13 @@
    "TOTAL": "Total",
    "TOTAL_DONATION_AMOUNT": "Total Donation Amount",
    "COMPLETE_PAYMENT": "Complete Payment",
-   "DONATE_MORE": "Donate More"
+   "DONATE_MORE": "Donate More",
+    "ABOUT_TITLE": "About Saud bin Rashid Al Mualla Foundation",
+  "ABOUT_SUBTITLE": "for Charitable and Humanitarian Works",
+  "GENERAL": "About Us",
+  "STRATEGY": "Foundation Strategy",
+  "MEMBER": "Board Members",
+  "REQUEST_AID": "The foundation provides a variety of assistance to individuals and families, aiming to improve the quality of life and meet the needs of the community."
+
 
 }

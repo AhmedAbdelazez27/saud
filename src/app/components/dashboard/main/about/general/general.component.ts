@@ -3,11 +3,12 @@ import { AboutusService } from '../../servicesApi/aboutus.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-general',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,TranslateModule],
   templateUrl: './general.component.html',
   styleUrl: './general.component.scss'
 })
@@ -15,13 +16,15 @@ export class GeneralComponent implements OnInit{
   websiteAboutUs:any;
   listWebsiteAboutUsBranchs:any;
   listWebsiteAboutUsDept:any;
+  currentLang: string;
 
   constructor(
     private _AboutusService:AboutusService,
     private router : Router,
     private _SpinnerService: SpinnerService,
+    private translate: TranslateService
   ){
-
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;
   }
 
   ngOnInit(): void {
