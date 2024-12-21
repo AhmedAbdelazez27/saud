@@ -7,13 +7,14 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { HallReservationService } from '../../servicesApi/hall-reservation.service';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModal for handling modal display
 import { DialogModule } from 'primeng/dialog';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 
 @Component({
   selector: 'app-halls-detials',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, DialogModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, DialogModule,TranslateModule],
   templateUrl: './halls-detials.component.html',
   styleUrl: './halls-detials.component.scss'
 })
@@ -24,6 +25,7 @@ export class HallsDetialsComponent implements OnInit {
   otherOptions: any[] = [];
   hallID: any;
   displayDialog: boolean = false;
+  currentLang: string;
 
   constructor(
     private landingService: LandingService,
@@ -32,9 +34,11 @@ export class HallsDetialsComponent implements OnInit {
     private router:Router,
     private fb: FormBuilder,
     private hallReservationService: HallReservationService,
-    private modalService: NgbModal  // Inject modal service
+    private modalService: NgbModal,
 
-  ) {
+    private translate: TranslateService
+    ) {
+      this.currentLang = this.translate.currentLang || this.translate.defaultLang;
     this.reservationForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

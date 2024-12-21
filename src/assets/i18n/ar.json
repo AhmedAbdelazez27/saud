@@ -173,7 +173,30 @@
   "AVAILABLE_HALLS": "القاعات المتاحة",
   "MAJLIS": "المجالس",
   "MAJLIS_DESC": "يمكن استخدامها خلال العزاء أو الندوات هي خدمة مجانية تهدف لإحياء تراث الإمارات وتعزيز الروابط الاجتماعية. توفر هذه المجالس منصة لتبادل التعازي والأفكار، مما يسهم في تعزيز القيم الثقافية والتقاليد الإماراتية.",
-  "AVAILABLE_MAJLIS": "المجالس المتاحة"
+  "AVAILABLE_MAJLIS": "المجالس المتاحة",
+  "MAJLIS_RESERVATION_TITLE": "تسجيل طلب مجلس",
+  "FULL_NAME": "الاسم",
+  "MOBILE_NUMBER": "رقم الهاتف",
+  "EVENT_TYPE": "نوع المناسبة",
+  "EVENT_DATE": "تاريخ المناسبة",
+  "INVITEES_COUNT": "عدد المدعوين",
+  "OTHER_OPTIONS": "أختيارات أخرى",
+  "ADDITIONAL_REQUESTS": "طلبات اضافية",
+  "SUBMIT_REQUEST": "إرسال الطلب",
+   "CLOSE": "اغلاق",
+  "REQUEST_SENT_SUCCESS": "تم ارسال الطلب بنجاح",
+  "CAPACITY": "السعة",
+  "PERSONS": "فرد",
+  "AREA": "المساحة",
+  "SQUARE_METERS": "متر مربع",
+  "TABLES": "طاولة",
+  "NUMBER_OF_TABLES": "عدد الطاولات",
+  "ENTER_YOUR_NAME": "أدخل اسمك",
+  "ENTER_ID_NUMBER": "أدخل رقم الهوية",
+  "ENTER_EMAIL": "أدخل بريدك الإلكتروني",
+  "ENTER_MOBILE_NUMBER": "أدخل رقم هاتفك",
+  "ENTER_INVITEES_COUNT": "أدخل عدد المدعوين",
+  "ENTER_ADDITIONAL_REQUESTS": "أدخل طلباتك الإضافية"
 
 
 }

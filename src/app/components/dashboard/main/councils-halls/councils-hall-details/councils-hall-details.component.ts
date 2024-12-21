@@ -6,11 +6,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HallReservationService } from '../../servicesApi/hall-reservation.service';
 import { DialogModule } from 'primeng/dialog';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-councils-hall-details',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,FormsModule,DialogModule],
+  imports: [CommonModule,ReactiveFormsModule,FormsModule,DialogModule,TranslateModule],
   templateUrl: './councils-hall-details.component.html',
   styleUrl: './councils-hall-details.component.scss'
 })
@@ -20,6 +21,7 @@ export class CouncilsHallDetailsComponent implements OnInit{
   typeOfEventOptions: any[] = [];
   otherOptions: any[] = [];
   displayDialog: boolean = false;
+  currentLang: string;
 
   constructor(
     private landingService: LandingService,
@@ -27,8 +29,10 @@ export class CouncilsHallDetailsComponent implements OnInit{
     private route:ActivatedRoute,
     private router:Router,
     private fb: FormBuilder,
-    private _HallReservationService:HallReservationService
-  ){
+    private _HallReservationService:HallReservationService,
+    private translate: TranslateService
+  ) {
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;
     this.reservationForm = this.fb.group({
       // websiteHallsCouncilId: [null, Validators.required],
       fullName: ['', [Validators.required, Validators.maxLength(200)]],
