@@ -195,6 +195,27 @@
   "ENTER_EMAIL": "Enter your email",
   "ENTER_MOBILE_NUMBER": "Enter your mobile number",
   "ENTER_INVITEES_COUNT": "Enter number of invitees",
-  "ENTER_ADDITIONAL_REQUESTS": "Enter your additional requests"
+  "ENTER_ADDITIONAL_REQUESTS": "Enter your additional requests",
+  "PROJECT_AMER": "Project Amer",
+  "PROJECT_AMER_DESCRIPTION": "It has been proven for a long time that the readable content of a page will distract the reader from focusing on the external shape of the text or the way paragraphs are placed on the page. Therefore, the Lorem Ipsum method is used because it provides a fairly natural distribution.",
+  "REGISTER_AMBULANCE_REQUEST": "Register Ambulance Request",
+  "PROJECT_TRANSPORT": "Transport Project",
+  "PROJECT_TRANSPORT_DESCRIPTION": "It has been proven for a long time that the readable content of a page will distract the reader from focusing on the external shape of the text or the way paragraphs are placed on the page. Therefore, the Lorem Ipsum method is used because it provides a fairly natural distribution.",
+  "REGISTER_BUS_REQUEST": "Register Bus Request",
+  "PROJECT_VOLUNTEERING": "Volunteering",
+  "PROJECT_VOLUNTEERING_DESCRIPTION": "It has been proven for a long time that the readable content of a page will distract the reader from focusing on the external shape of the text or the way paragraphs are placed on the page. Therefore, the Lorem Ipsum method is used because it provides a fairly natural distribution.",
+  "REGISTER_VOLUNTEER_REQUEST": "Register Volunteer Request",
+  "PROJECT_CLOTHES": "Used Clothes Collection Project",
+  "PROJECT_CLOTHES_DESCRIPTION": "It has been proven for a long time that the readable content of a page will distract the reader from focusing on the external shape of the text or the way paragraphs are placed on the page. Therefore, the Lorem Ipsum method is used because it provides a fairly natural distribution.",
+  "REGISTER_CLOTHES_DONATION": "Register Clothes Donation",
+  "PROJECT_FOOD_SAVING": "Food Saving Project",
+  "PROJECT_FOOD_SAVING_DESCRIPTION": "It has been proven for a long time that the readable content of a page will distract the reader from focusing on the external shape of the text or the way paragraphs are placed on the page. Therefore, the Lorem Ipsum method is used because it provides a fairly natural distribution.",
+  "REGISTER_REQUEST": "Register Request",
+
+  "FOOD_SAVING_PROGRAM_DESCRIPTION": "This program focuses on reducing food waste by collecting surplus meals and distributing them to those in need. It helps raise awareness about the importance of not wasting food resources.",
+  "TRANSPORT_PROGRAM_DESCRIPTION": "This program aims to provide transportation for patients who need to go to the hospital for their medical appointments. It helps facilitate access to healthcare, especially for those without means of transport.",
+  "RAMADAN_MEALS_PROGRAM_DESCRIPTION": "This program offers Iftar meals to those in need during Ramadan. It fosters a spirit of cooperation and participation during the holy month, ensuring everyone can break their fast properly.",
+  "STUDENT_TRANSPORT_PROGRAM_DESCRIPTION": "This program aims to facilitate student transportation to Zayed University, helping them access higher education without hassle. It is a significant support for students in their educational journey."
+  
 
 }

@@ -3,8 +3,8 @@
     <div class="row d-flex justify-content-center">
         <div class="col-lg-6">
              <div class="inner-blur">
-                 <h1 class="title-48-cyan">الخدمات</h1>
-                 <h3 class="text-white">مؤسسة سعود بن راشد المعلا للأعمال الخيرية و الانسانية</h3>
+                 <h1 class="title-48-cyan">{{"GATES.PROJECTS"|translate}}</h1>
+                 <h3 class="text-white">{{ 'FOUNDATION_NAME' | translate }}</h3>
              </div>
          </div>
      </div>
@@ -19,111 +19,106 @@
 <section class="Campaigns">
   <div class="container">
       <div class="row">
-          <div class="col-lg-6">
-              <div class="card campain-container">
-                  <img src="../../../../../../assets/images/S2.png" class="card-img-top" />
-                  <div class="card-body">
-                      <h2 class="blue bold">مشروع آمر</h2>
-                      <p class="text-22">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ</p>
-
-                      <div class="d-flex" style="gap:8px;">
-                          <button class="btn btn-blue w-100"  (click)="goDetails('Main/Services/AmbulanceDetails/')">
-
-                              تسجيل طلب سيارة اسعاف
-                          </button>
-
-                          <button class="btn btn-more-grey w-100">
-
-                              More...
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <div class="card campain-container">
-                  <img src="../../../../../../assets/images/S1.png" class="card-img-top" />
-                  <div class="card-body">
-                      <h2 class="blue bold">مشروع النقل</h2>
-                      <p class="text-22">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ</p>
-
-                      <div class="d-flex" style="gap:8px;">
-                          <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/TransportDetails/')">
-
-                              تسجيل طلب باص
-                          </button>
-
-                          <button class="btn btn-more-grey w-100">
-
-                              More...
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <div class="card campain-container">
-                  <img src="../../../../../../assets/images/S4.png" class="card-img-top" />
-                  <div class="card-body">
-                      <h2 class="blue bold">التطوع</h2>
-                      <p class="text-22">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ</p>
-
-                      <div class="d-flex" style="gap:8px;">
-                          <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/VolunteerDetails/')">
-
-                              تقديم طلب للتطوع
-                          </button>
-
-                          <button class="btn btn-more-grey w-100">
-
-                              More...
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <div class="card campain-container">
-                  <img src="../../../../../../assets/images/S3.png" class="card-img-top" />
-                  <div class="card-body">
-                      <h2 class="blue bold">مشروع جمع الملابس المستعملة</h2>
-                      <p class="text-22">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ</p>
-
-                      <div class="d-flex" style="gap:8px;">
-                          <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/ClothesDetails/')">
-
-                              تقديم طلب تبرع بالملابس
-                          </button>
-
-                          <button class="btn btn-more-grey w-100">
-
-                              More...
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <div class="card campain-container">
-                  <img src="../../../../../../assets/images/S5.png" class="card-img-top" />
-                  <div class="card-body">
-                      <h2 class="blue bold">مشروع حفظ النعمة</h2>
-                      <p class="text-22">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ</p>
-
-                      <div class="d-flex" style="gap:8px;">
-                          <button class="btn btn-blue w-100"  (click)="goDetails('Main/Services/FoodDetails/')">
-
-                              تسجيل طلب
-                          </button>
-
-                          <button class="btn btn-more-grey w-100">
-
-                              More...
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        <div class="col-lg-6">
+            <div class="card campain-container">
+                <img style="height: 400px;" src="../../../../../../assets/images/Amer.jpg" class="card-img-top" />
+                <div class="card-body">
+                    <h2 class="blue bold">{{ 'PROJECT_AMER' | translate }}</h2>
+                    <p class="text-22" style="height: 148px; overflow: hidden;">{{ 'TRANSPORT_PROGRAM_DESCRIPTION' | translate }}</p>
+        
+                    <div class="d-flex" style="gap:8px;">
+                        <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/AmbulanceDetails/')">
+                            {{ 'REGISTER_AMBULANCE_REQUEST' | translate }}
+                        </button>
+        
+                        <button class="btn btn-more-grey w-100">
+                            {{ 'MORE' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card campain-container">
+                <img style="height: 400px;" src="../../../../../../assets/images/transport.jpg" class="card-img-top" />
+                <div class="card-body">
+                    <h2 class="blue bold">{{ 'PROJECT_TRANSPORT' | translate }}</h2>
+                    <p class="text-22" style="height: 148px; overflow: hidden;">{{ 'STUDENT_TRANSPORT_PROGRAM_DESCRIPTION' | translate }}</p>
+        
+                    <div class="d-flex" style="gap:8px;">
+                        <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/TransportDetails/')">
+                            {{ 'REGISTER_BUS_REQUEST' | translate }}
+                        </button>
+        
+                        <button class="btn btn-more-grey w-100">
+                            {{ 'MORE' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card campain-container">
+                <img style="height: 400px;" src="../../../../../../assets/images/S4.png" class="card-img-top" />
+                <div class="card-body">
+                    <h2 class="blue bold">{{ 'PROJECT_VOLUNTEERING' | translate }}</h2>
+                    <p class="text-22" style="height: 148px; overflow: hidden;">{{ 'RAMADAN_MEALS_PROGRAM_DESCRIPTION' | translate }}</p>
+        
+                    <div class="d-flex" style="gap:8px;">
+                        <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/VolunteerDetails/')">
+                            {{ 'REGISTER_VOLUNTEER_REQUEST' | translate }}
+                        </button>
+        
+                        <button class="btn btn-more-grey w-100">
+                            {{ 'MORE' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card campain-container">
+                <img style="height: 400px;" src="../../../../../../assets/images/clothes.jpg" class="card-img-top" />
+                <div class="card-body">
+                    <h2 class="blue bold">{{ 'PROJECT_CLOTHES' | translate }}</h2>
+                    <p class="text-22" style="height: 148px; overflow: hidden;">{{ 'PROJECT_CLOTHES_DESCRIPTION' | translate }}</p>
+        
+                    <div class="d-flex" style="gap:8px;">
+                        <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/ClothesDetails/')">
+                            {{ 'REGISTER_CLOTHES_DONATION' | translate }}
+                        </button>
+        
+                        <button class="btn btn-more-grey w-100">
+                            {{ 'MORE' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card campain-container">
+                <img style="height: 400px;" src="../../../../../../assets/images/hefz.jpg" class="card-img-top" />
+                <div class="card-body">
+                    <h2 class="blue bold">{{ 'PROJECT_FOOD_SAVING' | translate }}</h2>
+                    <p class="text-22" style="height: 148px; overflow: hidden;">{{ 'FOOD_SAVING_PROGRAM_DESCRIPTION' | translate }}</p>
+        
+                    <div class="d-flex" style="gap:8px;">
+                        <button class="btn btn-blue w-100" (click)="goDetails('Main/Services/FoodDetails/')">
+                            {{ 'REGISTER_REQUEST' | translate }}
+                        </button>
+        
+                        <button class="btn btn-more-grey w-100">
+                            {{ 'MORE' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
       </div>
   </div>
 </section>

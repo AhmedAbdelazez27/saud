@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LandingService } from '../../servicesApi/landing.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-services-lists',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [ CommonModule,TranslateModule],
   templateUrl: './services-lists.component.html',
   styleUrl: './services-lists.component.scss'
 })
@@ -32,12 +33,15 @@ export class ServicesListsComponent {
       secondaryActionText: 'التفاصيل',
     },
   ];
+  currentLang: string;
 
 
   constructor(
     private router:Router,
-    private landingService:LandingService
-  ){
+    private landingService:LandingService,
+    private translate: TranslateService
+    ) {
+      this.currentLang = this.translate.currentLang || this.translate.defaultLang;
 
   }
 
