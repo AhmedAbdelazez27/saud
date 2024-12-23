@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-volunteer-inner',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule,TranslateModule],
   templateUrl: './volunteer-inner.component.html',
   styleUrl: './volunteer-inner.component.scss'
 })

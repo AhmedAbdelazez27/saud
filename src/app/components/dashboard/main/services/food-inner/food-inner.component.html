@@ -3,8 +3,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6">
                 <div class="inner-blur">
-                    <h1 class="title-48-cyan">مشروع حفظ النعمة</h1>
-                    <h3 class="text-white">مؤسسة سعود بن راشد المعلا للأعمال الخيرية و الانسانية</h3>
+                    <h1 class="title-48-cyan">{{ 'PROJECT_FOOD_SAVING' | translate }}</h1>
+                    <h3 class="text-white">{{ 'FOUNDATION_NAME' | translate }}</h3>
                 </div>
             </div>
         </div>
@@ -20,14 +20,10 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-12">
-                <img src="../../../../../../assets/images/send-food-inner.png" class="w-100 img-shadow mb-4" />
-                <h1 class="title-blue text-start">مشروع حفظ النعمة</h1>
+                <img src="../../../../../../assets/images/hefz.jpg" class="w-100 img-shadow mb-4" />
+                <h1 class="title-blue text-start">{{ 'PROJECT_FOOD_SAVING' | translate }}</h1>
                 <p class="text-22">
-                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل
-                    الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها
-                    تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي"
-                    فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب
-                    تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج
+                    {{ 'FOOD_SAVING_PROGRAM_DESCRIPTION' | translate }}
                 </p>
             </div>
         </div>
@@ -41,50 +37,48 @@
     <div class="container">
         <div class="row">
             <div class="inner-form-container">
-                <h1 class="title-blue text-start">تسجيل الطلب</h1>
+                <h1 class="title-blue text-start">{{ 'REQUEST_REGISTRATION' | translate }}</h1>
                 <form [formGroup]="preservingGraceForm" (ngSubmit)="onSubmit()">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="fullName" class="form-label">الاسم</label>
+                                <label for="fullName" class="form-label">{{ 'FULL_NAME' | translate }}</label>
                                 <input type="text" id="fullName" class="form-control" formControlName="fullName" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="idNumber" class="form-label">رقم الهوية</label>
+                                <label for="idNumber" class="form-label">{{ 'ID_NUMBER' | translate }}</label>
                                 <input type="text" id="idNumber" class="form-control" formControlName="idNumber" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="email" class="form-label">البريد الالكتروني</label>
+                                <label for="email" class="form-label">{{ 'EMAIL' | translate }}</label>
                                 <input type="email" id="email" class="form-control" formControlName="email" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="mobileNumber" class="form-label">رقم الهاتف</label>
-                                <input type="tel" id="mobileNumber" class="form-control"
-                                    formControlName="mobileNumber" />
+                                <label for="mobileNumber" class="form-label">{{ 'MOBILE_NUMBER' | translate }}</label>
+                                <input type="tel" id="mobileNumber" class="form-control" formControlName="mobileNumber" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="noOfPersons" class="form-label">عدد الأفراد</label>
-                                <input type="number" id="noOfPersons" class="form-control"
-                                    formControlName="noOfPersons" />
+                                <label for="noOfPersons" class="form-label">{{ 'NUMBER_OF_PERSONS' | translate }}</label>
+                                <input type="number" id="noOfPersons" class="form-control" formControlName="noOfPersons" />
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label for="reason" class="form-label">سبب الطلب</label>
+                                <label for="reason" class="form-label">{{ 'REQUEST_REASON' | translate }}</label>
                                 <textarea id="reason" class="form-control" formControlName="reason" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-blue" style="margin:auto;">
-                                Send Request
+                                {{ 'SEND_REQUEST' | translate }}
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none">
@@ -110,21 +104,17 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <h1 class="blue mb-4">تم ارسال الطلب بنجاح</h1>
-                    <p>
-                        هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل
-                        الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم
-                        لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
-                    </p>
+                    <h1 class="blue mb-4">{{ 'REQUEST_SENT_SUCCESS' | translate }}</h1>
+                    
                 </div>
             </div>
         </div>
     </div>
-
+  
     <p-footer class="modal-footer">
         <button (click)="onDialogOkClick()" class="btn btn-blue btn-wide" style="margin:auto;" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
-                        اغلاق
+                        {{ 'CLOSE' | translate }}
         </button>
     </p-footer>
-</p-dialog>
+  </p-dialog>

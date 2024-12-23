@@ -5,12 +5,13 @@ import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-transport-inner',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule,TranslateModule],
   templateUrl: './transport-inner.component.html',
   styleUrl: './transport-inner.component.scss'
 })

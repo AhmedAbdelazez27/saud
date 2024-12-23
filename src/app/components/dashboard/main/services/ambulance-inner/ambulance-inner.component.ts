@@ -5,12 +5,13 @@ import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-ambulance-inner',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule,TranslateModule],
   templateUrl: './ambulance-inner.component.html',
   styleUrl: './ambulance-inner.component.scss'
 })
@@ -20,13 +21,16 @@ export class AmbulanceInnerComponent {
   drivers: any[] = [];
   fileFailed: boolean =false;
   selectedFileName: string | null = null;
+  currentLang: string;
 
   constructor(
     private fb: FormBuilder,
     private _ServicesService: ServicesService,
     private router:Router,
     private _SpinnerService:SpinnerService,
-    ){
+    private translate: TranslateService
+       ) {
+         this.currentLang = this.translate.currentLang || this.translate.defaultLang;
       this.ambulanceForm = this.fb.group({
         fullName: ['', [Validators.required, Validators.maxLength(200)]],
         idNumber: ['', [Validators.required, Validators.maxLength(50)]],

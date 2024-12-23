@@ -135,4 +135,7 @@ export class DonationsListComponent implements OnInit {
       detail: 'Item already exists in the cart',
     });
   };
+
+  
+
 }

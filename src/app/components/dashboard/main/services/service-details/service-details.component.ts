@@ -5,11 +5,12 @@ import { ServicesService } from '../../servicesApi/services.service';
 import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-service-details',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule,TranslateModule],
   templateUrl: './service-details.component.html',
   styleUrl: './service-details.component.scss'
 })
@@ -29,7 +30,6 @@ export class ServiceDetailsComponent {
   };
 
   onSubmit(): void {
-    this.displayDialog = true;
     if (this.donationForm.valid) {
       this._SpinnerService.showSpinner();
       this._ServicesService.submitDonationClothes(this.donationForm.value).subscribe({
@@ -37,6 +37,8 @@ export class ServiceDetailsComponent {
           this.donationForm.reset();
           console.log('Request submitted successfully', response);
           this._SpinnerService.hideSpinner();
+          this.displayDialog = true;
+
         },
         error: (error: any) => {
           console.error('Error submitting request', error);

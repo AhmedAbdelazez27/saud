@@ -220,11 +220,11 @@
       <div class="col-xl-3 col-lg-6">
         <div class="grade-cyan">
 
-          <div class="gates-item">
+          <div class="gates-item" (click)="goDetails('/Main/Donations')">
             <div class="d-flex"
               style="display: flex; flex-wrap: inherit; align-items: center; justify-content: space-between; width:100%;">
               <div class="text-24-white">
-                {{ 'GATES.FAST_DONATION' | translate }}
+                {{ 'DONATIONS' | translate }} 
               </div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
@@ -299,7 +299,7 @@
             <div class="d-flex"
               style="display: flex; flex-wrap: inherit; align-items: center; justify-content: space-between; width:100%;">
               <div class="text-24-white">
-                {{ 'GATES.CAMPAIGNS' | translate }}
+                {{ 'GATES.EMERGENCYQ' | translate }}
               </div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="66" height="64" viewBox="0 0 66 64" fill="none">
@@ -328,7 +328,9 @@
               {{ 'GATES.CAMPAIGNS_DESC' | translate }}
             </p>
 
-            <button class="btn btn-white-wide" (click)="goDetails('/Main/Emergency/List')">{{'MORE'|translate}}</button>
+            <a href="https://charity.uaq.ae/home" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+              <button class="btn btn-white-wide">{{'MORE'|translate}}</button>
+            </a>
 
           </div>
 
@@ -511,7 +513,7 @@
             <ng-template carouselSlide>
               <div class="item">
                 <div class="card campain-container">
-                  <img [src]="campaign.filePath" class="card-img-top" />
+                  <img [src]="campaign.filePath" class="card-img-top" style="height: 375px;" />
                   <div class="card-body">
                     <h5 class="text-24-black text-center">{{currentLang === 'ar' ? campaign.autoCouponName : campaign?.couponNameEn  }}</h5>
   

@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-food-inner',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule,DialogModule,TranslateModule],
   templateUrl: './food-inner.component.html',
   styleUrl: './food-inner.component.scss'
 })
@@ -36,9 +37,9 @@ export class FoodInnerComponent {
       this._ServicesService.submitDonationFoods(this.preservingGraceForm.value).subscribe({
         next: (response: any) => {
           console.log('Request submitted successfully', response);
-          this.displayDialog = true;
           this.preservingGraceForm.reset();
           this._SpinnerService.hideSpinner();
+          this.displayDialog = true;
         },
         error: (error: any) => {
           console.error('Error submitting request', error);
