@@ -127,7 +127,7 @@
                         <ng-container *ngFor="let item of row; let i = index">
                             <input type="radio" class="btn-check" name="options" [id]="'option' + i" autocomplete="off"
                                 checked />
-                            <label class="btn btn-secondary w-100" [for]="'option' + i">
+                            <label class="btn btn-secondary w-100" [for]="'option' + i"  (click)="sendSMS(item.smsNumber, item.amount)">
                                 {{ item?.amount }} درهم
                             </label>
                         </ng-container>
@@ -176,43 +176,3 @@
 
 <p-toast position="top-right"></p-toast>
 <!-- modal end sms -->
-
-<!-- start modal add to cart  -->
-<!-- <div class="modal modal-blur fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="text-center ">
-                    <h3 class="blue mb-4">
-                        {{currentItemCart?.couponNameEn ? currentItemCart?.couponNameEn :
-                        currentItemCart?.projectCampainNameEn}}
-                    </h3>
-                    <img [src]="currentItemCart?.filePath || '../../../../../assets/images/Rectangle 4161-2.png'"
-                        class="img-shadow w-100  mb-4" style="height: 250px; width: 250px;">
-
-                </div>
-
-                <div class="mb-3  mb-4">
-                    <label for="exampleFormControlInput1" class="form-label">قيمة التبرع</label>
-                    <input type="number" [(ngModel)]="inputValue" class="form-control" id="exampleFormControlInput1"
-                        placeholder="">
-                </div>
-
-                <div class="d-flex justify-content-center " style="gap:8px;">
-                    <button class="btn btn-blue btn-wide" style="margin:auto;" [disabled]="!inputValue"
-                        (click)="addToCartDonation(currentItemCart)" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        OK
-                    </button>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div> -->
-<!-- end modal add to cart  -->

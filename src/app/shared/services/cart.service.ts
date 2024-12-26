@@ -24,7 +24,7 @@ export class CartService {
   userData$ = this.userDataSubject.asObservable();
 
   constructor() {}
-  addToCart(item: any): void {
+  addToCart(item: any): void { 
     if (Array.isArray(item)) {
       console.log('Item is an array:', item);
       this.cartItems = [...this.cartItems, ...item];
@@ -37,10 +37,11 @@ export class CartService {
     this.cartCountSubject.next(this.cartItems.length); 
   }
 
-  setUserName(userData: UserData): void {
+  setUserName(userData?: UserData): void {
 
-    this.userData = userData; 
-    this.userDataSubject.next(userData); 
+    this.userData = userData||null; 
+    localStorage.setItem('userData',JSON.stringify(userData)||"")
+    this.userDataSubject.next(userData||null); 
   }
 
   getUserName(): UserData | null {
@@ -51,9 +52,8 @@ export class CartService {
     return this.cartItems;
   }
 
-  removeFromCart(index: number): void {
-    this.cartItems.splice(index, 1);
-    this.cartCountSubject.next(this.cartItems.length); 
+  removeFromCart(length: number): void {
+    this.cartCountSubject.next(length); 
   }
 
   clearCart(): void {

@@ -19,6 +19,7 @@ export class AppComponent implements OnInit{
     this.initLanguage();
   }
   ngOnInit(): void {
+    this.cartService.setUserName(JSON.parse(localStorage.getItem('userData')||'')); 
     this.addItemToCart();
   }
 

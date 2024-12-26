@@ -56,12 +56,12 @@ export class CartComponent implements OnInit {
   removeItem(index: number): void {
     this.items.splice(index, 1); 
     localStorage.setItem('items', JSON.stringify(this.items)); 
+    this.cartService.removeFromCart(this.items.length)
     this.calculateTotal(); 
   }
   logout() {
-    localStorage.removeItem('user');  
-    sessionStorage.removeItem('user');  
-    window.location.reload();
+    localStorage.removeItem('userData');  
+    sessionStorage.removeItem('userData');
   }
   onSubmit(): void {
     if (!this.formValues.dONATOR_NAME || !this.formValues.dONATOR_MOBILE) {

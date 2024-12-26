@@ -48,9 +48,9 @@ export class NavBarComponent implements OnInit{
     });
   }
   logout() {
-    localStorage.removeItem('user');  
-    sessionStorage.removeItem('user');  
-    window.location.reload();
+    localStorage.removeItem('userData');  
+    sessionStorage.removeItem('userData'); 
+    this.cartService.setUserName(undefined);
   }
   navigate(route: any): void {
     this.router.navigate([route]);

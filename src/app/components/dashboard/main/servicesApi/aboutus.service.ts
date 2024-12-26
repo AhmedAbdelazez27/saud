@@ -36,4 +36,31 @@ export class AboutusService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
      return this.http.post<any>(`${this.apiUrl}SpBeneficent/Registration`, body, { headers });
    }
+
+   // contact us methods start
+
+  getContactMethods(type: string, pageSize: number = 20, pageNumber: number = 1, lang: string = 'en-US'): Observable<any> {
+    const params = {
+      type,
+      pageSize: pageSize.toString(),
+      pageNumber: pageNumber.toString(),
+      lang
+    };
+    return this.http.get(`${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=WebsiteContactUsContactVia&pageSize=20&pageNumber=1&lang=en-US`);
+  }
+
+  getRequestTypes(type: string, pageSize: number = 20, pageNumber: number = 1, lang: string = 'en-US'): Observable<any> {
+    const params = {
+      type,
+      pageSize: pageSize.toString(),
+      pageNumber: pageNumber.toString(),
+      lang
+    };
+    return this.http.get(`${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=WebsiteContactUsRequestType&pageSize=20&pageNumber=1&lang=en-US`);
+  }
+
+  contactusAdd(body: any): Observable<any> {
+
+     return this.http.post<any>(`${this.apiUrl}WebsiteContactUs/Create `, body);
+   }
 }

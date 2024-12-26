@@ -254,6 +254,11 @@
   "NUMBER_OF_PERSONS": "Number of Persons",
   "REQUEST_REASON": "Reason for Request",
   "DONATION_REQUEST": "Clothes Donation Request",
-  "CLOTHES_WEIGHT": "Clothes Weight"
+  "CLOTHES_WEIGHT": "Clothes Weight",
+  "SUBJECT_REQUIRED": "Subject is required",
+  "CONTACT_METHOD_REQUIRED": "Please select a contact method",
+  "EMAIL_REQUIRED": "Email is required",
+  "PHONE_REQUIRED": "Phone number is required",
+  "NAME_REQUIRED": "Name is required"
 
 }

@@ -136,6 +136,15 @@ export class DonationsListComponent implements OnInit {
     });
   };
 
-  
+  sendSMS(smsNumber: string, amount: number): void {
+    const messageBody = `Your selected value is ${amount} درهم.`;
+
+    // Construct the SMS URL
+    const smsUrl = `sms:${smsNumber}?body=${encodeURIComponent(messageBody)}`;
+    console.log(smsUrl,amount);
+    
+    // Redirect to the SMS URL
+    window.location.href = smsUrl;
+  }
 
 }
