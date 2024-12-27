@@ -32,7 +32,9 @@ export class LandingComponent implements OnInit {
 
   // Owl carousel options
   customOptions?: OwlOptions;
+  customOptionsPartners?: OwlOptions;
   currentLang: string;
+  partners: any[]=[];
 
 
   constructor(
@@ -61,6 +63,21 @@ export class LandingComponent implements OnInit {
         },
         navText: ['<', '>'], // Keep it as-is
       };
+      this.customOptionsPartners = {
+        rtl: true, // Enable RTL for Owl Carousel
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+          0: { items: 1 },
+          600: { items: 3},
+          1000: { items: 5},
+        },
+        navText: ['<', '>'], // Keep it as-is
+      };
     } else {
       this.customOptions = {
         loop: true,
@@ -82,6 +99,26 @@ export class LandingComponent implements OnInit {
         },
         navText: ['<', '>'],
       };
+      this.customOptionsPartners = {
+        loop: true,
+        margin: 5,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 5,
+          },
+        },
+        navText: ['<', '>'],
+      };
     }
     this.currentLang = this.translate.currentLang || this.translate.defaultLang;
     console.log(this.currentLang);
@@ -92,6 +129,7 @@ export class LandingComponent implements OnInit {
     this.getListEmergenys();
     this.getAllWebsiteStatistic();
     this.getAllTmAutoCouponsForWebsite();
+    this.getAllPartnersForWebsite();
   }
   updateValue() {
     console.log(this.selectedValue);
@@ -199,6 +237,16 @@ export class LandingComponent implements OnInit {
     this.landingService.getAllTmAutoCouponsForWebsite().subscribe({
       next: (res) => {
         this.coupons = res.result;
+      }
+    })
+  };
+
+  getAllPartnersForWebsite() {
+    this.landingService.getAllPartnersForWebsite().subscribe({
+      next: (res) => {
+        this.partners = res.result;
+        console.log(this.partners);
+        
       }
     })
   };

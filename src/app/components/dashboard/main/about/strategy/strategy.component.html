@@ -71,7 +71,7 @@
   </section>
 
 
-<section class="mt-150">
+<!-- <section class="mt-150">
     <div class="container">
         <div class="row mt-150">
             <div class="text-center">
@@ -93,7 +93,39 @@
     </div>
 
 
+</section> -->
+<section class="mt-150">
+  <div class="container">
+      <div class="row mt-150">
+          <div class="text-center">
+              <h1 class="title-blue">{{"POLICIES" | translate}}</h1>
+          </div>
+          <div class="col-lg-12">
+              <div class="accordion" id="accordionExample"*ngIf="aboutStrategy.length && aboutStrategy[0].listWebsiteStrategyPolicy.length">
+                  <div class="accordion-item" *ngFor="let policy of aboutStrategy[0].listWebsiteStrategyPolicy ; let index=index ">
+                      <h2 class="accordion-header">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOne'+index"  [attr.aria-expanded]="index === 0 ? 'true' : 'false'" [attr.aria-controls]="'collapseOne'+index">
+                              <h4 class="mb-0">{{ currentLang === 'ar' ? policy?.titleAr : policy?.titleEn }}</h4>
+                          </button>
+                      </h2>
+                      <div [id]="'collapseOne'+index" class="accordion-collapse collapse "  [class.show]="index === 0"  data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                              <p>
+                                {{ currentLang === 'ar' ? policy?.policyDescAr : policy?.policyDescEn }}
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                 
+              </div>
+          </div>
+
+         
+      </div>
+
+  </div>
 </section>
+
 
 <!-- <section class="donation-bg">
     <div class="container">

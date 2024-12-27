@@ -6,6 +6,7 @@ import { councilsHallsChildrenRoutes } from "./main/councils-halls/councilsHalls
 import { donationsChildrenRoutes } from "./main/donations/donations-children-routes";
 import { emergencysChildrenRoutes } from "./main/emergencys/emergencys-children-routes";
 import { LandingComponent } from "./main/landing/landing.component";
+import { MediaComponent } from "./main/media/media.component";
 import { policesChildrenRoutes } from "./main/polices/polices-children-routes";
 import { servicesChildrenRoutes } from "./main/services/services-children-routes";
 
@@ -80,6 +81,11 @@ export const dashBoardChildrenRoutes: any[] = [
   {
     path: 'ContactUs',
     component: ContactUsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'MediaCenter',
+    component: MediaComponent,
     pathMatch: 'full'
   },
   // Errors

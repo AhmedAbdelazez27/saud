@@ -45,4 +45,8 @@ export class LandingService {
     return this.http.get<any>(`${this.baseUrl}TmAutoCoupons/GetAllTmAutoCouponsForWebsite`)
   }
 
+  getAllPartnersForWebsite():Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}WebsiteOurPartners/GetAllWebsiteOurPartnersForWebsite `)
+  }
+
 }

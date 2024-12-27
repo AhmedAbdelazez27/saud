@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { CartService } from '../../../../../shared/services/cart.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-emergency-details',
@@ -14,7 +15,8 @@ import { CartService } from '../../../../../shared/services/cart.service';
   imports: [
     CommonModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    TranslateModule
   ],
   templateUrl: './emergency-details.component.html',
   styleUrl: './emergency-details.component.scss',
@@ -24,15 +26,18 @@ export class EmergencyDetailsComponent implements OnInit{
   emergencyItem:any;
   
   inputValue: number = 0;
+  currentLang: string;
   constructor(
     private landingService:LandingService,
     private router:Router,
     private route:ActivatedRoute,
     private _SpinnerService: SpinnerService,
     private messageService: MessageService,
-    private cartService: CartService
+    private cartService: CartService,
 
-  ){
+    private translate: TranslateService
+   ){
+     this.currentLang = this.translate.currentLang || this.translate.defaultLang;
 
   }
   ngOnInit(): void {

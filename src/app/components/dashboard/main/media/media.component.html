@@ -1,0 +1,113 @@
+<section class="media-center-header">
+    <div class="container">
+        <div class="row d-flex  justify-content-center">
+            <div class="col-lg-6">
+                <div class="inner-blur">
+                    <h1 class="title-48-cyan">{{ 'MEDIA_CENTER' | translate }}</h1>
+                    <h3 class="text-white">{{ 'FOUNDATION_NAME' | translate }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+<section class="Campaigns">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-xl-4 col-lg-6 mb-4" *ngFor="let item of itemMediaCenter">
+                <div class="card gallery-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img [src]="item?.imagePath" class="card-img-top" />
+                    <div class="overlay">
+                        <div class="text-center w-100">
+                            <h4 class="mb-1">{{currentLang === 'ar' ? item?.titleAr : item?.titleEn}}</h4>
+                            <p class="mb-0">{{item?.eventDate |date}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title fs-5" id="exampleModalLabel">
+                    <h4 class="mb-1">{{ selectedMedia?.title }}</h4>
+                    <p class="mb-0">{{ selectedMedia?.eventDate | date:'dd/MM/yyyy' }}</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div id="carouselExampleCaptions" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div 
+                            *ngFor="let media of itemMediaCenterF; let i = index" 
+                            class="carousel-item" 
+                            [class.active]="i === 0">
+                            <img src="http://compassint.ddns.net:2037/ERPAttachments/AppAttachments/WebsiteGallery-Profile/WebsiteGallery-Profile-f6beb4c3-d023-4e9b-983b-8a0ab094e552.jpg" class="d-block w-100" style="height: 70vh;" alt="{{ media.title }}" />
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>LLL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<section class="section-ad">
+    <div class="container">
+      <div class="ad">
+        <div class="row">
+          <div class="col-lg-2 align-content-center">
+            <img src="../../../../../assets/images/ad-logo.png" class="w-100"
+              style="max-width: 180px; mix-blend-mode: darken;" />
+          </div>
+          <div class="col-lg-8 align-content-center">
+            <h1 class="blue">
+              {{"REQUEST_HELP"|translate}}
+            </h1>
+            <h4>
+              {{"LANDING.REQUEST_AID"|translate}}
+            </h4>
+          </div>
+          <div class="col-lg-2 align-content-center ">
+            <div class="d-flex justify-content-end">
+             <a href="https://charity.uaq.ae/home" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+              <button class="btn btn-blue" style="height:max-content;" >
+                {{"REQUEST_HELP"|translate}}
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                    <path d="M18 12.5L12 18.5M5.5 12.5H18H5.5ZM18 12.5L12 6.5L18 12.5Z" stroke="white" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </button>
+             </a>
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>

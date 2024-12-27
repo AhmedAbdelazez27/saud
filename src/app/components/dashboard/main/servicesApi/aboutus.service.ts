@@ -63,4 +63,10 @@ export class AboutusService {
 
      return this.http.post<any>(`${this.apiUrl}WebsiteContactUs/Create `, body);
    }
+
+   // start of media service
+   getmediaCenter(): Observable<any> {
+    
+    return this.http.get(`${this.apiUrl}WebsiteGallery/GetAllWebsiteGalleryForWebsite`);
+  }
 }

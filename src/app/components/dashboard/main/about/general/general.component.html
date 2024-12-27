@@ -38,7 +38,7 @@
         <div class="text-center mb-5">
             <img src="../../../../../../assets/images/acheivement.png" style="margin-bottom:24px;">
             <h1 class="title-blue mb-4">
-                {{websiteAboutUs?.titleEn}}
+                {{currentLang === 'ar' ? websiteAboutUs?.titleAr : websiteAboutUs?.titleEn}}
 
             </h1>
             <p class="text-20" [innerHTML]="currentLang === 'ar' ? websiteAboutUs?.bodyAr : websiteAboutUs?.bodyEn">

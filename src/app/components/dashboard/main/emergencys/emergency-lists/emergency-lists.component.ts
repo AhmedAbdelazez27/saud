@@ -7,6 +7,7 @@ import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
 import { CartService } from '../../../../../shared/services/cart.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-emergency-lists',
@@ -14,7 +15,8 @@ import { CartService } from '../../../../../shared/services/cart.service';
   imports: [
     CommonModule,
     ToastModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ],
   templateUrl: './emergency-lists.component.html',
   styleUrl: './emergency-lists.component.scss',
@@ -24,13 +26,17 @@ export class EmergencyListsComponent implements OnInit{
   campaigns: any[] = [];
   currentItemCart : any;
   inputValue: number = 0;
+  currentLang: string;
   constructor(
     private router:Router,
     private landingService: LandingService,
     private messageService: MessageService,
     private _SpinnerService : SpinnerService,
-    private cartService: CartService
-  ){}
+    private cartService: CartService,
+    private translate: TranslateService
+  ){
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;
+  }
   ngOnInit(): void {
     this.getListEmergenys();
   }
