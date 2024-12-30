@@ -19,7 +19,7 @@
 <section class="Campaigns">
     <div class="container">
         <div class="row d-flex">
-            <div class="col-xl-4 col-lg-6 mb-4" *ngFor="let item of itemMediaCenter">
+            <div class="col-xl-4 col-lg-6 mb-4" *ngFor="let item of itemMediaCenter ; let in = index" (click)="selectedItem(in)">
                 <div class="card gallery-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img [src]="item?.imagePath" class="card-img-top" />
                     <div class="overlay">
@@ -38,41 +38,62 @@
 
 
 
-
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title fs-5" id="exampleModalLabel">
-                    <h4 class="mb-1">{{ selectedMedia?.title }}</h4>
-                    <p class="mb-0">{{ selectedMedia?.eventDate | date:'dd/MM/yyyy' }}</p>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0">
-                <div id="carouselExampleCaptions" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div 
-                            *ngFor="let media of itemMediaCenterF; let i = index" 
-                            class="carousel-item" 
-                            [class.active]="i === 0">
-                            <img src="http://compassint.ddns.net:2037/ERPAttachments/AppAttachments/WebsiteGallery-Profile/WebsiteGallery-Profile-f6beb4c3-d023-4e9b-983b-8a0ab094e552.jpg" class="d-block w-100" style="height: 70vh;" alt="{{ media.title }}" />
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>LLL
-                    </button>
-                </div>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title fs-5" id="exampleModalLabel">
+            <h4 class="mb-1">{{ itemMediaCenterF[currentIndex]?.title }}</h4>
+            <p class="mb-0">{{ itemMediaCenterF[currentIndex]?.eventDate | date: 'dd/MM/yyyy' }}</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body p-0">
+          <div
+            id="carouselExampleCaptions"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            (slid.bs.carousel)="onSlide($event)"
+          >
+            <div class="carousel-inner">
+              <div
+                *ngFor="let media of itemMediaCenterF; let i = index"
+                class="carousel-item"
+                [class.active]="i === currentIndex"
+              >
+                <img
+                  [src]="media.imagePath"
+                  class="d-block w-100"
+                  [alt]="media.title"
+                  style="height: 70vh;"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-</div> -->
-
+  </div>
+  
+  
 
 <section class="section-ad">
     <div class="container">
