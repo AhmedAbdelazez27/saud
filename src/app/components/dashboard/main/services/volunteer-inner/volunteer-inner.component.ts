@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-volunteer-inner',
@@ -21,13 +21,16 @@ export class VolunteerInnerComponent implements OnInit {
   universities: any[] = [];
   selectedFileName: string | null = null;
   fileFailed: boolean =false;
+  currentLang: string;
 
   constructor(
     private fb: FormBuilder,
     private _ServicesService: ServicesService,
     private router:Router,
     private _SpinnerService:SpinnerService,
-    ){
+    private translate: TranslateService
+  ) {
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;
 
     this.volunteerForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.maxLength(200)]],
@@ -52,7 +55,7 @@ export class VolunteerInnerComponent implements OnInit {
    * Load Volunteer Types
    */
   loadVolunteerTypes(): void {
-    this._ServicesService.getVolunteerTypes().subscribe({
+    this._ServicesService.getVolunteerTypes(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe({
       next: (response) => {
         this.volunteerTypes = response.result.results;
       },
@@ -66,7 +69,7 @@ export class VolunteerInnerComponent implements OnInit {
    * Load Universities
    */
   loadUniversities(): void {
-    this._ServicesService.getUniversities().subscribe({
+    this._ServicesService.getUniversities(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe({
       next: (response) => {
         this.universities = response.result.results;
       },

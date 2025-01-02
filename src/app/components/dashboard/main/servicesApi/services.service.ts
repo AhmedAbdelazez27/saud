@@ -21,18 +21,18 @@ export class ServicesService {
   /**
    * Fetch Volunteer Types
    */
-    getVolunteerTypes(): Observable<any> {
+    getVolunteerTypes(lang:string): Observable<any> {
       return this.http.get(
-        `${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=TypeOfVolunteerWork&pageSize=20&pageNumber=1&lang=en-US`
+        `${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=TypeOfVolunteerWork&pageSize=20&pageNumber=1&lang=${lang}`
       );
     }
   
     /**
      * Fetch Universities
      */
-    getUniversities(): Observable<any> {
+    getUniversities(lang:string): Observable<any> {
       return this.http.get(
-        `${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=University&pageSize=20&pageNumber=1&lang=en-US`
+        `${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=University&pageSize=20&pageNumber=1&lang=${lang}`
       );
     }
   
@@ -47,9 +47,9 @@ export class ServicesService {
     };
 
   
-    getDrivers(): Observable<any> {
+    getDrivers(lang:string): Observable<any> {
       return this.http.get(
-        `${this.apiUrl}Websitedrivers/GetWebsitedriversSelect2?pageSize=20&pageNumber=1&lang=en-US`
+        `${this.apiUrl}Websitedrivers/GetWebsitedriversSelect2?pageSize=20&pageNumber=1&lang=${lang}`
       );
     }
   

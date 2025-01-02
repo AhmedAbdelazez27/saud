@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { AboutusService } from '../servicesApi/aboutus.service';
@@ -26,9 +26,12 @@ export class ContactUsComponent {
   contactForm: FormGroup;
   submitted = false;
   displayDialog: boolean=false;
+  currentLang: string;
 
 
-  constructor(private fb: FormBuilder,private aboutusService: AboutusService,private _SpinnerService:SpinnerService, private router:Router,) {
+  constructor(private fb: FormBuilder,private aboutusService: AboutusService,private _SpinnerService:SpinnerService, private router:Router, private translate: TranslateService
+  ){
+    this.currentLang = this.translate.currentLang || this.translate.defaultLang;
     this.contactForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -45,7 +48,7 @@ export class ContactUsComponent {
   }
 
   fetchContactMethods(): void {
-    this.aboutusService.getContactMethods('WebsiteContactUsContactVia').subscribe({
+    this.aboutusService.getContactMethods( this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe({
       next: (response) => {
         this.contactMethods = response. result.results; // Adjust based on the API response structure
       },
@@ -56,7 +59,7 @@ export class ContactUsComponent {
   }                                                     
 
   fetchRequestTypes(): void {
-    this.aboutusService.getRequestTypes('WebsiteContactUsRequestType').subscribe({
+    this.aboutusService.getRequestTypes(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe({
       next: (response) => {
         this.requestTypes = response.result.results; // Adjust based on API response structure
         if (this.requestTypes.length > 0) {

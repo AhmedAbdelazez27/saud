@@ -77,14 +77,14 @@ export class HallsDetialsComponent implements OnInit {
 
   // Fetch TypeOfEvent options
   fetchTypeOfEventOptions() {
-    this.hallReservationService.getTypeOfEventOptions().subscribe((response) => {
+    this.hallReservationService.getTypeOfEventOptions(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe((response) => {
       this.typeOfEventOptions = response.result.results;
     });
   }
 
   // Fetch OtherOptions
   fetchOtherOptions() {
-    this.hallReservationService.getOtherOptions().subscribe((response) => {
+    this.hallReservationService.getOtherOptions(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe((response) => {
       this.otherOptions = response.result.results;
     });
   }

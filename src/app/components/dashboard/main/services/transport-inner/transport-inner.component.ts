@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { ServicesService } from '../../servicesApi/services.service';
 import { SpinnerService } from '../../../../../shared/services/spinner.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -22,13 +22,16 @@ export class TransportInnerComponent implements OnInit {
   selectedFileName: string | null = null;
   displayDialog: boolean =false;
   fileFailed: boolean =false;
+  currentLang: string;
 
   constructor(
     private fb: FormBuilder,
     private _ServicesService: ServicesService,
     private router:Router,
     private _SpinnerService:SpinnerService,
-    ){
+    private translate: TranslateService
+    ) {
+      this.currentLang = this.translate.currentLang || this.translate.defaultLang;
       this.transportForm = this.fb.group({
         guardianName: ['', [Validators.required, Validators.maxLength(200)]],
         idNumber: ['', [Validators.required, Validators.maxLength(50)]],
@@ -51,8 +54,8 @@ export class TransportInnerComponent implements OnInit {
     }
   
     loadUniversities(): void {
-      this._ServicesService.getUniversities().subscribe({
-        next: (response) => {
+      this._ServicesService.getUniversities(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe({
+        next: (response) => { 
           this.universities = response.result.results;
         },
         error: (error) => console.error('Error loading universities:', error),

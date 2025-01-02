@@ -32,7 +32,8 @@ export class DonationsListComponent implements OnInit {
     private router:Router,
     private cartService: CartService,
     private _SpinnerService: SpinnerService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private translateService: TranslateService
   ) {
     this.currentLang = this.translate.currentLang || this.translate.defaultLang;
 
@@ -125,14 +126,19 @@ export class DonationsListComponent implements OnInit {
   };
 
   showSuccess() {  
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Added to Cart Successfully' });
+    this.messageService.add({
+      severity: 'success',
+      summary: this.translateService.instant('SUCCESS'),
+      detail: this.translateService.instant('ADD_TO_CART_SUCCESS'),
+    });
   };
+  
   // On Failure
   handleFailure(): void {
     this.messageService.add({
       severity: 'error',
-      summary: 'Failed',
-      detail: 'Item already exists in the cart',
+      summary: this.translateService.instant('FAILED'),
+      detail: this.translateService.instant('ITEM_EXISTS_IN_CART'),
     });
   };
 

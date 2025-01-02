@@ -261,7 +261,18 @@
   "PHONE_REQUIRED": "رقم الهاتف مطلوب",
   "NAME_REQUIRED": "الاسم مطلوب",
   "MEDIA_CENTER": "المركز الاعلامي",
-  "OUR_PARTNERS": "شركاؤنا"
+  "OUR_PARTNERS": "شركاؤنا",
+  "ENTER_SUBJECT": "أدخل الموضوع",
+  "ENTER_PHONE_NUMBER": "أدخل رقم الهاتف",
+  "ENTER_NAME": "أدخل الاسم",
+  "SUCCESS": "نجاح",
+  "FAILED": "فشل",
+  "ERROR": "خطأ",
+  "LOGIN_SUCCESS_MESSAGE": "تم تسجيل الدخول بنجاح",
+  "INVALID_CREDENTIALS": "اسم المستخدم أو كلمة المرور غير صحيحة",
+  "LOGIN_FAILED_MESSAGE": "فشل تسجيل الدخول. يرجى التحقق من اسم المستخدم وكلمة المرور.",
+  "ADD_TO_CART_SUCCESS": "تمت الإضافة إلى السلة بنجاح",
+  "ITEM_EXISTS_IN_CART": "العنصر موجود بالفعل في السلة"
 
 
 }

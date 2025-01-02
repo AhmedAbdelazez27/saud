@@ -6,44 +6,53 @@ import { AboutusService } from '../../servicesApi/aboutus.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { CartService } from '../../../../../shared/services/cart.service';
-import { TranslateModule } from '@ngx-translate/core';
-
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule,FormsModule, ToastModule,TranslateModule]  ,
-  providers: [MessageService]
-
+  imports: [CommonModule, FormsModule, ToastModule, TranslateModule],
+  providers: [MessageService],
 })
 export class LoginComponent {
   formValues: any = { 
     UserName: '',
     Password: '',
   };
-  constructor( private _AboutusService:AboutusService ,private router: Router, private messageService : MessageService,private cartService: CartService ) {}
+
+  constructor(
+    private _AboutusService: AboutusService,
+    private router: Router,
+    private messageService: MessageService,
+    private cartService: CartService,
+    private translateService: TranslateService
+  ) {}
+
   onclickregister(): void {
     this.router.navigate(['/Main/Auth/Register']);
   }
 
   Onlogin(): void {
     if (!this.formValues.UserName || !this.formValues.Password) {
-      console.log("UserName and Password are required");
+      console.log('UserName and Password are required');
       return; 
     }
-      const submissionData = {
+    
+    const submissionData = {
       UserName: this.formValues.UserName,
       Password: this.formValues.Password
     };
+
     console.log('Submitting:', submissionData);
-      this._AboutusService.login(submissionData).subscribe({
+
+    this._AboutusService.login(submissionData).subscribe({
       next: (data) => {
         if (data.result && (data.result.userId === null || data.result.userId === 0)) {
           this.handleFailure();
         } else {
-          this.showSuccess();  
+          this.showSuccess();
           const userData = {
             userName: data.result.userName,
             IdNumber: data.result.idNumber,
@@ -58,18 +67,28 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error('Login failed:', error);
-        alert('Login failed. Please check your username and password.');
+        this.messageService.add({
+          severity: 'error',
+          summary: this.translateService.instant('ERROR'),
+          detail: this.translateService.instant('LOGIN_FAILED_MESSAGE'),
+        });
       }
     });
   }
+
   showSuccess() {  
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login successful' });
-  };
+    this.messageService.add({
+      severity: 'success',
+      summary: this.translateService.instant('SUCCESS'),
+      detail: this.translateService.instant('LOGIN_SUCCESS_MESSAGE'),
+    });
+  }
+
   handleFailure(): void {
     this.messageService.add({
       severity: 'error',
-      summary: 'Failed',
-      detail: 'Username Or Password incorrect',
+      summary: this.translateService.instant('FAILED'),
+      detail: this.translateService.instant('INVALID_CREDENTIALS'),
     });
-  };
+  }
 }

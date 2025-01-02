@@ -73,7 +73,7 @@ export class CouncilsHallDetailsComponent implements OnInit{
   };
 
   private loadLookupData(): void {
-    this._HallReservationService.getTypeOfEventLookup().subscribe(
+    this._HallReservationService.getTypeOfEventLookup(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe(
       (data) => {
         this.typeOfEventOptions = data.result.results;
         console.log("dd ",data.result.results);
@@ -84,7 +84,7 @@ export class CouncilsHallDetailsComponent implements OnInit{
       }
     );
 
-    this._HallReservationService.getOtherOptionsLookup().subscribe(
+    this._HallReservationService.getOtherOptionsLookup(this.currentLang == 'ar' ? 'ar-EG':'en-US').subscribe(
       (data) => {
         this.otherOptions = data.result.results;
         console.log("data.result.results ",data.result.results,'dd',data);

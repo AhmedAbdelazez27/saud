@@ -39,24 +39,14 @@ export class AboutusService {
 
    // contact us methods start
 
-  getContactMethods(type: string, pageSize: number = 20, pageNumber: number = 1, lang: string = 'en-US'): Observable<any> {
-    const params = {
-      type,
-      pageSize: pageSize.toString(),
-      pageNumber: pageNumber.toString(),
-      lang
-    };
-    return this.http.get(`${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=WebsiteContactUsContactVia&pageSize=20&pageNumber=1&lang=en-US`);
+  getContactMethods(lang: string): Observable<any> {
+
+    return this.http.get(`${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=WebsiteContactUsContactVia&pageSize=20&pageNumber=1&lang=${lang}`);
   }
 
-  getRequestTypes(type: string, pageSize: number = 20, pageNumber: number = 1, lang: string = 'en-US'): Observable<any> {
-    const params = {
-      type,
-      pageSize: pageSize.toString(),
-      pageNumber: pageNumber.toString(),
-      lang
-    };
-    return this.http.get(`${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=WebsiteContactUsRequestType&pageSize=20&pageNumber=1&lang=en-US`);
+  getRequestTypes(lang: string ): Observable<any> {
+
+    return this.http.get(`${this.apiUrl}FndLookupValues/GetFndLookupValuesSelect2?type=WebsiteContactUsRequestType&pageSize=20&pageNumber=1&lang=${lang}`);
   }
 
   contactusAdd(body: any): Observable<any> {

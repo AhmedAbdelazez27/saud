@@ -100,18 +100,20 @@ export class EmergencyDetailsComponent implements OnInit{
 
   }
 
-  showSuccess() {
-    console.log("toaster");
-    
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Added to Cart Successfully' });
-  }
+  showSuccess() {  
+    this.messageService.add({
+      severity: 'success',
+      summary: this.translate.instant('SUCCESS'),
+      detail: this.translate.instant('ADD_TO_CART_SUCCESS'),
+    });
+  };
   
   // On Failure
   handleFailure(): void {
     this.messageService.add({
       severity: 'error',
-      summary: 'Failed',
-      detail: 'Failed to Add to Cart',
+      summary: this.translate.instant('FAILED'),
+      detail: this.translate.instant('ITEM_EXISTS_IN_CART'),
     });
   };
 }

@@ -261,6 +261,17 @@
   "PHONE_REQUIRED": "Phone number is required",
   "NAME_REQUIRED": "Name is required",
   "MEDIA_CENTER": "Media Center",
-  "OUR_PARTNERS": "Our Partners"
+  "OUR_PARTNERS": "Our Partners",
+  "ENTER_SUBJECT": "Enter subject",
+  "ENTER_PHONE_NUMBER": "Enter phone number",
+  "ENTER_NAME": "Enter name",
+  "SUCCESS": "Success",
+  "FAILED": "Failed",
+  "ERROR": "Error",
+  "LOGIN_SUCCESS_MESSAGE": "Login successful",
+  "INVALID_CREDENTIALS": "Username or Password incorrect",
+  "LOGIN_FAILED_MESSAGE": "Login failed. Please check your username and password.",
+  "ADD_TO_CART_SUCCESS": "Added to Cart Successfully",
+  "ITEM_EXISTS_IN_CART": "Item already exists in the cart"
 
 }
