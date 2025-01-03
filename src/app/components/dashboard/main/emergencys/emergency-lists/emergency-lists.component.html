@@ -84,7 +84,7 @@
       <div class="modal-body">
         <div class="text-center ">
           <h3 class="blue mb-4">
-            {{currentItemCart?.title}}
+           {{ currentLang === 'ar' ? currentItemCart?.projectCampainName : currentItemCart?.projectCampainNameEn}}
           </h3>
           <img [src]="currentItemCart?.filePath || '../../../../../assets/images/Rectangle 4161-2.png'"
             class="img-shadow w-100  mb-4" style="height: 250px; width: 250px;">
@@ -97,19 +97,20 @@
             <div class="col-md-4">
 
               <button class="btn w-100 px-0 btn-danger custom-btn ">
-                المتبقي: <span>{{currentItemCart?.targetAmount - currentItemCart?.totalAmount }} </span>
+                {{"REMAINING"|translate}}: <span>{{currentItemCart?.targetAmount - currentItemCart?.totalAmount }} </span>
               </button>
             </div>
             <div class="col-md-4">
               
               <button class="btn w-100 px-0 btn-success custom-btn ">
-                المدفوع: <span>{{currentItemCart?.totalAmount}}</span>
+                
+                {{"PAID"|translate}}: <span>{{currentItemCart?.totalAmount}}</span>
               </button>
             </div>
             <div class="col-md-4">
               
               <button class="btn w-100 px-0 btn-primary custom-btn ">
-                المطلوب: <span>{{currentItemCart?.targetAmount}}</span>
+                {{ 'CAMPAIGN.REQUIRED_AMOUNT' | translate }}: <span>{{currentItemCart?.targetAmount}}</span>
               </button>
             </div>
             
@@ -117,7 +118,7 @@
         
 
         <div class="mb-3  mb-4">
-          <label for="exampleFormControlInput1" class="form-label">قيمة التبرع</label>
+          <label for="exampleFormControlInput1" class="form-label"> {{"VALUE"|translate}}</label>
           <input type="number" [(ngModel)]="inputValue" class="form-control" id="exampleFormControlInput1"
             placeholder="">
         </div>
@@ -126,7 +127,7 @@
           <button class="btn btn-blue btn-wide" style="margin:auto;" [disabled]="!inputValue"
             (click)="addToCartDonation(currentItemCart)" data-bs-toggle="modal"
             data-bs-target="#exampleModal"  >
-            OK
+            {{"OK"|translate}}
           </button>
           
         </div>

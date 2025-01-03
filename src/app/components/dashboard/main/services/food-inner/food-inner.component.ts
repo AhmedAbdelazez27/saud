@@ -31,8 +31,8 @@ export class FoodInnerComponent {
   }
 
   onSubmit(): void {
-    this.displayDialog = true;
     if (this.preservingGraceForm.valid) {
+      this.displayDialog = true;
       this._SpinnerService.showSpinner();
       this._ServicesService.submitDonationFoods(this.preservingGraceForm.value).subscribe({
         next: (response: any) => {

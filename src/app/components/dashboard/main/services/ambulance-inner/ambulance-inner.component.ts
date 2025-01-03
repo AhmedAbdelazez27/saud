@@ -94,6 +94,8 @@ export class AmbulanceInnerComponent {
           },
           error: (error) => console.error('Error submitting ambulance request:', error),
         });
+      }else {
+        alert('Please fill all required fields correctly.');
       }
     }
 

@@ -109,6 +109,8 @@ export class TransportInnerComponent implements OnInit {
             this._SpinnerService.hideSpinner();
           },
         });
+      }else {
+        alert('Please fill all required fields correctly.');
       }
     };
 
