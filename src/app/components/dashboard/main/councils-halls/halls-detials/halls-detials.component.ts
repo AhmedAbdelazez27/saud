@@ -47,7 +47,7 @@ export class HallsDetialsComponent implements OnInit {
       eventDate: ['', Validators.required],
       numberOfInvitees: ['', Validators.required],
       typeOfEventLkpId: ['', Validators.required],
-      otherOptionsLkpId: ['', Validators.required],
+      otherOptionsLkpId: [''],
       notes: ['']
     });
   }

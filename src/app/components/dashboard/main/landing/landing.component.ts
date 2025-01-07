@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { LandingService } from '../servicesApi/landing.service';
 import { SpinnerService } from '../../../../shared/services/spinner.service';
@@ -35,7 +35,8 @@ export class LandingComponent implements OnInit {
   customOptionsPartners?: OwlOptions;
   currentLang: string;
   partners: any[]=[];
-
+  @ViewChild('owlCarousel', { static: false }) owlCarousel: any;
+  @ViewChild('owlCarousel2', { static: false }) owlCarousel2: any;
 
   constructor(
     private landingService: LandingService,
@@ -50,18 +51,19 @@ export class LandingComponent implements OnInit {
     if (currentLanguage == 'ar') {
       this.customOptions = {
         rtl: true, // Enable RTL for Owl Carousel
-        loop: true,
-        margin: 10,
-        nav: true,
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 3000,
+        loop: true, // Carousel will loop after last item
+        margin: 10, // Margin between items
+        nav: true, // Enable navigation arrows
+        dots: true, // Enable dots for navigation
+        autoplay: false, // Disable autoplay
         responsive: {
-          0: { items: 1 },
-          600: { items: 2 },
-          1000: { items: 3 },
+          0: { items: 1 }, // 1 item for small screens
+          600: { items: 2 }, // 2 items for medium screens
+          1000: { items: 3 }, // 3 items for large screens
         },
-        navText: ['<', '>'], // Keep it as-is
+        navText: [ '<span class="custom-prev">&lt;</span>', // Add custom class for "Previous"
+    '<span class="custom-next">&gt;</span>'  // Add custom class for "Next"
+     ], // Custom navigation text
       };
       this.customOptionsPartners = {
         rtl: true, // Enable RTL for Owl Carousel
@@ -76,28 +78,25 @@ export class LandingComponent implements OnInit {
           600: { items: 3},
           1000: { items: 5},
         },
-        navText: ['<', '>'], // Keep it as-is
+        navText: [ '<span class="custom-prev">&lt;</span>', // Add custom class for "Previous"
+    '<span class="custom-next">&gt;</span>'  // Add custom class for "Next"
+     ], // Keep it as-is
       };
     } else {
       this.customOptions = {
-        loop: true,
-        margin: 10,
-        nav: true,
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 3000,
+        loop: true, // Carousel will loop after last item
+        margin: 10, // Margin between items
+        nav: true, // Enable navigation arrows
+        dots: true, // Enable dots for navigation
+        autoplay: false, // Disable autoplay
         responsive: {
-          0: {
-            items: 1,
-          },
-          600: {
-            items: 2,
-          },
-          1000: {
-            items: 3,
-          },
+          0: { items: 1 }, // 1 item for small screens
+          600: { items: 2 }, // 2 items for medium screens
+          1000: { items: 3 }, // 3 items for large screens
         },
-        navText: ['<', '>'],
+        navText: [ '<span class="custom-prev">&lt;</span>', // Add custom class for "Previous"
+    '<span class="custom-next">&gt;</span>'  // Add custom class for "Next"
+     ], // Custom navigation text
       };
       this.customOptionsPartners = {
         loop: true,
@@ -117,7 +116,9 @@ export class LandingComponent implements OnInit {
             items: 5,
           },
         },
-        navText: ['<', '>'],
+        navText: [ '<span class="custom-prev">&lt;</span>', // Add custom class for "Previous"
+    '<span class="custom-next">&gt;</span>'  // Add custom class for "Next"
+     ],
       };
     }
     this.currentLang = this.translate.currentLang || this.translate.defaultLang;
@@ -131,6 +132,23 @@ export class LandingComponent implements OnInit {
     this.getAllTmAutoCouponsForWebsite();
     this.getAllPartnersForWebsite();
   }
+
+  navigateNext() {
+    this.owlCarousel.next(); // Navigate to the next slide
+  }
+
+  navigatePrev() {
+    this.owlCarousel.prev(); // Navigate to the previous slide
+  }
+
+  navigateNext2() {
+    this.owlCarousel2.next(); // Navigate to the next slide
+  }
+
+  navigatePrev2() {
+    this.owlCarousel2.prev(); // Navigate to the previous slide
+  }
+
   updateValue() {
     console.log(this.selectedValue);
     setTimeout(() => {
