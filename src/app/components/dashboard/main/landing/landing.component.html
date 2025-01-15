@@ -157,13 +157,13 @@
     <div class="carousel-inner">
       <div *ngFor="let slide of sliderItems; let i = index" class="carousel-item" [class.active]="i === 0">
         <img [src]="slide.imageImagePath" class="d-block w-100" alt="Slide Image" />
-        <div class="carousel-caption d-none d-md-block">
+        <!-- <div class="carousel-caption d-none d-md-block">
           <h5 class="slider-title">
             {{currentLang === 'ar' ? slide.titleAr : slide?.titleEn }}
           </h5>
           <p class="slider-subtitle">
             {{ currentLang === 'ar' ? slide.detailsAr : slide?.detailsEn}} </p>
-        </div>
+        </div> -->
       </div>
     </div>
 
