@@ -33,6 +33,7 @@ export class NavBarComponent implements OnInit{
   userName: string | null = null; 
   constructor(private router: Router,private cartService: CartService,private messageService : MessageService,private translationService: TranslationService) {
     this.currentLanguage = localStorage.getItem('language') || 'en';
+    this.cartCount = JSON.parse(localStorage.getItem('items')||'[]')?.length ;
   }
   ngOnInit(): void {
     this.cartService.cartCount$.subscribe((count) => {
@@ -46,6 +47,7 @@ export class NavBarComponent implements OnInit{
         this.userName = null;
       }
     });
+    
   }
   logout() {
     localStorage.removeItem('userData');  

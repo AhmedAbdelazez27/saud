@@ -20,6 +20,7 @@ export class VolunteerInnerComponent implements OnInit {
   volunteerTypes: any[] = [];
   universities: any[] = [];
   selectedFileName: string | null = null;
+  selectedFileNameFormFile: string | null = null;
   fileFailed: boolean =false;
   currentLang: string;
 
@@ -43,6 +44,7 @@ export class VolunteerInnerComponent implements OnInit {
       toDate: ['', Validators.required],
       workingHours: [0, [Validators.required, Validators.min(1)]],
       universitycardFilePath: ['', Validators.required],
+      formFilePath: ['', Validators.required],
       notes: [''],
     });
   }
@@ -82,16 +84,23 @@ export class VolunteerInnerComponent implements OnInit {
     /**
    * Handle File Selection
    */
-    onFileSelect(event: any): void {
+    onFileSelect(event: any,type ?:string): void {
       const file = event.target.files[0];
       if (file) {
         this._ServicesService.uploadFileVolunteerDetails(file).subscribe({
           next: (response) => {
             console.log('File uploaded successfully:', response);
-            this.selectedFileName =  file.name;
+           if(type == 'universitycardFilePath'){ this.selectedFileName =  file.name;
             this.volunteerForm.patchValue({
-              universitycardFilePath: file.name, // Assuming API returns `filePath`
-            });
+            universitycardFilePath: file.name, // Assuming API returns `filePath`
+                });
+              }
+            if(type == 'formFilePath'){
+              this.selectedFileNameFormFile =  file.name;
+              this.volunteerForm.patchValue({
+                formFilePath: file.name, // Assuming API returns `filePath`
+                });
+              }
           },
           error: (error) => {
             this.fileFailed = true;

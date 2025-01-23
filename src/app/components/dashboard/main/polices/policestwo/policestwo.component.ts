@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-policestwo',
@@ -11,7 +11,13 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class PolicestwoComponent implements OnInit{
   policeContent: string[] = [];
+  currentLanguage:any
 
+  constructor(  private translate: TranslateService
+    ) {
+      // Determine the language direction dynamically
+      this.currentLanguage = localStorage.getItem('language') || 'en';
+  }
   ngOnInit(): void {
     this.loadPoliceContent();
   }

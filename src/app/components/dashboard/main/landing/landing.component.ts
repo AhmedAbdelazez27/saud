@@ -9,6 +9,7 @@ import { ToastModule } from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartService } from '../../../../shared/services/cart.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { forkJoin } from 'rxjs';
 
 
 @Component({
@@ -37,6 +38,8 @@ export class LandingComponent implements OnInit {
   partners: any[]=[];
   @ViewChild('owlCarousel', { static: false }) owlCarousel: any;
   @ViewChild('owlCarousel2', { static: false }) owlCarousel2: any;
+  @ViewChild('owlCarousel3', { static: false }) owlCarousel3: any;
+  allData: any[] = []; // Unified list of halls and councils
 
   constructor(
     private landingService: LandingService,
@@ -131,6 +134,7 @@ export class LandingComponent implements OnInit {
     this.getAllWebsiteStatistic();
     this.getAllTmAutoCouponsForWebsite();
     this.getAllPartnersForWebsite();
+    this.gettingAllHallsAndCouncils();
   }
 
   navigateNext() {
@@ -149,6 +153,13 @@ export class LandingComponent implements OnInit {
     this.owlCarousel2.prev(); // Navigate to the previous slide
   }
 
+  navigateNext3() {
+    this.owlCarousel3.next(); // Navigate to the next slide
+  }
+
+  navigatePrev3() {
+    this.owlCarousel3.prev(); // Navigate to the previous slide
+  } 
   updateValue() {
     console.log(this.selectedValue);
     setTimeout(() => {
@@ -157,6 +168,44 @@ export class LandingComponent implements OnInit {
     console.log(this.inputValueFast);
 
   }
+
+gettingAllHallsAndCouncils() {
+  this._SpinnerService.showSpinner();
+
+  // Fetch both halls and councils simultaneously
+  const hallsObservable = this.landingService.getAllHalls();
+  const councilsObservable = this.landingService.getAllCouncils();
+
+  // Use forkJoin to handle both API calls simultaneously
+  forkJoin([hallsObservable, councilsObservable]).subscribe({
+    next: ([hallsRes, councilsRes]) => {
+      console.log('Halls:', hallsRes.result);
+      console.log('Councils:', councilsRes.result);
+
+      // Assign the results to their respective lists
+      let hallsList = hallsRes.result.map((hall: any) => ({
+        ...hall,
+        type: 'hall', // Add 'type' attribute to each hall
+      }));
+      let councilsList = councilsRes.result.map((council: any) => ({
+        ...council,
+        type: 'council', // Add 'type' attribute to each council
+      }));
+
+      // Merge both lists into allData
+      this.allData = [...hallsList, ...councilsList];
+      console.log('Merged List:', this.allData);
+
+      this._SpinnerService.hideSpinner();
+    },
+    error: (err) => {
+      console.error('Error fetching data:', err);
+      this._SpinnerService.hideSpinner();
+    },
+  });
+}
+
+
   gettingSliderData() {
     this._SpinnerService.showSpinner();
     this.landingService.getSlider().subscribe({
@@ -228,6 +277,13 @@ export class LandingComponent implements OnInit {
     this.router.navigate([`Main/Emergency/Details/${emergencyId}`]);
   }
 
+  goDetailsHalls(id: any , type:string) {
+    if(type == "hall"){
+      this.router.navigate([`Main/CouncilsHall/HallsDetails/${id}`]);
+    } else{
+      this.router.navigate([`Main/CouncilsHall/CouncilDetails/${id}`]);
+    }
+  }
 
   animateCounter(
     startValue: number,

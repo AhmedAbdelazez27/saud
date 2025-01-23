@@ -23,7 +23,7 @@
         <div class="row" *ngIf="emergencyItem">
             <div class="col-lg-12">
                 <img [src]="emergencyItem?.imagePath" class="w-100 img-shadow mb-4" style="height: 380px;"/>
-                <h1 class="title-blue text-start">{{ currentLang === 'ar' ? emergencyItem.projectCampainName : emergencyItem.projectCampainNameEn }}</h1>
+                <h1 class="title-blue text-center">{{ currentLang === 'ar' ? emergencyItem.projectCampainName : emergencyItem.projectCampainNameEn }}</h1>
                 <p class="text-22">
                   {{emergencyItem?.projectCampainDesc}}
                 </p>

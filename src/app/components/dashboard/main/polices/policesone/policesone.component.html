@@ -20,71 +20,63 @@
                   <li class="content-text">{{ 'PRIVACY_TEXT_1' | translate }}</li>
               </ul>
               <h2 class="section-title">{{ 'PRIVACY_TITLE' | translate }}</h2>
-              <ul>
-                  <li>
-                      <h2>{{ 'COLLECTION_USE_TITLE' | translate }}</h2>
-                      <ul>
-                          <li>{{ 'SERVER_CAPTURES_IP' | translate }}</li>
-                          <li>
-                              {{ 'IP_ADDRESS_INFO' | translate }}
-                              <ul>
-                                  <li>{{ 'IP_ADDRESS_DESC_1' | translate }}</li>
-                                  <li>{{ 'IP_ADDRESS_DESC_2' | translate }}</li>
-                                  <li>{{ 'IP_ADDRESS_DESC_3' | translate }}</li>
-                              </ul>
-                          </li>
-                          <li>
-                              {{ 'IP_USAGE' | translate }}
-                              <ul>
-                                  <li>{{ 'IP_USAGE_DESC_1' | translate }}</li>
-                                  <li>{{ 'IP_USAGE_DESC_2' | translate }}</li>
-                                  <li>{{ 'IP_USAGE_DESC_3' | translate }}</li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <h2>{{ 'COOKIES_USAGE_TITLE' | translate }}</h2>
-                      <ul>
-                          <li>{{ 'COOKIES_USAGE_DESC' | translate }}</li>
-                          <li>
-                              {{ 'COOKIE_INFO' | translate }}
-                              <ul>
-                                  <li>{{ 'COOKIE_DESC_1' | translate }}</li>
-                                  <li>{{ 'COOKIE_DESC_2' | translate }}</li>
-                              </ul>
-                          </li>
-                          <li>
-                              {{ 'COOKIE_PRIVACY' | translate }}
-                              <ul>
-                                  <li>{{ 'COOKIE_PRIVACY_DESC_1' | translate }}</li>
-                                  <li>{{ 'COOKIE_PRIVACY_DESC_2' | translate }}</li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <h2>{{ 'SECURE_TRANSMISSION_TITLE' | translate }}</h2>
-                      <ul>
-                          <li>{{ 'SECURE_TRANSMISSION_DESC' | translate }}</li>
-                      </ul>
-                  </li>
-                  <li>
-                      <h2>{{ 'PERSONAL_INFO_TITLE' | translate }}</h2>
-                      <ul>
-                          <li>{{ 'PERSONAL_INFO_DESC_1' | translate }}</li>
-                          <li>{{ 'PERSONAL_INFO_DESC_2' | translate }}</li>
-                          <li>{{ 'PERSONAL_INFO_DESC_3' | translate }}</li>
-                          <li>{{ 'PERSONAL_INFO_DESC_4' | translate }}</li>
-                      </ul>
-                  </li>
-                  <li>
-                      <h2>{{ 'USER_RIGHTS_TITLE' | translate }}</h2>
-                      <ul>
-                          <li>{{ 'USER_RIGHTS_DESC' | translate }}</li>
-                      </ul>
-                  </li>
-              </ul>
+              <div class="content" *ngIf="currentLanguage == 'en'">
+                <p>Saud bin Rashid Al Mualla Charitable and Humanitarian Est. is committed to protecting the rights of all visitors to this portal. We are committed to maintaining the confidentiality of sensitive information, and we have prepared this security and Privacy declaration to disclose our approach to the collection and dissemination of information on this web portal.</p>
+                <h3>Collection and Use of Electronic Information</h3>
+                <p>Our server automatically captures your IP address when you visit the portal. (Your Internet Protocol address is your computer's unique that you use, which allows other devices connected to the internet to send data, but without identifying you personally.</p>
+                <ul>
+                  <li>Our use of your IP helps us to diagnose problems in our server.</li>
+                  <li>It helps us perform the necessary statistics to measure the use of the portal.</li>
+                  <li>We do not allow anyone outside the technical team of Saud bin Rashid Al Mualla Charitable and Humanitarian Est. to access your IP.</li>
+                </ul>
+                <h3>Cookies</h3>
+                <p>In order to provide better service and an effective, certain sections of this portal use a cookie (cookies) as part of our interaction with your browser.</p>
+                <ul>
+                  <li>A cookie is a small text file that is sent to your hard drive to enable our server to recognize your computer.</li>
+                  <li>A cookie does not attempt to read any information on your hard drive.</li>
+                  <li>We do not combine information collected through cookies with other personal information to determine your identity or your email address.</li>
+                </ul>
+                <h3>Secure Transmissions</h3>
+                <p>Please be assured that this portal has security measures in place to protect the information you provide to us.</p>
+                <h3>Personal Information Protection</h3>
+                <ul>
+                  <li>Your personal information will only be available to association employees who need to access that information.</li>
+                  <li>Such information will not be available to the public without your consent.</li>
+                  <li>No such information will be exchanged, traded, or sold to any third party without your prior consent.</li>
+                  <li>Access to information will only be allowed to qualified professionals who provide assembly services.</li>
+                </ul>
+                <h3>The Right to Preview, Modify or Correct the Data</h3>
+                <p>Users who provide us with personal information have the right to review, modify, or correct their personal information.</p>
+              </div>
+              <div class="content" *ngIf="currentLanguage == 'ar'">
+                <p>يلتزم موقع مؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية بحماية حقوق جميع زوار هذه البوابة. إننا نلتزم بالحفاظ على سرية المعلومات الحساسة، وقد أعددنا هذا الإعلان الخاص بالأمن والخصوصية للإفصاح عن النهج الذي نتبعه في جمع المعلومات ونشرها على هذه البوابة الإلكترونية.</p>
+                <h3>جمع واستخدام المعلومات الإلكترونية</h3>
+                <p>يعمل السيرفر الخاص بنا، تلقائياً، على التقاط عنوان بروتوكول الإنترنت الخاص بك عند زيارتك للبوابة.</p>
+                <ul>
+                  <li>عنوان بروتوكول الإنترنت الخاص بك هو الرقم الخاص بجهاز الحاسب الآلي الذي تستخدمه، والذي يسمح للأجهزة الأخرى الموصولة بشبكة الإنترنت بتحديد وجهة البيانات الصادرة عنها، لكن من دون التعرف عليك شخصياً.</li>
+                  <li>إن استخدامنا لبروتوكول الإنترنت الخاص بك يساعدنا على تشخيص المشكلات التي تحدث في السيرفر الخاص بنا.</li>
+                  <li>يساعدنا على إجراء الإحصاء اللازم لقياس استخدام البوابة.</li>
+                  <li>نحن لا نسمح لأي جهة خارج إطار الفريق الفني لمؤسسة سعود بن راشد المعلا بالاطلاع على بروتوكول الإنترنت الخاص بك.</li>
+                </ul>
+                <h3>ملفات تعريف الارتباط (Cookies)</h3>
+                <p>ومن أجل تقديم خدمة أفضل وبوابة إلكترونية أكثر فاعلية، يمكن لبعض أقسام هذه البوابة استخدام ملف تعريف الارتباط (cookies) كجزء من التفاعل مع متصفحك.</p>
+                <ul>
+                  <li>ملف تعريف الارتباط هو عبارة عن ملف نصي صغير يتم إرساله إلى القرص الصلب الخاص بك ليتمكن الخادم الخاص بنا من التعرف على جهاز الحاسب الآلي الخاص بك.</li>
+                  <li>لن يقوم ملف تعريف الارتباط المرسل من قبلنا بمحاولة قراءة أي من المعلومات الموجودة على قرصك الصلب.</li>
+                  <li>نحن لا نقوم بتجميع المعلومات المتأتية من خلال برامج ملف تعريف الارتباط مع معلومات شخصية أخرى من أجل تحديد هويتك أو عنوان بريدك الإلكتروني.</li>
+                </ul>
+                <h3>انتقال آمن للمعلومات</h3>
+                <p>يرجى الاطمئنان بأن هذه البوابة يمتلك إجراءات أمن لحماية المعلومات التي تقدمها لنا.</p>
+                <h3>حماية المعلومات الشخصية</h3>
+                <ul>
+                  <li>لن تكون معلوماتك الشخصية متاحة إلا لموظفي الموقع الذين يحتاجون للاطلاع على تلك المعلومات.</li>
+                  <li>لن تكون تلك المعلومات متاحة لاطلاع الجمهور من دون موافقتك.</li>
+                  <li>لن يتم تبادل، أو تداول أي من تلك المعلومات أو بيعها لأي طرف آخر من دون موافقتك المسبقة.</li>
+                  <li>لن يتم السماح بالوصول إلى المعلومات إلا لأولئك المؤهلين والمحترفين الذين يتولون تقديم خدمات المؤسسة.</li>
+                </ul>
+                <h3>الحق في معاينة، تعديل أو تصحيح البيانات الشخصية</h3>
+                <p>لأي مستخدم يزودنا بمعلوماته الشخصية الحق في معاينة، تعديل أو تصحيح معلوماته الشخصية.</p>
+              </div>
           </div>
       </div>
   </div>

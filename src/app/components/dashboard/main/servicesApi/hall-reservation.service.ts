@@ -17,8 +17,8 @@ export class HallReservationService {
   }
 
   // Fetch OtherOptionsLkpId options
-  getOtherOptions(lang:string): Observable<any> {
-    const url = `${this.baseUrl}/FndLookupValues/GetFndLookupValuesSelect2?type=HallOtherOptions&pageSize=200&pageNumber=1&lang=${lang}`;
+  getOtherOptions(lang:string,type :string = 'HallOtherOptions'): Observable<any> {
+    const url = `${this.baseUrl}/FndLookupValues/GetFndLookupValuesSelect2?type=${type}&pageSize=200&pageNumber=1&lang=${lang}`;
     return this.http.get(url);
   }
 

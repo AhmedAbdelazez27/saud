@@ -23,7 +23,13 @@ export class CartService {
   cartCount$ = this.cartCountSubject.asObservable(); 
   userData$ = this.userDataSubject.asObservable();
 
-  constructor() {}
+  constructor() {
+    setTimeout(()=>{
+      const item = localStorage.getItem('items');
+      const parsedItem = item ? JSON.parse(item) : [];
+      this.cartItems = JSON.parse(JSON.stringify(parsedItem))
+    },1000)
+  }
   addToCart(item: any): void { 
     if (Array.isArray(item)) {
       console.log('Item is an array:', item);

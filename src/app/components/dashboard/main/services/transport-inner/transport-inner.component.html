@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <img src="../../../../../../assets/images/transport.jpg" class="w-100 img-shadow mb-4" />
-                <h1 class="title-blue text-start">{{ 'PROJECT_TRANSPORT' | translate }}</h1>
+                <h1 class="title-blue text-center">{{ 'PROJECT_TRANSPORT' | translate }}</h1>
                 <p class="text-22">
                   {{ 'STUDENT_TRANSPORT_PROGRAM_DESCRIPTION' | translate }}                
                 </p>
@@ -105,7 +105,7 @@
                   <label for="filePath" class="form-label">{{ 'UPLOAD_UNIVERSITY_ID' | translate }}</label>
                   <div class="drop-zone">
                     <label for="fileInput" class="drop-zone-label">
-                      {{ 'DRAG_DROP_FILE' | translate }}
+                      {{ 'DRAG_DROP_FILES' | translate }} <span>{{ 'BROWSE' | translate }}</span>
                     </label>
                     <input type="file" id="filePath" class="form-control" (change)="onFileSelect($event)" />
                   </div>

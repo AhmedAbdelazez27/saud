@@ -563,6 +563,41 @@
   </div>
 </section>
 
+ <!-- start halls and council  -->
+<section class="emergency">
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h1 class="title-blue">{{'HALLS_AND_MAJLIS' | translate}}</h1>
+      </div>
+
+      <!-- Owl Carousel -->
+      <ng-container *ngIf="customOptions">
+        <owl-carousel-o  #owlCarousel3 [options]="customOptions">
+          <ng-container *ngFor="let item of allData">
+            <ng-template carouselSlide>
+              <div class="item">
+                <div class="card campain-container" (click)="goDetailsHalls(item?.id,item?.type)">
+                  <img [src]="item.imagePath" class="card-img-top" style="height: 375px;" />
+                  <div class="card-body">
+                    <h5 class="text-24-black text-center">{{currentLang === 'ar' ? item.hallNameAr : item?.hallNameEn  }}</h5>
+  
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+        <div class="d-flex justify-content-center">
+          <span class="custom-nav next-btn mx-1" (click)="navigateNext3()">&lt;</span>
+          <span class="custom-nav next-btn mx-1" (click)="navigatePrev3()">&gt;</span>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</section>
+
 <!-- start partners  -->
 <section class="emergency">
   <div class="container">

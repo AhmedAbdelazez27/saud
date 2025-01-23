@@ -239,6 +239,7 @@
   "DATE_FROM": "Date From",
   "DATE_TO": "Date To",
   "UPLOAD_UNIVERSITY_ID": "Upload University ID",
+  "FORM_FILE": "Form File",
   "DRAG_DROP_FILE": "Drag & drop your files here or browse",
   "PLEDGE": "Pledge",
   "PLEDGE_DETAILS": "Details of the pledge",
@@ -299,7 +300,7 @@
   "PERSONAL_INFO_DESC_3": "It will not be shared, exchanged, or sold without your prior consent.",
   "PERSONAL_INFO_DESC_4": "Access will be limited to qualified professionals providing services.",
   "USER_RIGHTS_TITLE": "Right to Review, Modify, or Correct Personal Data",
-  "USER_RIGHTS_DESC": "Any user providing personal information has the right to review, modify, or correct their data."
-
+  "USER_RIGHTS_DESC": "Any user providing personal information has the right to review, modify, or correct their data.",
+  "CITY":"City"
 
 }

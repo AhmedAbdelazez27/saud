@@ -20,20 +20,34 @@
       <div class="row">
           <div class="col-lg-12">
               <h2 class="section-title">{{ 'TERMS_WELCOME' | translate }}</h2>
-              <ul>
-                  <li class="content-text">{{ 'TERMS_INTRO' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_USAGE' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_INTELLECTUAL' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_NO_POST' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_GOVERN' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_NO_VIRUS' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_NO_IMPERSONATE' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_NO_COPY' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_NO_FAULT' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_CANCEL' | translate }}</li>
-                  <li class="content-text">{{ 'TERMS_UPDATE' | translate }}</li>
-              </ul>
+              <div class="content"  *ngIf="currentLanguage == 'en'">
+                <p>We welcome visitors to the website of the Saud bin Rashid Al Mualla Charitable and Humanitarian Est., and we emphasize that you read the following terms of use carefully before entering the website, as they are terms and conditions that apply to you once you use the website.</p>
+                <p>Your use of this website and the materials and services available on or through it (collectively referred to as the “Website”) is subject to the terms and conditions (“Terms of Use”) in addition to the laws of the United Arab Emirates. Please read the Terms of Use carefully before entering the website, as your entry is considered your prior approval of these terms and conditions without regard to how to access the electronic portal of the Saud bin Rashid Al Mualla Charitable and Humanitarian Est. for Charitable Works.</p>
+                <p>All intellectual property rights, printing and publishing of information and electronic portal marks are protected in accordance with the laws regulating this in the United Arab Emirates, and the Saud bin Rashid Al Mualla Charitable and Humanitarian Est. is the sole and exclusive owner thereof.</p>
+                <p>No user has the right to publish any materials on the electronic portal of the website of the Saud bin Rashid Al Mualla Charitable and Humanitarian Est. by any user, and the user bears full responsibility for doing so.</p>
+                <p>The terms of use for the electronic portal of the Saud bin Rashid Al Mualla Foundation for Charitable and Humanitarian Works shall be governed and interpreted in accordance with the laws of the United Arab Emirates.</p>
+                <p>The user agrees not to send by e-mail or download through the electronic services of the Saud bin Rashid Al Mualla Foundation for Charitable and Humanitarian Works any software viruses or other with the intent to damage files, data, software, devices and server systems or communication equipment, or to use any content that he is not authorized to use in whole or in part, and that he does not have the right to publish or reproduce it, or that includes a violation or infringement of the intellectual property rights of others.</p>
+                <p>The user agrees that he will not impersonate any person, or identify himself in a false manner when using the services of the electronic donation portal of the association, and he will not use another user's account unless authorized to do so by that user.</p>
+                <p>The user agrees that he will not use the electronic services of the association to make copies, reproduce, publish or sell the services in whole or in part for commercial purposes without written permission from the Saud bin Rashid Al Mualla Foundation for Charitable and Humanitarian Works. It will not use the services in a manner that violates any applicable national or international laws, or violates any Internet protocols.</p>
+                <p>Saud bin Rashid Al Mualla Charitable and Humanitarian Est. is not responsible for any technical malfunctions or malfunctions affecting equipment or software of any kind, or for loss or failure to secure a connection to the network, or incompleteness, error or delay in transmission, nor is it responsible for any direct or indirect damages due to visiting or using the portal or loss of services or loss of income or benefits caused by a virus that may infect computer equipment or smart devices used to access the portal.</p>
+                <p>The association has the right to cancel, terminate or suspend access to use the portal and the website for any reason and without prior notice, whether by stating reasons for that or by reserving them in accordance with the principle of privacy and confidentiality.</p>
+                <p>Saud bin Rashid Al Mualla Charitable and Humanitarian Est. reserves the right to update and change these terms and conditions at any time.</p>
+              </div>
+              <div class="content" *ngIf="currentLanguage == 'ar'">
+                <p>نرحب بزوار موقع مؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية الكرام، ونؤكد على قراءة شروط الاستخدام التالية بعناية قبل الدخول إلى الموقع الإلكتروني، لأنها شروط وأحكام تنطبق عليك بمجرد استخدامك للموقع.</p>
+                <p>يخضع استخدامك لهذا الموقع الإلكتروني والمواد والخدمات المتوفرة فيه أو عبره (يشار إليها مجتمعة بـ “الموقع الإلكتروني”) للشروط والأحكام (“شروط الاستخدام”) بالإضافة إلى قوانين دولة الإمارات العربية المتحدة. يرجى قراءة شروط الاستخدام بعناية قبل الدخول إلى الموقع الإلكتروني، حيث يعتبر دخولك موافقة مسبقة منك على هذه الشروط والأحكام دون النظر إلى كيفية الوصول إلى البوابة الالكترونية الخاصة بمؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية للأعمال الخيرية.</p>
+                <p>جميع حقوق الملكية الفكرية وطباعة ونشر المعلومات وعلامات البوابة الالكتروني محمية وفقاً للقوانين المنظمة لذلك بدولة الإمارات العربية المتحدة ومؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية هي المالك الوحيد والحصري لها.</p>
+                <p>لا يحق نشر أية مواد على البوابة الالكترونية الخاصة بالموقع الالكتروني التابع لمؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية من قبل أي مستخدم ويتحمل المستخدم المسؤولية التامة عن قيامه بذلك.</p>
+                <p>إن شروط المستخدم للبوابة الالكترونية الخاصة بمؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية تحكم وتفسر وفقاً لقوانين دولة الإمارات العربية المتحدة.</p>
+                <p>يوافق المستخدم على عدم إرساله عن طريق البريد الإلكتروني أو التحميل من خلال الخدمات الإلكترونية الخاصة بمؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانيةأي فيروسات برمجية أو غيرها بقصد إتلاف ملفات أو بيانات أو برمجيات أو أجهزة وأنظمة الخوادم أو معدات الاتصال، أو استعمال أي محتوى غير مخول له باستعماله كله أو بعضه، وأنه ليس من حقه نشره أو إعادة إنتاجه، أو يتضمن مخالفة وخرقا لحقوق الملكية الفكرية للغير.</p>
+                <p>يوافق المستخدم على أنه لن يقوم بانتحال شخصية أي شخص، أو التعريف بنفسه بطريقة خاطئة عند استعمالك لخدمات بوابة التبرعات الالكترونية التابعة للجمعية، كما أنه لن يستخدم حساب مستخدم آخر إلا إذا صرح له بذلك من قبل ذلك المستخدم.</p>
+                <p>يوافق المستخدم على أنه لن يستخدم خدمات الجمعية الإلكترونية لعمل نسخ أو إعادة إنتاج أو نشر أو بيع الخدمات كلها أو بعضها لغايات تجارية بدون إذن خطي من مؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية. كما أنه لن يستخدم الخدمات بشكل يخرق أية قوانين وطنية أو دولية معمول بها، أو يخالف أي بروتوكولات متعلقة بالإنترنت.</p>
+                <p>مؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانيةليست مسؤولة عن أي أعطال فنية أو أعطال تصيب المعدات أو البرامج مهما كان نوعها أو عن فقدان أو عن عدم تأمين اتصال مع الشبكة أو عدم اكتمال أو خطأ أو تأخير في الإرسال، كما أنها غير مسؤولة عن أية أضرار مباشرة أو غير مباشرة بسبب زيارة أو استخدام البوابة أو فقد الخدمات أو فقد الدخل أو منافع يسببها فيروس قد يصيب معدات الحاسب الآلي أو الأجهزة الذكية المستخدم للدخول على البوابة.</p>
+                <p>للجمعية الحق في إلغاء أو إنهاء أو تعليق الدخول لاستخدام البوابة والموقع الاإلكتروني لأي سبب كان ودون إشعار مسبق سواء بإبداء أسباب ذلك أو التحفظ بها وفقاً لمبدأ الخصوصية والسرية.</p>
+                <p>تحتفظ مؤسسة سعود بن راشد المعلا للأعمال الخيرية والانسانية بحقها في تحديث وتغيير هذه الشروط والأحكام في أي وقت.</p>
+              </div>
+            </div>
           </div>
       </div>
-  </div>
+  
 </section>
