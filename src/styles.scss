@@ -115,7 +115,7 @@ label, h1, h2, h3, h4, button, .bold, .btn {
 .title-blue {
     color: var(--45869-a, #45869A);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 36px;
     font-style: normal;
     font-weight: 500;
@@ -189,7 +189,7 @@ section.about {
 
 .text-24-white {
     color: #FFF;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 24px;
     font-style: normal;
     line-height: normal;
@@ -197,7 +197,7 @@ section.about {
 
 .text-16-white {
     color: #FFF;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 16px;
     font-style: normal;
     line-height: normal;
@@ -213,7 +213,7 @@ section.about {
     gap: 10px;
     color: var(--45869-a, #45869A);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -251,7 +251,7 @@ section.gates {
 
 .text-24-black {
     color: var(--000000, #000);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 24px;
     font-style: normal;
     line-height: normal; 
@@ -288,7 +288,7 @@ section.gates {
     background: var(--497-e-62, #497E62);
     color: var(--ffffff, #FFF);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -310,7 +310,7 @@ section.gates {
     background: var(--ffffff, #FFF);
     color: var(--45869-a, #45869A);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -393,7 +393,7 @@ section.acheivemen {
 
 .text-32-white {
     color: var(--ffffff, #FFF);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 32px;
     font-style: normal;
     line-height: normal;
@@ -406,7 +406,7 @@ section.emergency {
 
 .text-14-blue {
     color: var(--45869-a, #45869A);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -415,7 +415,7 @@ section.emergency {
 
 .text-14-black {
     color: var(--000000, #000);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -445,7 +445,7 @@ section.emergency {
 .title-48-cyan {
     color: var(--8-acde-0, #8ACDE0);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 48px;
     font-style: normal;
     line-height: normal;
@@ -471,7 +471,7 @@ section.emergency {
     gap: 10px;
     color: var(--000000, #000);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -776,7 +776,7 @@ footer a {
 
     .menu-item span {
         color: var(--414141, #414141);
-        font-family: DubaiBold;
+        font-family: 'Janna LT';
         font-size: 18px;
         font-style: normal;
         line-height: normal;
@@ -894,7 +894,7 @@ footer a {
 
 .text-28-white {
     color: #FFF;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 28px;
     font-style: normal;
     line-height: normal;
@@ -1505,25 +1505,23 @@ box-shadow:none;
   [dir="rtl"] {
     
 @font-face {
-    font-family: 'Dubai';
-    src: url('./assets/fonts/Dubai-Regular.eot');
-    src: url('./assets/fonts/Dubai-Regular.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Dubai-Regular.woff2') format('woff2'), url('./assets/fonts/Dubai-Regular.woff') format('woff'), url('./assets/fonts/Dubai-Regular.ttf') format('truetype'), url('./assets/fonts/Dubai-Regular.svg#Dubai') format('svg');
-}
-
-@font-face {
-    font-family: 'DubaiBold';
-    src: url('./assets/fonts/Dubai-Bold-1.eot');
-    src: url('./assets/fonts/Dubai-Bold-1.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Dubai-Bold-1.woff2') format('woff2'), url('./assets/fonts/Dubai-Bold-1.woff') format('woff'), url('./assets/fonts/Dubai-Bold-1.ttf') format('truetype'), url('./assets/fonts/Dubai-Bold-1.svg#Dubai') format('svg');
+    font-family: 'Janna LT';
+    src: url('../assets/fonts/ArbFONTS-Janna-LT-Regular.eot');
+    src: url('../assets/fonts/ArbFONTS-Janna-LT-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/ArbFONTS-Janna-LT-Regular.woff2') format('woff2'),
+         url('../assets/fonts/ArbFONTS-Janna-LT-Regular.woff') format('woff'),
+         url('../assets/fonts/ArbFONTS-Janna-LT-Regular.ttf')  format('truetype'),
+         url('../assets/fonts/ArbFONTS-Janna-LT-Regular.svg#Janna LT') format('svg');
 }
 
 body {
     background-image: url('./assets/images/bg.png');
     background-attachment: fixed;
-    font-family: 'Dubai';
+    font-family: 'Janna LT';
 }
 
 label, h1, h2, h3, h4, button, .bold, .btn {
-    font-family: 'DubaiBold';
+    font-family: 'Janna LT';
 }
 
 
@@ -1618,7 +1616,7 @@ label, h1, h2, h3, h4, button, .bold, .btn {
 .title-blue {
     color: var(--45869-a, #45869A);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 36px;
     font-style: normal;
     font-weight: 500;
@@ -1637,7 +1635,7 @@ section.about {
 .text-22 {
     color: var(--414141, #414141);
     text-align: justify;
-    font-family: Dubai;
+    font-family: 'Janna LT';
     font-size: 22px;
     font-style: normal;
     line-height: normal;
@@ -1692,7 +1690,7 @@ section.about {
 
 .text-24-white {
     color: #FFF;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 24px;
     font-style: normal;
     line-height: normal;
@@ -1700,7 +1698,7 @@ section.about {
 
 .text-16-white {
     color: #FFF;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 16px;
     font-style: normal;
     line-height: normal;
@@ -1716,7 +1714,7 @@ section.about {
     gap: 10px;
     color: var(--45869-a, #45869A);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -1754,7 +1752,7 @@ section.gates {
 
 .text-24-black {
     color: var(--000000, #000);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 24px;
     font-style: normal;
     line-height: normal;
@@ -1791,7 +1789,7 @@ section.gates {
     background: var(--497-e-62, #497E62);
     color: var(--ffffff, #FFF);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -1813,7 +1811,7 @@ section.gates {
     background: var(--ffffff, #FFF);
     color: var(--45869-a, #45869A);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -1891,7 +1889,7 @@ section.acheivemen {
 
 .text-32-white {
     color: var(--ffffff, #FFF);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 32px;
     font-style: normal;
     line-height: normal;
@@ -1904,7 +1902,7 @@ section.emergency {
 
 .text-14-blue {
     color: var(--45869-a, #45869A);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -1913,7 +1911,7 @@ section.emergency {
 
 .text-14-black {
     color: var(--000000, #000);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -1944,7 +1942,7 @@ section.emergency {
 .title-48-cyan {
     color: var(--8-acde-0, #8ACDE0);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 48px;
     font-style: normal;
     line-height: normal;
@@ -1970,7 +1968,7 @@ section.emergency {
     gap: 10px;
     color: var(--000000, #000);
     text-align: center;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 14px;
     font-style: normal;
     line-height: normal;
@@ -2272,7 +2270,7 @@ footer a {
 
 .menu-item span {
     color: var(--414141, #414141);
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 18px;
     font-style: normal;
     line-height: normal;
@@ -2396,7 +2394,7 @@ footer a {
 
 .text-28-white {
     color: #FFF;
-    font-family: DubaiBold;
+    font-family: 'Janna LT';
     font-size: 28px;
     font-style: normal;
     line-height: normal;
