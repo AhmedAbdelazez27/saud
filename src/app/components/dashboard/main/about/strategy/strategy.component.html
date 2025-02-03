@@ -110,8 +110,8 @@
                       </h2>
                       <div [id]="'collapseOne'+index" class="accordion-collapse collapse "  [class.show]="index === 0"  data-bs-parent="#accordionExample">
                           <div class="accordion-body">
-                              <p>
-                                {{ currentLang === 'ar' ? policy?.policyDescAr : policy?.policyDescEn }}
+                              <p [innerHTML]="currentLang === 'ar' ? policy?.policyDescAr : policy?.policyDescEn ">
+                                
                               </p>
                           </div>
                       </div>
