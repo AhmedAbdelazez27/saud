@@ -59,4 +59,9 @@ export class AboutusService {
     
     return this.http.get(`${this.apiUrl}WebsiteGallery/GetAllWebsiteGalleryForWebsite`);
   }
+  
+  getcertificates(type:any): Observable<any> {
+    return this.http.get(`${this.apiUrl}WebsiteInstitutionalCooperation/GetAllWebsiteInstitutionalCooperationForWebsite?input=${type}`)
+  }
 }
+

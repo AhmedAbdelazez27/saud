@@ -1,74 +1,76 @@
 <section class="mt-150" *ngIf="aboutStrategy.length > 0">
-    <div class="container">
-        <div class="row mt-150">
-            <div class="text-center">
-                <h1 class="title-blue">{{'OUR_VISION' | translate}}</h1>
-            </div>
-            <div class="col-lg-6">
-                <img [src]="aboutStrategy[0]?.websiteStrategy?.imagePath ? aboutStrategy[0]?.websiteStrategy?.imagePath:'../../../../../../assets/images/vision.png'"
-                    class="w-100 img-shadow mb-3">
-            </div>
+  <div class="container">
+    <div class="row mt-150">
+      <div class="text-center">
+        <h1 class="title-blue">{{'OUR_VISION' | translate}}</h1>
+      </div>
+      <div class="col-lg-6">
+        <img
+          [src]="aboutStrategy[0]?.websiteStrategy?.imagePath ? aboutStrategy[0]?.websiteStrategy?.imagePath:'../../../../../../assets/images/vision.png'"
+          class="w-100 img-shadow mb-3">
+      </div>
 
-            <div class="col-lg-6">
-                <p class="text-22">
-                    {{currentLang === 'ar' ? aboutStrategy[0]?.websiteStrategy?.ourVisionAr : aboutStrategy[0]?.websiteStrategy?.ourVisionEn }}
-                </p>
-            </div>
-        </div>
-
+      <div class="col-lg-6">
+        <p class="text-22">
+          {{currentLang === 'ar' ? aboutStrategy[0]?.websiteStrategy?.ourVisionAr :
+          aboutStrategy[0]?.websiteStrategy?.ourVisionEn }}
+        </p>
+      </div>
     </div>
+
+  </div>
 </section>
 
 
 
 
 <section class="acheivemen">
-    <div class="container">
-      <div class="row">
-        <div class="text-center">
-          <img src="../../../../../../assets/images/acheivement.png" style="margin-bottom:24px;" />
-          <h1 class="title-blue">{{'OUR_ACHIEVEMENTS' | translate}}</h1>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <img src="../../../../../../assets/images/acheivement.png" style="margin-bottom:24px;" />
+        <h1 class="title-blue">{{'OUR_ACHIEVEMENTS' | translate}}</h1>
+      </div>
+      <div class="col-lg justify-content-center d-flex" *ngFor="let itemStatis of websiteStatistic ; let index = index"
+        style=" margin-bottom: 54px;">
+        <div class="achievement-box-green">
+
+          <h1 class="text-32-white">
+            {{animatedValues[index]}}</h1>
         </div>
-        <div class="col-lg justify-content-center d-flex" *ngFor="let itemStatis of websiteStatistic ; let index = index"
-          style=" margin-bottom: 54px;">
-          <div class="achievement-box-green">
-  
-            <h1 class="text-32-white">
-              {{animatedValues[index]}}</h1>
-          </div>
-          <div class="achievement-box-blue">
-            <p class="text-24-white">
-              {{currentLang === 'ar' ? itemStatis?.nameAr : itemStatis?.nameEn}}
-            </p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
-              <path
-                d="M11.75 64.5001C11.7875 63.3876 11.8375 62.2626 11.875 61.1501C11.9625 58.4376 13.4 57.0001 16.1 57.0001C27.0375 56.9876 37.975 56.9876 48.9125 57.0001C51.6 57.0001 53.05 58.4376 53.1375 61.1501C53.175 62.2626 53.225 63.3876 53.2625 64.5001C39.4125 64.5001 25.5875 64.5001 11.75 64.5001Z"
-                fill="#EFEFEF" />
-              <path
-                d="M34.5 0.5C34.5 2.9875 34.5 5.4625 34.5 8.0375C33.1125 8.0375 31.975 8.0375 30.5 8.0375C30.5 5.525 30.5 3.0125 30.5 0.5C31.8375 0.5 33.1625 0.5 34.5 0.5Z"
-                fill="#EFEFEF" />
-              <path
-                d="M0.5 30.5C2.9875 30.5 5.46251 30.5 8.03751 30.5C8.03751 31.8875 8.03751 33.025 8.03751 34.5C5.52501 34.5 3.0125 34.5 0.5 34.5C0.5 33.1625 0.5 31.8375 0.5 30.5Z"
-                fill="#EFEFEF" />
-              <path
-                d="M64.5 34.5C62.0125 34.5 59.5375 34.5 56.9625 34.5C56.9625 33.1125 56.9625 31.975 56.9625 30.5C59.475 30.5 61.9875 30.5 64.5 30.5C64.5 31.8375 64.5 33.1625 64.5 34.5Z"
-                fill="#EFEFEF" />
-              <path
-                d="M15.7376 53.2125C15.7001 52.975 15.6251 52.775 15.6251 52.5875C15.6501 45.5125 15.5126 38.425 15.7376 31.3625C16.0001 23.25 22.9126 16.275 30.8626 15.7375C39.7501 15.15 47.4126 20.7875 48.9876 29.1375C49.2251 30.4 49.3376 31.7 49.3501 32.9875C49.3876 39.3625 49.3626 45.725 49.3626 52.1C49.3626 52.4625 49.3251 52.8375 49.3001 53.2375C38.0751 53.2125 26.9251 53.2125 15.7376 53.2125ZM30.7501 26.9375C30.7501 30.7125 30.7501 34.375 30.7501 38.0125C32.0126 38.0125 33.1501 38.0125 34.2751 38.0125C34.2751 34.2625 34.2751 30.6375 34.2751 26.9375C33.0751 26.9375 31.9626 26.9375 30.7501 26.9375ZM30.7376 41.9625C30.7376 43.2125 30.7376 44.375 30.7376 45.525C31.9876 45.525 33.1251 45.525 34.2751 45.525C34.2751 44.2875 34.2751 43.15 34.2751 41.9625C33.0501 41.9625 31.9126 41.9625 30.7376 41.9625Z"
-                fill="#EFEFEF" />
-              <path
-                d="M16.3875 14.0749C15.65 14.7749 14.7875 15.5874 14 16.3374C12.3125 14.6499 10.6 12.9374 8.83752 11.1749C9.58752 10.4624 10.45 9.6374 11.225 8.8999C12.9125 10.5874 14.625 12.2999 16.3875 14.0749Z"
-                fill="#EFEFEF" />
-              <path
-                d="M53.825 8.875C54.5875 9.6375 55.4 10.4375 56.1375 11.175C54.4125 12.8875 52.7 14.6125 50.925 16.375C50.25 15.65 49.4375 14.7875 48.7 14C50.35 12.3375 52.075 10.625 53.825 8.875Z"
-                fill="#EFEFEF" />
-            </svg>
-          </div>
-  
+        <div class="achievement-box-blue">
+          <p class="text-24-white">
+            {{currentLang === 'ar' ? itemStatis?.nameAr : itemStatis?.nameEn}}
+          </p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
+            <path
+              d="M11.75 64.5001C11.7875 63.3876 11.8375 62.2626 11.875 61.1501C11.9625 58.4376 13.4 57.0001 16.1 57.0001C27.0375 56.9876 37.975 56.9876 48.9125 57.0001C51.6 57.0001 53.05 58.4376 53.1375 61.1501C53.175 62.2626 53.225 63.3876 53.2625 64.5001C39.4125 64.5001 25.5875 64.5001 11.75 64.5001Z"
+              fill="#EFEFEF" />
+            <path
+              d="M34.5 0.5C34.5 2.9875 34.5 5.4625 34.5 8.0375C33.1125 8.0375 31.975 8.0375 30.5 8.0375C30.5 5.525 30.5 3.0125 30.5 0.5C31.8375 0.5 33.1625 0.5 34.5 0.5Z"
+              fill="#EFEFEF" />
+            <path
+              d="M0.5 30.5C2.9875 30.5 5.46251 30.5 8.03751 30.5C8.03751 31.8875 8.03751 33.025 8.03751 34.5C5.52501 34.5 3.0125 34.5 0.5 34.5C0.5 33.1625 0.5 31.8375 0.5 30.5Z"
+              fill="#EFEFEF" />
+            <path
+              d="M64.5 34.5C62.0125 34.5 59.5375 34.5 56.9625 34.5C56.9625 33.1125 56.9625 31.975 56.9625 30.5C59.475 30.5 61.9875 30.5 64.5 30.5C64.5 31.8375 64.5 33.1625 64.5 34.5Z"
+              fill="#EFEFEF" />
+            <path
+              d="M15.7376 53.2125C15.7001 52.975 15.6251 52.775 15.6251 52.5875C15.6501 45.5125 15.5126 38.425 15.7376 31.3625C16.0001 23.25 22.9126 16.275 30.8626 15.7375C39.7501 15.15 47.4126 20.7875 48.9876 29.1375C49.2251 30.4 49.3376 31.7 49.3501 32.9875C49.3876 39.3625 49.3626 45.725 49.3626 52.1C49.3626 52.4625 49.3251 52.8375 49.3001 53.2375C38.0751 53.2125 26.9251 53.2125 15.7376 53.2125ZM30.7501 26.9375C30.7501 30.7125 30.7501 34.375 30.7501 38.0125C32.0126 38.0125 33.1501 38.0125 34.2751 38.0125C34.2751 34.2625 34.2751 30.6375 34.2751 26.9375C33.0751 26.9375 31.9626 26.9375 30.7501 26.9375ZM30.7376 41.9625C30.7376 43.2125 30.7376 44.375 30.7376 45.525C31.9876 45.525 33.1251 45.525 34.2751 45.525C34.2751 44.2875 34.2751 43.15 34.2751 41.9625C33.0501 41.9625 31.9126 41.9625 30.7376 41.9625Z"
+              fill="#EFEFEF" />
+            <path
+              d="M16.3875 14.0749C15.65 14.7749 14.7875 15.5874 14 16.3374C12.3125 14.6499 10.6 12.9374 8.83752 11.1749C9.58752 10.4624 10.45 9.6374 11.225 8.8999C12.9125 10.5874 14.625 12.2999 16.3875 14.0749Z"
+              fill="#EFEFEF" />
+            <path
+              d="M53.825 8.875C54.5875 9.6375 55.4 10.4375 56.1375 11.175C54.4125 12.8875 52.7 14.6125 50.925 16.375C50.25 15.65 49.4375 14.7875 48.7 14C50.35 12.3375 52.075 10.625 53.825 8.875Z"
+              fill="#EFEFEF" />
+          </svg>
         </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
 <!-- <section class="mt-150">
@@ -96,83 +98,117 @@
 </section> -->
 <section class="mt-150">
   <div class="container">
-      <div class="row mt-150">
-          <div class="text-center">
-              <h1 class="title-blue">{{"POLICIES" | translate}}</h1>
-          </div>
-          <div class="col-lg-12">
-              <div class="accordion" id="accordionExample"*ngIf="aboutStrategy.length && aboutStrategy[0].listWebsiteStrategyPolicy.length">
-                  <div class="accordion-item" *ngFor="let policy of aboutStrategy[0].listWebsiteStrategyPolicy ; let index=index ">
-                      <h2 class="accordion-header">
-                          <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOne'+index"  [attr.aria-expanded]="index === 0 ? 'true' : 'false'" [attr.aria-controls]="'collapseOne'+index">
-                              <h4 class="mb-0">{{ currentLang === 'ar' ? policy?.titleAr : policy?.titleEn }}</h4>
-                          </button>
-                      </h2>
-                      <div [id]="'collapseOne'+index" class="accordion-collapse collapse "  [class.show]="index === 0"  data-bs-parent="#accordionExample">
-                          <div class="accordion-body">
-                              <p [innerHTML]="currentLang === 'ar' ? policy?.policyDescAr : policy?.policyDescEn ">
-                                
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                 
+    <div class="row mt-150">
+      <div class="text-center">
+        <h1 class="title-blue">{{"POLICIES" | translate}}</h1>
+      </div>
+      <div class="col-lg-12">
+        <div class="accordion" id="accordionExample"
+          *ngIf="aboutStrategy.length && aboutStrategy[0].listWebsiteStrategyPolicy.length">
+          <div class="accordion-item"
+            *ngFor="let policy of aboutStrategy[0].listWebsiteStrategyPolicy ; let index=index ">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapseOne'+index" [attr.aria-expanded]="index === 0 ? 'true' : 'false'"
+                [attr.aria-controls]="'collapseOne'+index">
+                <h4 class="mb-0">{{ currentLang === 'ar' ? policy?.titleAr : policy?.titleEn }}</h4>
+              </button>
+            </h2>
+            <div [id]="'collapseOne'+index" class="accordion-collapse collapse " [class.show]="index === 0"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p [innerHTML]="currentLang === 'ar' ? policy?.policyDescAr : policy?.policyDescEn ">
+
+                </p>
               </div>
+            </div>
           </div>
 
-         
+        </div>
       </div>
+
+
+    </div>
 
   </div>
 </section>
 
+<section class="mt-150">
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h1 class="title-blue">{{ 'COOPERATION_WITH_CHARITIES' | translate }}</h1>
+      </div>
 
-<!-- <section class="donation-bg">
-    <div class="container">
-        <h1 class="white text-center mb-4">
-          {{'DONATION' | translate}}
-        </h1>
-
-        <h4 class="white">
-            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص
-            أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ
-            -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها
-            نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن
-            النص، وإذا قمت بإدخال "lorem ipsum" في أي محرك بحث ستظهر العديد من المواقع الحديثة العهد في نتائج البحث. على
-            مدى السنين ظهرت نسخ جديدة ومختلفة من نص لوريم إيبسوم، أحياناً عن طريق الصدفة، وأحياناً عن عمد كإدخال بعض
-            العبارات الفكاهية إليها.
-        </h4>
-
-    </div>
-</section> -->
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <section class="mt-150">
-    <div class="container">
-        <div class="row mt-150">
-            <div class="text-center">
-                <h1 class="title-blue"> {{"ASSISTANCE" | translate}}222</h1>
-            </div>
-            <div class="col-lg-6 order-lg-5">
-                <img src="../../../../../../assets/images/help.png" class="w-100 img-shadow mb-3">
-            </div>
-
-            <div class="col-lg-6 order-lg-1">
-                <p class="text-22">
-                  {{"DONATION_MISSION" | translate}}
-                </p>
-            </div>
-        </div>
+      <ng-container *ngIf="customOptionsPartners">
+        <owl-carousel-o [options]="customOptionsPartners">
+          <ng-container *ngFor="let partner of partners">
+            <ng-template carouselSlide>
+              <div class="card acheivemens-container text-center">
+                <img [src]="partner?.imagePath" style="height:64px; width:auto; margin:auto;" />
+                <div class="card-body">
+                  <h5 class="blue bold text-center">{{currentLang === 'ar' ? partner?.nameAr : partner?.nameEn}}</h5>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </ng-container>
 
     </div>
-</section> -->
+  </div>
+</section>
+
+
+<section class="certificates-bg">
+  <div class="container">
+    <h1 class="white text-center mb-4">
+      {{ 'CERTIFICATES' | translate }}
+    </h1>
+    <ng-container *ngIf="customOptions">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let certificate of certificates">
+          <ng-template carouselSlide>
+            <div class=" certificates">
+              <div class="item">
+                <div class="card campain-container">
+                  <img [src]="certificate?.imagePath" style="height: 280px;"/>
+                  <div class="card-body">
+                    <h5 class="text-24-black text-center">{{currentLang === 'ar' ? certificate?.nameAr : certificate?.nameEn}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </ng-container>
+
+  </div>
+</section>
+
+<section class="mt-150">
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h1 class="title-blue">{{ 'COOPERATION_AGREEMENTS' | translate }}</h1>
+      </div>
+
+      <ng-container *ngIf="customOptionsPartners">
+        <owl-carousel-o [options]="customOptionsPartners">
+          <ng-container *ngFor="let cooperation of cooperations">
+            <ng-template carouselSlide>
+              <div class="card acheivemens-container text-center">
+                <img [src]="cooperation?.imagePath" style="height:64px; width:auto; margin:auto;" />
+                <div class="card-body">
+                  <h5 class="blue bold text-center">{{currentLang === 'ar' ? cooperation?.nameAr : cooperation?.nameEn}}</h5>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </ng-container>
+
+    </div>
+  </div>
+</section>

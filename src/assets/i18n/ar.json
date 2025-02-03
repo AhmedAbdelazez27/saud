@@ -301,7 +301,13 @@
   "PERSONAL_INFO_DESC_4": "يُسمح بالوصول فقط للمهنيين المؤهلين لتقديم الخدمات.",
   "USER_RIGHTS_TITLE": "حق المراجعة أو التعديل أو التصحيح",
   "USER_RIGHTS_DESC": "للمستخدم الحق في مراجعة أو تعديل أو تصحيح بياناته الشخصية.",
-  "CITY":"الإمارة"
+  "CITY":"الإمارة",
+  "COOPERATION_WITH_CHARITIES": "تعاون المؤسسة مع المؤسسات الخيرية",
+  "CERTIFICATES": "الشهادات",
+  "COOPERATION_AGREEMENTS": "Cooperation agreements made by the organization"
+
+
+
 
 
 

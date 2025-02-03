@@ -301,6 +301,12 @@
   "PERSONAL_INFO_DESC_4": "Access will be limited to qualified professionals providing services.",
   "USER_RIGHTS_TITLE": "Right to Review, Modify, or Correct Personal Data",
   "USER_RIGHTS_DESC": "Any user providing personal information has the right to review, modify, or correct their data.",
-  "CITY":"City"
+  "CITY":"City",
+  "COOPERATION_WITH_CHARITIES": "The organization's cooperation with charitable organizations",
+  "CERTIFICATES": "Certificates",
+  "COOPERATION_AGREEMENTS": "Cooperation agreements made by the organization"
+
+
+
 
 }
