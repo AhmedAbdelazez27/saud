@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AboutusService } from '../../servicesApi/aboutus.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -7,11 +7,12 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LandingService } from '../../servicesApi/landing.service';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
+import { ImageModule } from 'primeng/image';
 
 @Component({
   selector: 'app-strategy',
   standalone: true,
-  imports: [CommonModule,TranslateModule,CarouselModule,FormsModule],
+  imports: [CommonModule,TranslateModule,CarouselModule,FormsModule,ImageModule],
   templateUrl: './strategy.component.html',
   styleUrl: './strategy.component.scss'
 })
@@ -25,6 +26,9 @@ export class StrategyComponent implements OnInit {
   customOptionsPartners: OwlOptions;
   customOptions?: OwlOptions;
   partners: any;
+  @ViewChild('imagePreview', { static: false }) imagePreview!: ElementRef;
+  currentImgSrc ?: string;
+  currentImgName ?: string;
 
   constructor(
     private _AboutusService: AboutusService,
@@ -41,8 +45,9 @@ export class StrategyComponent implements OnInit {
         loop: true,
         margin: 10,
         nav: true,
-        dots: true,
+        dots: false,
         autoplay: true,
+        autoplayHoverPause: true,
         responsive: {
           0: { items: 1 }, 
           600: { items: 2 },
@@ -60,6 +65,7 @@ export class StrategyComponent implements OnInit {
         dots: false,
         autoplay: true,
         autoplayTimeout: 3000,
+        autoplayHoverPause: true,
         responsive: {
           0: { items: 1 },
           600: { items: 2},
@@ -74,8 +80,9 @@ export class StrategyComponent implements OnInit {
         loop: true, 
         margin: 10, 
         nav: true,
-        dots: true,
+        dots: false,
         autoplay: true,
+        autoplayHoverPause: true,
         responsive: {
           0: { items: 1 },
           600: { items: 2 }, 
@@ -92,6 +99,7 @@ export class StrategyComponent implements OnInit {
         dots: false,
         autoplay: true,
         autoplayTimeout: 3000,
+        autoplayHoverPause: true,
         responsive: {
           0: {
             items: 1,
@@ -195,5 +203,9 @@ export class StrategyComponent implements OnInit {
         this.certificates =res.result ;
       }
     })
+  }
+  openPreview(imgSrc: string="",name:string="") {
+    this.currentImgSrc = imgSrc;
+    this.currentImgName = name;
   }
 }

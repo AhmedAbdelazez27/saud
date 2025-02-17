@@ -170,11 +170,20 @@
         <ng-container *ngFor="let certificate of certificates">
           <ng-template carouselSlide>
             <div class=" certificates">
-              <div class="item">
-                <div class="card campain-container">
-                  <img [src]="certificate?.imagePath" style="height: 280px;"/>
+              <div class="item"  >
+                <div class="card campain-container" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <!-- <img [src]="certificate?.imagePath" style="height: 280px;"/> -->
+                  <!-- Image with Custom Preview Overlay -->
+                  <div class="image-container w-100" (click)="openPreview(certificate?.imagePath,currentLang === 'ar' ? certificate?.nameAr : certificate?.nameEn)">
+                    <p-image [src]="certificate?.imagePath" height="280px" width="100%" alt="Image" [preview]="false"></p-image>
+                    
+                    <!-- Custom Preview Icon Layer -->
+                    <div class="preview-overlay">
+                      <i class="pi pi-eye"></i> <!-- PrimeNG Eye Icon -->
+                    </div>
+                  </div>                  
                   <div class="card-body">
-                    <h5 class="text-24-black text-center">{{currentLang === 'ar' ? certificate?.nameAr : certificate?.nameEn}}</h5>
+                    <h5 class="text-24-black text-center" style="height: 82px;">{{currentLang === 'ar' ? certificate?.nameAr : certificate?.nameEn}}</h5>
                   </div>
                 </div>
               </div>
@@ -212,3 +221,20 @@
     </div>
   </div>
 </section>
+
+
+
+<!-- Fullscreen Bootstrap Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{currentImgName}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <img [src]="currentImgSrc" class="d-block w-100" style="height: 85vh; object-fit: contain;" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 24px;
+  }
+  
+  .image-container:hover .preview-overlay {
+    opacity: 1; /* Show on hover */
+  }
+  
+  .pi-eye {
+    font-size: 2rem;
+  }
+  
