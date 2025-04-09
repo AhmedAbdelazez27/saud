@@ -1525,6 +1525,34 @@ box-shadow:none;
     background-attachment: fixed;
     background-position: center;
 }
+
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .title-48-cyan {
+        font-size: 32px; /* Reduce font size for tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title-48-cyan {
+        font-size: 24px; /* Further reduce font size for mobile screens */
+        text-align: center; /* Ensure text is centered */
+    }
+}
+
+/* Ensure proper padding for the container */
+.inner-header-emergency {
+    padding: 20px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .inner-header-emergency .col-3 {
+        width: 100%; /* Make it full width on smaller screens */
+        text-align: center; /* Center the text */
+    }
+}
+
 }
   
   [dir="rtl"] {
@@ -3051,5 +3079,34 @@ box-shadow:none;
     padding: 150px 0;
     background-attachment: fixed;
     background-position: center;
+
 }
+
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .title-48-cyan {
+        font-size: 32px; /* Reduce font size for tablets */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title-48-cyan {
+        font-size: 24px; /* Further reduce font size for mobile screens */
+        text-align: center; /* Ensure text is centered */
+    }
+}
+
+/* Ensure proper padding for the container */
+.inner-header-emergency {
+    padding: 20px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .inner-header-emergency .col-3 {
+        width: 100%; /* Make it full width on smaller screens */
+        text-align: center; /* Center the text */
+    }
+}
+
   }
