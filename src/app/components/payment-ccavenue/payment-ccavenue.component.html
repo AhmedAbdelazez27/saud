@@ -1,0 +1,48 @@
+<!-- <form #paymentFormRef [attr.action]="checkoutUrl" method="post" id="paymentForm" *ngIf="isLoaded">
+    <input type="hidden" name="encRequest" [value]="encryptionRequest" />
+    <input type="hidden" name="access_code" [value]="accessCode" />
+  </form>
+  
+  <div class="row" style="text-align:center">
+    <div class="small-12 large-12">
+      <h2 class="text-center">Processing...</h2>
+    </div>
+  </div>
+   -->
+  <!-- src/app/components/payment/payment.component.html -->
+   
+  <!-- iFrame for CCAvenue payment -->
+  <div *ngIf="isPaymentInProgress" class="payment-container">
+    <!-- Redirect to CCAvenue payment page in a new tab -->
+    <a [href]="paymentUrl" target="_blank" id="paymentLink">
+      Redirecting to payment page...
+    </a>
+  </div>
+
+<!-- Payment Form -->
+<div *ngIf="!isPaymentInProgress" class="payment-form">
+  <h2>Payment Details</h2>
+  <form (ngSubmit)="onSubmitPayment()" #paymentForm="ngForm">
+    <div>
+      <label for="orderId">Order ID</label>
+      <input type="text" id="orderId" [(ngModel)]="paymentData.orderId" name="orderId" required />
+    </div>
+    <div>
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" [(ngModel)]="paymentData.amount" name="amount" required />
+    </div>
+    <div>
+      <label for="customerName">Customer Name</label>
+      <input type="text" id="customerName" [(ngModel)]="paymentData.customerName" name="customerName" required />
+    </div>
+    <div>
+      <label for="customerEmail">Customer Email</label>
+      <input type="email" id="customerEmail" [(ngModel)]="paymentData.customerEmail" name="customerEmail" required />
+    </div>
+    <div>
+      <label for="customerPhone">Customer Phone</label>
+      <input type="text" id="customerPhone" [(ngModel)]="paymentData.customerPhone" name="customerPhone" required />
+    </div>
+    <button type="submit" [disabled]="paymentForm.invalid">Proceed to Payment</button>
+  </form>
+</div>

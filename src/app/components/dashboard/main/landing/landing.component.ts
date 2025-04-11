@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { LandingService } from '../servicesApi/landing.service';
 import { SpinnerService } from '../../../../shared/services/spinner.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +30,9 @@ export class LandingComponent implements OnInit {
   inputValue: number = 0; // Initialize the value
   selectedValue: number = 10; // Default selected value
   inputValueFast: number = 10; // Initialize the value
+  paymentStatus: string = '';
+  orderId: string = '';
+  statusMessage: string = '';
 
   // Owl carousel options
   customOptions?: OwlOptions;
@@ -47,7 +50,8 @@ export class LandingComponent implements OnInit {
     private router: Router,
     private messageService: MessageService,
     private cartService: CartService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private route: ActivatedRoute
   ) {
     // Determine the language direction dynamically
     const currentLanguage = localStorage.getItem('language') || 'en'; // Assuming 'lang' in localStorage
@@ -197,6 +201,20 @@ gettingAllHallsAndCouncils() {
       console.log('Merged List:', this.allData);
 
       this._SpinnerService.hideSpinner();
+
+      // handle the result of payment 
+          // Capture the query parameters from the URL
+    this.route.queryParams.subscribe(params => {
+    this.paymentStatus = params['Status'];  // Success or Failure
+    this.orderId = params['OrderId'];      // Order ID
+    this.statusMessage = params['StatusMessage']; // Status Message (e.g., "Approved")
+
+      // Log the query parameters for debugging
+      console.log('Payment Status:', this.paymentStatus);
+      console.log('Order ID:', this.orderId);
+      console.log('Status Message:', this.statusMessage);
+      this.showPaymentStatusMessage();
+    });
     },
     error: (err) => {
       console.error('Error fetching data:', err);
@@ -440,4 +458,27 @@ gettingAllHallsAndCouncils() {
     });
   };
 
+  showPaymentStatusMessage() {
+    if (this.paymentStatus === 'Success') {
+      localStorage.removeItem('items');
+      this.cartService.clearCart();
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Payment Successful',
+        detail: `Your payment has been successfully processed.  Status: ${this.statusMessage}`
+      });
+    } else if (this.paymentStatus === 'Failure') {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Payment Failed',
+        detail: `There was an issue with your payment.  Status: ${this.statusMessage}`
+      });
+    } else {
+      // this.messageService.add({
+      //   severity: 'warn',
+      //   summary: 'Unknown Status',
+      //   detail: `Unable to determine the payment status. Please try again later.`
+      // });
+    }
+  }
 }
