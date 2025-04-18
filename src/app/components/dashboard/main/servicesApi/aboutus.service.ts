@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AboutusService {
-  private apiUrl = 'http://compassint.ddns.net:2036/api/services/app/';  
-    // private apiUrl = 'https://api.saudcharity.ae/api/services/app/'
+  // private apiUrl = 'http://compassint.ddns.net:2036/api/services/app/';  
+    private apiUrl = 'https://api.saudcharity.ae/api/services/app/'
 
   constructor(private http: HttpClient) {}
 

@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PaymentService {
-  private apiUrl = 'http://compassint.ddns.net:2036/api/payment/PaymentRequest'; // Your backend API endpoint
-  // private apiUrl = 'https://api.saudcharity.ae/api/payment/PaymentRequest'; // Your backend API endpoint
+  // private apiUrl = 'http://compassint.ddns.net:2036/api/payment/PaymentRequest'; // Your backend API endpoint
+  private apiUrl = 'https://api.saudcharity.ae/api/payment/PaymentRequest'; // Your backend API endpoint
 
   constructor(private http: HttpClient) {}
 

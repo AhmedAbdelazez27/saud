@@ -49,6 +49,7 @@ export class CartComponent implements OnInit {
   isPaymentInProgress: boolean = false;
   paymentUrl: SafeResourceUrl = ''; // SafeResourceUrl for sanitization
   falgeAbleBtn: boolean = true;
+  submitted: boolean = false;
 
 
   constructor(
@@ -92,16 +93,24 @@ export class CartComponent implements OnInit {
     this.cartService.removeFromCart(this.items.length);
     this.calculateTotal();
   }
+  isFormValid(): boolean {
+    return this.formValues.dONATOR_NAME && this.formValues.dONATOR_MOBILE && this.formValues.dONATOR_MAIL && this.formValues.idNumber;
+  }
 
   onSubmit(): void {
-    if (!this.formValues.dONATOR_NAME || !this.formValues.dONATOR_MOBILE) {
+    this.submitted = true; // Mark the form as submitted
+
+    // Show error message if fields are not valid
+    if (!this.isFormValid()) {
       this.messageService.add({
         severity: 'error',
-        summary: "Please fill in your information",
-        detail: ""
+        summary: 'Please fill in all the required fields.',
+        detail: 'Name, Mobile, Email, and ID are required fields.',
       });
-      return; 
+      return;
     }
+
+    
     this.falgeAbleBtn = false;
     this._SpinnerService.showSpinner();
     // Create order info for backend submission
@@ -179,21 +188,14 @@ export class CartComponent implements OnInit {
       );
     }
     
-  
-    /**
-     * Method to return the static payment URL.
-     * This will use the static URL provided by the backend.
-     */
-    private getStaticPaymentUrl(accessCode:any,encRequest:any): string {
-      return `https://secure.ccavenue.ae/transaction/transaction.do?command=initiateTransaction&encRequest=${encRequest}&access_code=${accessCode}`;
-      // Static URL provided by the backend
-      // return `https://secure.ccavenue.ae/transaction/transaction.do?command=initiateTransaction&encRequest=d335730a689df81dc589fda960f57627ab0e02262a8830c3fe15f50d70c9a94ac6fc992799bdceac578c6f839578a51f23a1b9c69120b5eeea28ddb8e7554360e83a34b391e1defa05ff69df2f84192f7fead3a9f2d8e7715124d30ba8ed37738320e579da2db6ce8127bcaaa75b0a0da0597bc4816332bc7b986985b690ea308ca52aa9f84fe04b2291091b7b0ee188af2d51d9eee4fce11ca84d566adca33129df3cdf0442fe63846c43972f2ee40c&access_code=AVZW05MD32AP40WZPA`;
-    }
-  
+    
     /**
      * Sanitize the URL to mark it as safe for use in the iframe src.
-     */
-    private sanitizeUrl(url: string): SafeResourceUrl {
-      return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    */
+   private sanitizeUrl(url: string): SafeResourceUrl {
+     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
-}
+  }
+  
+  // Static URL provided by the backend
+  // return `https://secure.ccavenue.ae/transaction/transaction.do?command=initiateTransaction&encRequest=d335730a689df81dc589fda960f57627ab0e02262a8830c3fe15f50d70c9a94ac6fc992799bdceac578c6f839578a51f23a1b9c69120b5eeea28ddb8e7554360e83a34b391e1defa05ff69df2f84192f7fead3a9f2d8e7715124d30ba8ed37738320e579da2db6ce8127bcaaa75b0a0da0597bc4816332bc7b986985b690ea308ca52aa9f84fe04b2291091b7b0ee188af2d51d9eee4fce11ca84d566adca33129df3cdf0442fe63846c43972f2ee40c&access_code=AVZW05MD32AP40WZPA`;

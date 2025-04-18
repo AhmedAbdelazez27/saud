@@ -473,12 +473,15 @@ gettingAllHallsAndCouncils() {
         summary: 'Payment Failed',
         detail: `There was an issue with your payment.  Status: ${this.statusMessage}`
       });
+    this.router.navigate([`Main/Cart`]);
     } else {
-      // this.messageService.add({
-      //   severity: 'warn',
-      //   summary: 'Unknown Status',
-      //   detail: `Unable to determine the payment status. Please try again later.`
-      // });
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Unknown Status', 
+        detail: `Unable to determine the payment status. Please try again later.`
+      });
+      this.router.navigate([`Main/Cart`]);
+
     }
   }
 }

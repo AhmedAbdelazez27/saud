@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HallReservationService {
-  private baseUrl = 'http://compassint.ddns.net:2036/api/services/app';
-    // private baseUrl = 'https://api.saudcharity.ae/api/services/app/'
+  // private baseUrl = 'http://compassint.ddns.net:2036/api/services/app';
+    private baseUrl = 'https://api.saudcharity.ae/api/services/app/'
 
   constructor(private http: HttpClient) {}
 
