@@ -35,10 +35,10 @@
               <label for="idNumber" class="form-label">{{ 'ID_NUMBER' | translate }}</label>
               <input type="text" class="form-control" id="idNumber" [(ngModel)]="formValues.idNumber"
                 name="idNumber" required
-                [ngClass]="{'is-invalid': formValues.idNumber === '' && submitted}" />
-              <div *ngIf="formValues.idNumber === '' && submitted" class="invalid-feedback">
+                [ngClass]="{'is-invalid': false}" />
+              <!-- <div *ngIf="formValues.idNumber === '' && submitted" class="invalid-feedback">
                 {{ 'Please enter your ID number' | translate }}
-              </div>
+              </div> -->
             </div>
           </div>
           
@@ -47,10 +47,10 @@
               <label for="dONATOR_MAIL" class="form-label">{{ 'EMAIL' | translate }}</label>
               <input type="email" class="form-control" id="dONATOR_MAIL" [(ngModel)]="formValues.dONATOR_MAIL"
                 name="dONATOR_MAIL" required
-                [ngClass]="{'is-invalid': !formValues.dONATOR_MAIL && submitted}" />
-              <div *ngIf="!formValues.dONATOR_MAIL && submitted" class="invalid-feedback">
+                [ngClass]="{'is-invalid': false}" />
+              <!-- <div *ngIf="!formValues.dONATOR_MAIL && submitted" class="invalid-feedback">
                 {{ 'Please enter a valid email address' | translate }}
-              </div>
+              </div> -->
             </div>
           </div>
           
@@ -125,7 +125,7 @@
     </div>
   </div>
 </section>
-<section class="section-ad">
+<!-- <section class="section-ad">
   <div class="container">
     <div class="ad">
       <div class="row">
@@ -162,5 +162,5 @@
 
     </div>
   </div>
-</section>
+</section> -->
 <p-toast position="top-right"></p-toast>

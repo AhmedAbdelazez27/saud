@@ -94,7 +94,7 @@ export class CartComponent implements OnInit {
     this.calculateTotal();
   }
   isFormValid(): boolean {
-    return this.formValues.dONATOR_NAME && this.formValues.dONATOR_MOBILE && this.formValues.dONATOR_MAIL && this.formValues.idNumber;
+    return this.formValues.dONATOR_NAME && this.formValues.dONATOR_MOBILE ;
   }
 
   onSubmit(): void {
@@ -105,7 +105,7 @@ export class CartComponent implements OnInit {
       this.messageService.add({
         severity: 'error',
         summary: 'Please fill in all the required fields.',
-        detail: 'Name, Mobile, Email, and ID are required fields.',
+        detail: 'Name and Mobile are required fields.',
       });
       return;
     }

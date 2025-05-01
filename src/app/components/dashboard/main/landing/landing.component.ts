@@ -213,7 +213,9 @@ gettingAllHallsAndCouncils() {
       console.log('Payment Status:', this.paymentStatus);
       console.log('Order ID:', this.orderId);
       console.log('Status Message:', this.statusMessage);
-      this.showPaymentStatusMessage();
+      if(this.paymentStatus){
+        this.showPaymentStatusMessage();
+      }
     });
     },
     error: (err) => {
